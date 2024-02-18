@@ -394,7 +394,7 @@
 	</div>
 	<div class="row my-3 btm-div">
 		<div class="px-0">
-			<button class="button-size float-end submit-button text-light" id="btnSubmit1">บันทึก</button>
+			<button class="button-size float-end submit-button text-light" id="btnSubmit1" onclick="clickToCopyTwo()">บันทึก</button>
 			<button class="button-size float-end me-2" id="btnCancel1">ยกเลิก</button>
 		</div>
 	</div>
@@ -430,7 +430,7 @@
 					<div class="col-9">
 						<div class="row mt-1">
 							<label for="txtLegalEntity2-2" class="fontlbl" id="lblLegalEntity2-2">นิติบุคคล <span class="red-color fontlbl">*</span></label>
-							<div class="input-div"><input type="text" id="txtLegalEntity2-2" /></div>
+							<div class="input-div"><input type="text" id="txtLegalEntity2-2" value="abc" /></div>
 						</div>
 					</div>
 					<div class="col-3 d-flex align-items-center justify-content-center">
@@ -659,6 +659,17 @@
 		$(document).ready(function () {
 			$('.js-example-basic-single').select2();
 		});
+
+		function clickToCopyTwo() {
+			debugger
+			$("#txtLegalEntity2-2").val("Hello"); //วิธีแปะค่า
+			var legalId1 = $("#txtLegalEntity1-2").val();
+			$("#lblLegalEntity2-2").text("eeee");
+
+			/*var transferText = $("#txtLegalEntity1-2").val();*/
+			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
+
+		}
 
 	</script>
 }
