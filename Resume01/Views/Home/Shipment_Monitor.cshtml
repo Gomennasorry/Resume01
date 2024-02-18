@@ -1,0 +1,306 @@
+﻿@*
+	For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@section Styles {
+	<style type="text/css">
+
+		body {
+			font-family: Roboto !important;
+		}
+
+		.card-header {
+			background-color: #f46500;
+		}
+
+		.orange-color {
+			color: #f46500;
+		}
+
+		.pad-hr {
+			padding: 0px 12px 0px 12px;
+		}
+
+		.text-area {
+			height: 100px;
+		}
+
+		.button1 {
+			background-color: #0d1f84;
+			width: 14%;
+			height: 35px;
+			color: white;
+			border: none;
+			border-radius: 2px;
+		}
+
+		.button2 {
+			background-color: #808080;
+			width: 14%;
+			height: 35px;
+			color: white;
+			border: none;
+			border-radius: 2px;
+		}
+
+		.blue-color {
+			color: #0026ff;
+		}
+
+		.red-color {
+			color: #ff0000;
+		}
+
+		.width-date {
+			width: 45%;
+		}
+
+		.span-bg {
+			background-color: #f46500;
+		}
+
+	</style>
+}
+
+<div class="container">
+	<div class="row">
+		<label class="fs-4 fw-bold orange-color" id="lblSM1">Shipment Monitor</label>
+	</div>
+	<div class="row pad-hr">
+		<hr />
+	</div>
+	<div class="row">
+		<div>
+			<div class="card shadow">
+				<div class="card-header">
+					<label class="text-light fs-5" id="lblSearch1">ค้นหา</label>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-8">
+							<div class="row">
+								<div class="col-4">
+									<div class="row">
+										<form>
+											<label for="txtDeliveryDateForm1" class="fw-bold" id="lblDeliveryDate1">Delivery Date<span class="blue-color fw-bold">*</span></label>
+											<div class="input-group">
+												<input type="date" id="txtDeliveryDateForm1" class="form-control">
+												<span class="input-group-text text-light span-bg" id="spanDeliveryDateTo1">ถึง</span>
+												<input type="date" id="txtDeliveryDateTo1" class="form-control">
+											</div>
+										</form>
+									</div>
+									<div class="row mt-4">
+										<form>
+											<label for="selectFleed1" class="fw-bold" id="lblFleed1">Fleed</label>
+											<select name="selectFleed1" id="selectFleed1" class="w-100">
+												<option value="all">---ทั้งหมด---</option>
+											</select>
+										</form>
+									</div>
+								</div>
+								<div class="col-4">
+									<div class="row">
+										<form>
+											<label for="txtTenderDateForm1" class="fw-bold" id="lblTenderDate1">Tender Date<span class="blue-color fw-bold">*</span></label>
+											<div class="input-group">
+												<input type="date" id="txtTenderDateForm1" class="form-control">
+												<span class="input-group-text text-light span-bg" id="spanTenderDateTo1">ถึง</span>
+												<input type="date" id="txtTenderDateTo1" class="form-control">
+											</div>
+										</form>
+									</div>
+									<div class="row mt-4">
+										<form>
+											<label for="selectPurubmow1" class="fw-bold" id="lblPurubmow1">ผู้รับเหมา</label>
+											<select name="selectPurubmow1" id="selectPurubmow1" class="w-100">
+												<option value="all">---ทั้งหมด---</option>
+											</select>
+										</form>
+									</div>
+								</div>
+								<div class="col-4">
+									<div class="row">
+										<form>
+											<label for="selectStatus1" class="fw-bold" id="lblStatus1">สถานะ</label>
+											<select name="selectStatus1" id="selectStatus1" class="w-100">
+												<option value="all">---ทั้งหมด---</option>
+											</select>
+										</form>
+									</div>
+									<div class="row mt-4">
+										<form>
+											<label for="selectLektabeanCar1" class="fw-bold" id="lblLektabeanCar1">เลขทะเบียนรถ</label>
+											<select name="selectLektabeanCar1" id="selectLektabeanCar2" class="w-100">
+												<option value="all">---ทั้งหมด---</option>
+											</select>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-4">
+							<div class="row">
+								<form>
+									<input type="radio" id="txtShipmentNo1" name="radio_check1" value="Shipment No" />
+									<label for="txtShipmentNo1" class="px-2" id="lblShipmentNo1">Shipment No</label>
+									<input type="radio" id="txtPurchaseOrder1" name="radio_check1" value="Purchase Order" />
+									<label for="txtPurchaseOrder1" class="px-2">Purchase Order</label>
+									<textarea class="w-100 text-area"></textarea>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="row mt-4">
+						<div class="col-8">
+							<div class="row">
+								<div class="col-6">
+									<label for="txtTontang1" class="fw-bold" id="lblTontang1">ต้นทาง <span class="red-color fw-bold">*</span></label>
+									<input type="text" id="txtTontang1" class="w-100" />
+								</div>
+								<div class="col-6">
+									<form>
+										<label for="selectCustomer1" class="fw-bold" id="lblCustomer1">ลูกค้า</label>
+										<select name="selectCustomer1" id="selectCustomer1" class="w-100">
+											<option value="all">---ทั้งหมด---</option>
+										</select>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div class="col-4">
+							<div class="row">
+								<div class="text-end h-100">
+									<button class="button1" id="btnSearch1">ค้นหา</button>
+									<button class="button2" id="btnClear1">เคลียร์</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<label class="fs-4 fw-bold orange-color" id="lblSM2">Shipment Monitor</label>
+	</div>
+	<div class="row pad-hr">
+		<hr />
+	</div>
+	<div class="row">
+		<div>
+			<div class="card shadow">
+				<div class="card-header">
+					<label class="text-light fs-5" id="lblSearch2">ค้นหา</label>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-8">
+							<div class="row">
+								<div class="col-4">
+									<div class="row">
+										<form>
+											<label for="txtDeliveryDateForm2" class="fw-bold" id="lblDeliveryDate2">Delivery Date<span class="blue-color fw-bold">*</span></label>
+											<div class="input-group">
+												<input type="date" id="txtDeliveryDateForm2" class="form-control">
+												<span class="input-group-text text-light span-bg" id="spanDeliveryDateTo2">ถึง</span>
+												<input type="date" id="txtDeliveryDateTo2" class="form-control">
+											</div>
+										</form>
+									</div>
+									<div class="row mt-4">
+										<form>
+											<label for="selectFleed2" class="fw-bold" id="lblFleed2">Fleed</label>
+											<select name="fleed2" id="selectFleed2" class="w-100">
+												<option value="all">---ทั้งหมด---</option>
+											</select>
+										</form>
+									</div>
+								</div>
+								<div class="col-4">
+									<div class="row">
+										<form>
+											<label for="txtTenderDateForm2" class="fw-bold" id="lblTenderDate2">Tender Date<span class="blue-color fw-bold">*</span></label>
+											<div class="input-group">
+												<input type="date" id="txtTenderDateForm2" class="form-control">
+												<span class="input-group-text text-light span-bg" id="spanTenderDateTo2">ถึง</span>
+												<input type="date" id="txtTenderDateTo2" class="form-control">
+											</div>
+										</form>
+									</div>
+									<div class="row mt-4">
+										<form>
+											<label for="selectPurubmow2" class="fw-bold" id="lblPurubmow2">ผู้รับเหมา</label>
+											<select name="selectPurubmow2" id="selectPurubmow2" class="w-100">
+												<option value="all">---ทั้งหมด---</option>
+											</select>
+										</form>
+									</div>
+								</div>
+								<div class="col-4">
+									<div class="row">
+										<form>
+											<label for="selectStatus2" class="fw-bold" id="lblStatus2">สถานะ</label>
+											<select name="selectStatus2" id="selectStatus2" class="w-100">
+												<option value="all">---ทั้งหมด---</option>
+											</select>
+										</form>
+									</div>
+									<div class="row mt-4">
+										<form>
+											<label for="selectLektabeanCar2" class="fw-bold" id="lblLektabeanCar2">เลขทะเบียนรถ</label>
+											<select name="selectLektabeanCar2" id="selectLektabeanCar2" class="w-100">
+												<option value="all">---ทั้งหมด---</option>
+											</select>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-4">
+							<div class="row">
+								<form>
+									<input type="radio" id="txtShipmentNo2" name="radio_check2" value="Shipment No" />
+									<label for="txtShipmentNo2" class="px-2" id="lblShipmentNo2">Shipment No</label>
+									<input type="radio" id="txtPurchaseOrder2" name="radio_check2" value="Purchase Order" />
+									<label for="txtPurchaseOrder2" class="px-2">Purchase Order</label>
+									<textarea class="w-100 text-area"></textarea>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="row mt-4">
+						<div class="col-8">
+							<div class="row">
+								<div class="col-6">
+									<label for="txtTontang2" class="fw-bold" id="lblTontang2">ต้นทาง <span class="red-color fw-bold">*</span></label>
+									<input type="text" id="txtTontang2" class="w-100" />
+								</div>
+								<div class="col-6">
+									<form>
+										<label for="selectCustomer2" class="fw-bold" id="lblCustomer2">ลูกค้า</label>
+										<select name="selectCustomer2" id="selectCustomer2" class="w-100">
+											<option value="all">---ทั้งหมด---</option>
+										</select>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div class="col-4">
+							<div class="row">
+								<div class="text-end h-100">
+									<button class="button1" id="btnSearch2">ค้นหา</button>
+									<button class="button2" id="btnClear2">เคลียร์</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

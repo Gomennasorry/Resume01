@@ -1,0 +1,330 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="row">
+    <label>Ex.KrirkTree</label>
+    <div class="col-4">
+        <input type="number" placeholder="hello" id="txtNum" style="width:100%;" />
+    </div>
+    <div class="col-2">
+        <button class="btn btn-primary" onclick="calculateTree()">คำนวณ</button>
+    </div>
+</div>
+<div class="row" id="divCalTree">
+
+
+</div>
+<hr>
+<div class="row">
+    <label>Ex.Number*2</label>
+    <label for="numberInput">Enter a number:</label>
+    <input type="number" id="numberInput">
+
+    <button id="calculateButton">Calculate</button>
+
+    <br>
+
+    <span id="result"></span>
+</div>
+<hr>
+<div class="row">
+    <label>Ex.1</label>
+    <div class="col-4">
+        <div class="row">
+            <input type="number" placeholder="input your number." id="ex1Num" style="width:100%;" />
+        </div>
+        <div class="row">
+            <span id="ex1Result"></span>
+        </div>
+    </div>
+    <div class="col-2">
+        <button class="btn btn-primary" onclick="calEx1Num()">คำนวณ</button>
+    </div>
+</div>
+<hr>
+@* <div class="row">
+    <label>Ex.3 (ChatGPT)</label>
+    <div class="col-4">
+        <div class="row">
+            <label for="inputNumber">Enter a number: </label>
+            <input type="number" id="inputNumber" min="1" step="1" style="width:100%;">
+        </div>
+    </div>
+    <div class="col-2">
+        <button class="btn btn-primary" onclick="generatePattern()">คำนวณ</button>
+    </div>
+    <div id="output"></div>
+</div> *@
+@* <hr> *@
+@* <div class="row">
+    <label>Ex.4 (ChatGPT)</label>
+    <label for="numbersInput">Enter numbers (comma-separated): </label>
+    <input type="text" id="numbersInput">
+
+    <label for="targetInput">Enter target number: </label>
+    <input type="number" id="targetInput">
+
+    <button id="findIndicesBtn">Find Indices</button>
+
+    <div id="output2"></div>
+</div> *@
+
+<div class="row">
+    <label>Ex.3</label>
+    <div class="col-4">
+        <input type="number" id="ex3Input" min="1" step="1" style="width:100%;">
+    </div>
+    <div class="col-2">
+        <button class="btn btn-primary" onclick="starTree()">คำนวณ</button>
+    </div>
+    <div id="output"></div>
+</div>
+<hr>
+<div class="row">
+    <label>Ex.4 (ChatGPT)</label>
+    <label for="numbersInput">Enter numbers (comma-separated): </label>
+    <input type="text" id="numbersInput">
+
+    <label for="targetInput">Enter target number: </label>
+    <input type="number" id="targetInput">
+
+    <button id="findIndicesBtn">Find Indices</button>
+
+    <div id="output2"></div>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+        // $(document).ready(function () {
+
+        // });
+
+        function calculateTree() {
+            var textInput = $("#txtNum").val()
+            debugger
+            var numberInput = parseFloat(textInput);
+            var stringTwoDigits = numberInput.toFixed(2).toString();
+
+            var tree = "";
+
+            if (numberInput == 1) {
+                tree = `&nbsp;&nbsp;*&nbsp;&nbsp;<br>
+                                          &nbsp;***&nbsp;<br>
+                                        *****<br>
+                                                &nbsp;&nbsp;*&nbsp;&nbsp;<br>
+                &nbsp;&nbsp;*&nbsp;&nbsp;<br>
+                        `
+            }
+
+            $("#divCalTree").html(tree);
+
+            // if (10 > 20) {
+            //     var a = 10;
+            // }else{ 
+            //     var a = 20;
+            // }
+
+            // for (var i = 0; i < 10; i++;) {
+
+            // }
+           
+
+        }
+
+        $("#calculateButton").click(function () {
+            // Get the input value
+            var inputValue = $("#numberInput").val();
+
+            // Check if the input is a valid number
+            if (!isNaN(inputValue)) {
+                // Perform the calculation
+                var result = inputValue * 2;
+
+                // Display the result
+                $("#result").text("Result: " + result);
+            } else {
+                // Display an error message if the input is not a valid number
+                $("#result").text("Please enter a valid number.");
+            }
+        });
+
+        function calEx1Num() {
+            var numberInput = $("#ex1Num").val()
+
+            if (!isNaN(numberInput)) {
+                debugger
+                var i = 0;
+                debugger
+                i = numberInput - 1;
+                debugger
+                var ex1Result = numberInput ** i;
+                debugger
+                $("#ex1Result").text("Result: " + ex1Result);
+                debugger
+            } else {
+                // Display an error message if the input is not a valid number
+                $("#ex1Result").text("Please enter a valid number.");
+            }
+        }
+
+        // function printStarPattern(n) {
+        //     let pattern = '';
+        //     for (let i = 1; i <= n; i++) {
+        //         // Add leading spaces
+        //         for (let j = 1; j <= n - i; j++) {
+        //             pattern += '&nbsp;&nbsp;';
+        //         }
+
+        //         // Add stars
+        //         for (let k = 1; k <= 2 * i - 1; k++) {
+        //             pattern += '*';
+        //         }
+
+        //         // Move to the next line
+        //         pattern += '<br>';
+        //     }
+        //     return pattern;
+        // }
+
+        // function generatePattern() {
+        //     // Get the input value
+        //     const inputNumber = $('#inputNumber').val();
+
+        //     // Validate input
+        //     if (inputNumber && inputNumber > 0) {
+        //         // Call the function and display the pattern
+        //         const pattern = printStarPattern(parseInt(inputNumber));
+        //         $('#output').html(pattern);
+        //     } else {
+        //         // Display an error message if input is invalid
+        //         $('#output').html('Please enter a valid positive integer.');
+        //     }
+        // }
+
+        // $(document).ready(function () {
+        //     $("#findIndicesBtn").on("click", function () {
+        //         // Get input values
+        //         var numbersInput = $("#numbersInput").val();
+        //         var targetInput = parseInt($("#targetInput").val());
+
+        //         // Convert comma-separated string to array of integers
+        //         var nums = numbersInput.split(",").map(function (item) {
+        //             return parseInt(item);
+        //         });
+
+        //         // Call the function to find indices
+        //         var result = findIndices(nums, targetInput);
+
+        //         // Display the output
+        //         if (result) {
+        //             $("#output2").text("Output: [" + result.join(",") + "]");
+        //         } else {
+        //             $("#output2").text("Output: no answer.");
+        //         }
+        //     });
+
+        //     function findIndices(nums, target) {
+        //         for (var i = 0; i < nums.length; i++) {
+        //             for (var j = i + 1; j < nums.length; j++) {
+        //                 if (nums[i] + nums[j] === target) {
+        //                     return [i, j];
+        //                 }
+        //             }
+        //         }
+        //         return null;
+        //     }
+        // });
+
+        // function starTree() {
+        //     var numEx3 = $("#ex3Input").val();
+        //     let patternTree = '';
+        //     // alert(numEx3);
+        //     for (let i = 1; i <= numEx3; i++) {
+
+        //         for (let j = 1; j <= numEx3 - i; j++) {
+        //             patternTree += '&nbsp;&nbsp;';
+        //         }
+        //         for (let k = 1; k <= 2 * i - 1; k++) {
+        //             patternTree += '*';
+        //         }
+        //         patternTree += '<br>';
+        //     }
+
+        //     $('#output').html(patternTree);
+
+        // }
+
+        function starTree() {
+            let numEx3 = parseInt($("#ex3Input").val());
+            let patternTree = '';
+            // alert(numEx3);
+            debugger
+            for (let i = 1; i <= (numEx3 + 2); i++) {
+                debugger
+                for (let j = i; j <= numEx3 + 1; j++) {
+                    debugger
+                    patternTree += '&nbsp;&nbsp;'; //&nbsp; Spacebar
+                }
+                for (let k = 0; k < (2 * i) - 1; k++) {
+                    debugger
+                    patternTree += '*';
+                }
+                patternTree += '<br>';
+            }
+            for (let m = 1; m <= ((numEx3 / 2) + (numEx3 % 2)); m++) {
+                for (let j = 1; j <= numEx3 + 1; j++) {
+                    patternTree += '&nbsp;&nbsp;';
+                }
+                patternTree += '*';
+                if (m < ((numEx3 / 2) + (numEx3 % 2))) {
+                    patternTree += '<br>';
+                }
+            }
+
+            $('#output').html(patternTree);
+
+        }
+
+        $(document).ready(function () {
+            $("#findIndicesBtn").on("click", function () {
+                // Get input values
+                var numbersInput = $("#numbersInput").val();
+                var targetInput = parseInt($("#targetInput").val());
+
+                // Convert comma-separated string to array of integers
+                var nums = numbersInput.split(",").map(function (item) {
+                    return parseInt(item);
+                });
+
+                // Call the function to find indices
+                var result = findIndices(nums, targetInput);
+
+                // Display the output
+                if (result) {
+                    $("#output2").text("Output: [" + result.join(",") + "]");
+                } else {
+                    $("#output2").text("Output: no answer.");
+                }
+            });
+
+            function findIndices(nums, target) {
+                for (var i = 0; i < nums.length; i++) {
+                    for (var j = i + 1; j < nums.length; j++) {
+                        if (nums[i] + nums[j] === target) {
+                            return [i, j];
+                        }
+                    }
+                }
+                return null;
+            }
+        });
+
+
+    </script>
+}

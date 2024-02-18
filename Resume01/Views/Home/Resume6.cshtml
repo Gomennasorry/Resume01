@@ -1,0 +1,159 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    //fhjfhjfgg
+}
+@section Styles {
+	<style type="text/css">
+
+        body {
+            font-family: Roboto !important;
+        }
+
+        .bgColor{
+            background-color: #002D57;
+        }
+
+        .round-image {
+            width: 125px;
+            height: 125px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+        }
+
+        .head-white-underline {
+            border-bottom: 2px solid white;
+            padding-bottom: 2px;
+        }
+
+        .fontlbl {
+            font-size: 10px;
+        }
+
+        i {
+            font-size: 10px;
+        }
+
+        .div-top {
+            background-color: #F5F5F5;
+        }
+
+        #name {
+            color: #000000;
+        }
+
+        .div-hr {
+            width: 100px;
+            height: 1.5px;
+            background-color: #000000;
+        }
+
+        #job {
+            color: #545454;
+        }
+
+        .head-underline {
+            border-bottom: 2px solid #002D57;
+            padding-bottom: 2px;
+        }
+
+        .fontHead {
+            font-size: 11px;
+        }
+
+        .date-color {
+            color: #002D57;
+        }
+
+        .a4-container {
+            width: 210mm;
+            height: 297mm;
+            /* Additional styles for illustration purposes */
+            border: 1px solid #000;
+            margin: 20px auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+	</style>
+
+}
+
+<div class="a4-container">
+    <div class="row">
+        <div class="col-sm-3 px-4 border border-danger bgColor">
+            <div class="text-center mt-4"><img src="/image/profile.jpg" alt="Profile Picture" class="round-image"></div>
+            <div>
+                <div class="mt-4 mb-1"><span class="text-light head-white-underline">CONTACT</span></div>
+                <div><i class="bi bi-envelope-fill text-light d-inline me-2"></i><label class="text-light d-inline fontlbl">parasettamon01@gmail.com</label></div>
+                <div><i class="bi bi-phone text-light d-inline me-2"></i><label class="text-light d-inline fontlbl">065-861-4329</label></div>
+                <div><i class="bi bi-geo-alt-fill text-light d-inline me-2"></i><label class="text-light d-inline fontlbl">Bangkok, Laksi, TH</label></div>
+                <div><i class="bi bi-linkedin text-light d-inline me-2"></i><label class="text-light d-inline fontlbl">linkedin.com/in/tanatorn-pinitdam-b1766a2a9/</label></div>
+            </div>
+            <div>
+                <div class="row mt-4"><span class="text-light head-white-underline">SKILLS</span></div>
+                <div class="row">
+                    <ul class="ps-3 mt-2">
+                        <li class="text-light fontlbl">Java</li>
+                        <li class="text-light fontlbl">JavaScript</li>
+                        <li class="text-light fontlbl">Python</li>
+                        <li class="text-light fontlbl">HTML</li>
+                        <li class="text-light fontlbl">CSS</li>
+                        <li class="text-light fontlbl">SQL</li>
+                        <li class="text-light fontlbl">C</li>
+                        <li class="text-light fontlbl">C++</li>
+                        <li class="text-light fontlbl">React Native</li>
+                        <li class="text-light fontlbl">PHP</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9 border border-danger">
+            <div class="div-top mt-4 px-2 py-3">
+                <label class="fs-4 fw-bold" id="name">Tanatorn Pinitdam</label>
+                <div class="div-hr mt-2 mb-2"></div>
+                <label id="job">Front-End Developer</label>
+            </div>
+            <div class="div-btm mt-4 px-2">
+                <div><span class="head-underline">SUMMARY</span></div>
+                <div><label class="fontlbl mt-1">I'm a computer science student studying at Thammasat University. Determined, Dedicated and Hardworking is best described as me.</label></div>
+                <div class="mt-4"><span class="head-underline">EXPERIENCE</span></div>
+                @* <div class="mt-1 clearfix">
+                    <label class="fontHead fw-bold float-start">Bachelor Degrees</label>
+                    <label class="fontHead fw-bold float-end date-color">Aug 2017 - Dec 2023</label>
+                </div>
+                <div>
+                    <label class="fontHead fw-bold">Thammasat University</label>
+                </div> *@
+                <div class="mt-1">
+                    <div class="row">
+
+                    </div>
+                    <label class="fontHead fw-bold float-start">Bachelor Degrees</label>
+                    <label class="fontHead fw-bold float-end date-color">Aug 2017 - Dec 2023</label>
+                    <label class="fontHead fw-bold">Thammasat University</label>
+                    <label class="fontlbl">Learn the basics of being a web developer by working on projects and studying various computer languages, such as HTML, CSS, JavaScript, SQL, PHP, and React Native.</label>
+                </div>
+                <div class="mt-2">
+                    <label class="fontHead fw-bold float-start">UX/UI Designer</label>
+                    <label class="fontHead fw-bold float-end date-color">Aug 2018</label>
+                    <label class="fontHead fw-bold">Ramathibodi Hospital</label>
+                    <label class="fontlbl">I worked as a UX/UI Designer on the Ramathibodi Hospital project, a component of the Human-Computer Interaction (HCI) curriculum in my second year of computer science. The project involved the development of a medical learning application.</label>
+                </div>
+                <div>
+                    <div class="mt-4"><span class="head-underline">PROJECT</span></div>
+                    <div class="mt-1">
+                        <label class="fontHead fw-bold d-block">Car recommendation website</label>
+                        <label class="fontHead fw-bold d-block">Front-End Developer, Team member</label>
+                    </div>
+                    <ul class="ps-4">
+                        <li class="fontlbl">Develop a car recommendation website that gathers user information from their old car data, conducts assessments, and displays user reviews. Our website will retrieve car data from the official websites of various car brands, featuring car comparison functionality and generating car rankings to recommend suitable cars for users.</li>
+                        <li class="fontlbl">In this project, we used React Native in development.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

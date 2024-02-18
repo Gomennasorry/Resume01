@@ -1,0 +1,300 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "_Layout2";
+}
+@section Styles {
+	<style type="text/css">
+
+		body {
+			font-family: Roboto !important;
+		}
+
+		input[type="range"] {
+			padding: 0;
+			width: 100%;
+			height: 5px;
+		}
+
+		.round-image {
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+		}
+
+		.btm-row {
+			background-color: black;
+			border-top: 2px solid deeppink;
+		}
+
+		.header-custom {
+			color: deeppink;
+		}
+
+		.fontlbl-gray {
+			color: gray;
+		}
+
+		.fontlbl-size {
+			font-size: 12px;
+		}
+
+		.fontlbl-white-size {
+			font-size: 15px;
+		}
+
+		.hobbies-icon {
+			font-size: 25px;
+		}
+
+		.a4-container {
+			width: 210mm;
+			height: 297mm;
+			/* Additional styles for illustration purposes */
+			border: 1px solid #000;
+			margin: 20px auto;
+			padding: 12px;
+			box-sizing: border-box;
+		}
+
+		/*Chrome*/
+		@@media screen and (-webkit-min-device-pixel-ratio:0) {
+			input[type='range'] {
+				overflow: hidden;
+				width: 80px;
+				-webkit-appearance: none;
+				background-color: #ff0000;  /* red ขวา*/
+			}
+
+				input[type='range']::-webkit-slider-runnable-track {
+					height: 10px;
+					-webkit-appearance: none;
+					color: #4fc932; /* green ซ้าย*/
+					margin-top: -1px;
+				}
+
+				input[type='range']::-webkit-slider-thumb {
+					width: 20px;
+					-webkit-appearance: none;
+					height: 20px;
+                    border-radius:50%;
+					cursor: ew-resize;
+					background: #2f29ca; /* blue ติ่งกลาง*/
+					box-shadow: -80px 0 0 80px #d6db2e; /* yellow เงา */
+				}
+		}
+		/** FF*/
+		input[type="range"]::-moz-range-progress {
+			background-color: #43e5f7;
+		}
+
+		input[type="range"]::-moz-range-track {
+			background-color: #9a905d;
+		}
+		/* IE*/
+		input[type="range"]::-ms-fill-lower {
+			background-color: #43e5f7;
+		}
+
+		input[type="range"]::-ms-fill-upper {
+			background-color: #9a905d;
+		}
+	</style>
+
+}
+
+<div class="a4-container">
+    <div class="row px-5 py-4">
+        @* <input type="range" value="25" min="0" max="100"> *@
+        <div class="col-10">
+            <div class="row"><label class="fs-2 fw-bolder">Tanatorn Pinitdam</label></div>
+            <div class="row">
+                <div><i class="bi bi-person fontlbl-size"></i><label class="fontlbl-size ps-1">30/09/1998</label></div>
+                <div><i class="bi bi-geo-alt fontlbl-size"></i><label class="fontlbl-size ps-1">Bangkok, Thailand</label><i class="bi bi-phone fontlbl-size ps-1"></i><label class="fontlbl-size ps-1">065-861-4329</label></div>
+                <div><i class="bi bi-envelope fontlbl-size"></i><label class="fontlbl-size ps-1">parasettamon01@gmail.com</label></div>
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="row">
+                <div class="text-center">
+                    <img src="/image/profile.jpg" alt="Profile Picture" class="round-image">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row btm-row px-5 py-4">
+        <div class="col-6">
+            <div class="row"><label class="header-custom fw-bold">Profile</label></div>
+            <div class="row mt-3"><label class="fontlbl-gray fontlbl-size">Lorem ipsum dolor sit amet. Ut enim excepturi sit necessitatibus culpa aut minus sunt At itaque unde et molestiae obcaecati ea saepe quia. Qui inventore iure non placeat asperiores At tenetur illo sit assumenda galisum.</label></div>
+            <br>
+            <div class="row"><label class="header-custom fw-bold">Work experience</label></div>
+            <div class="row mt-3">
+                <div class="d-inline">
+                    <i class="bi bi-calendar fontlbl-size fontlbl-gray d-inline"></i>
+                    <label class="fontlbl-gray fontlbl-size d-inline">07/2017 - 12/2023</label>
+                    <i class="bi bi-geo-alt fontlbl-size fontlbl-gray d-inline"></i>
+                    <label class="fontlbl-gray fontlbl-size d-inline">Pathum Thani, Thailand</label>
+                </div>
+            </div>
+            <div class="row"><label class="text-light fw-bold fontlbl-white-size">Front-End Developer</label></div>
+            <div class="row"><label class="text-light fw-bold fontlbl-white-size">Thammasat University</label></div>
+            <div class="row"><label class="fontlbl-gray fontlbl-size">Lorem ipsum dolor sit amet. Ut enim excepturi sit necessitatibus culpa aut minus sunt At itaque unde et molestiae obcaecati ea saepe quia. Qui inventore iure non placeat asperiores At tenetur illo sit assumenda galisum.</label></div>
+            <div class="row ps-3 mt-3">
+                <ul>
+                    <li class="fontlbl-size fontlbl-gray">Lorem ipsum dolor sit amet. Ut dolorem inventore ut provident provident et molestiae amet non quod iste rem explicabo asperiores.</li>
+                    <li class="fontlbl-size fontlbl-gray">Lorem ipsum dolor sit amet. Ut dolorem inventore ut provident provident et molestiae amet non quod iste rem explicabo asperiores.</li>
+                    <li class="fontlbl-size fontlbl-gray">Lorem ipsum dolor sit amet. Ut dolorem inventore ut provident provident et molestiae amet non quod iste rem explicabo asperiores.</li>
+                    <li class="fontlbl-size fontlbl-gray">Lorem ipsum dolor sit amet. Ut dolorem inventore ut provident provident et molestiae amet non quod iste rem explicabo asperiores.</li>
+                    <li class="fontlbl-size fontlbl-gray">Lorem ipsum dolor sit amet. Ut dolorem inventore ut provident provident et molestiae amet non quod iste rem explicabo asperiores.</li>
+                    <li class="fontlbl-size fontlbl-gray">Lorem ipsum dolor sit amet. Ut dolorem inventore ut provident provident et molestiae amet non quod iste rem explicabo asperiores.</li>
+                    <li class="fontlbl-size fontlbl-gray">Lorem ipsum dolor sit amet. Ut dolorem inventore ut provident provident et molestiae amet non quod iste rem explicabo asperiores.</li>
+                </ul>
+            </div>
+            <br>
+            <div class="row"><label class="header-custom fw-bold">Education</label></div>
+            <div class="row mt-3">
+                <div class="d-inline">
+                    <i class="bi bi-calendar fontlbl-size fontlbl-gray d-inline"></i>
+                    <label class="fontlbl-gray fontlbl-size d-inline">07/2017 - 12/2023</label>
+                    <i class="bi bi-geo-alt fontlbl-size fontlbl-gray d-inline"></i>
+                    <label class="fontlbl-gray fontlbl-size d-inline">Pathum Thani, Thailand</label>
+                </div>
+            </div>
+            <div class="row"><label class="text-light fw-bold fontlbl-white-size">Computer Science</label></div>
+            <div class="row"><label class="text-light fw-bold fontlbl-white-size">Thammasat University</label></div>
+        </div>
+        <div class="col-6">
+            <div class="row"><label class="header-custom fw-bold">Skills</label></div>
+            <div class="row mt-3"><div class="d-inline"><i class="bi bi-info-circle text-light d-inline"></i><label class="text-light fw-bold d-inline ps-1 fontlbl-white-size">DEVELOPMENT SKILLS</label></div></div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="row"><label class="fontlbl-size fontlbl-gray">Java</label></div>
+                </div>
+                <div class="col-6">
+                    <input type="range" value="80" min="0" max="100">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="row"><label class="fontlbl-size fontlbl-gray">JavaScript</label></div>
+                </div>
+                <div class="col-6">
+                    <input type="range" value="60" min="0" max="100">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="row"><label class="fontlbl-size fontlbl-gray">Python</label></div>
+                </div>
+                <div class="col-6">
+                    <input type="range" value="75" min="0" max="100">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="row"><label class="fontlbl-size fontlbl-gray">HTML</label></div>
+                </div>
+                <div class="col-6">
+                    <input type="range" value="95" min="0" max="100">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="row"><label class="fontlbl-size fontlbl-gray">CSS</label></div>
+                </div>
+                <div class="col-6">
+                    <input type="range" value="70" min="0" max="100">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="row"><label class="fontlbl-size fontlbl-gray">SQL</label></div>
+                </div>
+                <div class="col-6">
+                    <input type="range" value="60" min="0" max="100">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="row"><label class="fontlbl-size fontlbl-gray">C</label></div>
+                </div>
+                <div class="col-6">
+                    <input type="range" value="35" min="0" max="100">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="row"><label class="fontlbl-size fontlbl-gray">C++</label></div>
+                </div>
+                <div class="col-6">
+                    <input type="range" value="30" min="0" max="100">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="row"><label class="fontlbl-size fontlbl-gray">React Native</label></div>
+                </div>
+                <div class="col-6">
+                    <input type="range" value="75" min="0" max="100">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="row"><label class="fontlbl-size fontlbl-gray">PHP</label></div>
+                </div>
+                <div class="col-6">
+                    <input type="range" value="40" min="0" max="100">
+                </div>
+            </div>
+            <div class="row mt-3"><div class="d-inline"><i class="bi bi-info-circle text-light d-inline"></i><label class="text-light fw-bold d-inline ps-1 fontlbl-white-size">LANGUAGES</label></div></div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="row"><label class="fontlbl-size fontlbl-gray">Thai</label></div>
+                </div>
+                <div class="col-6">
+                    <input type="range" value="100" min="0" max="100">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="row"><label class="fontlbl-size fontlbl-gray">English</label></div>
+                </div>
+                <div class="col-6">
+                    <input type="range" value="50" min="0" max="100">
+                </div>
+            </div>
+            <br>
+            <div class="row"><label class="header-custom fw-bold">Achievements</label></div>
+            <div class="row ps-3 mt-3">
+                <ul>
+                    <li class="fontlbl-size fontlbl-gray">Lorem ipsum dolor sit amet. Ut dolorem inventore ut provident provident et molestiae amet non quod iste rem explicabo asperiores.</li>
+                    <li class="fontlbl-size fontlbl-gray">Lorem ipsum dolor sit amet. Ut dolorem inventore ut provident provident et molestiae amet non quod iste rem explicabo asperiores.</li>
+                    <li class="fontlbl-size fontlbl-gray">Lorem ipsum dolor sit amet. Ut dolorem inventore ut provident provident et molestiae amet non quod iste rem explicabo asperiores.</li>
+                    <li class="fontlbl-size fontlbl-gray">Lorem ipsum dolor sit amet. Ut dolorem inventore ut provident provident et molestiae amet non quod iste rem explicabo asperiores.</li>
+                </ul>
+            </div>
+            <br>
+            <div class="row"><label class="header-custom fw-bold">Hobbies</label></div>
+            <div class="row mt-3">
+                <div class="col-4">
+                    <div class="text-center"><i class="bi bi-globe-americas text-light d-block hobbies-icon"></i><label class="fontlbl-size fontlbl-gray d-block">Travelling</label></div>
+                </div>
+                <div class="col-4">
+                    <div class="text-center"><i class="bi bi-joystick text-light d-block hobbies-icon"></i><label class="fontlbl-size fontlbl-gray d-block">Gaming</label></div>
+                </div>
+                <div class="col-4">
+                    <div class="text-center"><i class="bi bi-music-note-beamed text-light d-block hobbies-icon"></i><label class="fontlbl-size fontlbl-gray d-block">Listening to music</label></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="text-center"><i class="bi bi-bookmark-check-fill text-light hobbies-icon"></i><label class="fontlbl-size fontlbl-gray d-block">Reading</label></div>
+                </div>
+                <div class="col-4">
+                    <div class="text-center"><i class="bi bi-camera-fill text-light hobbies-icon"></i><label class="fontlbl-size fontlbl-gray d-block">Capturing</label></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

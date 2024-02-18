@@ -1,0 +1,61 @@
+﻿body {
+}
+.topResume {
+    background-color: #2C344B;
+    padding-top: 40px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    /*border: 1px solid red;*/
+    /*margin: 0;*/
+    /*margin: auto;*/
+    /*width: 100%;*/
+    /*max-width: 100%;*/
+}
+.topInfo {
+    color: #FFFFFF;
+    font-family: Barlow;
+}
+.nameSname {
+    font-size: 40px;
+    letter-spacing: 1px;
+}
+.job {
+    font-size: 20px;
+    letter-spacing: 3px;
+}
+.topResume hr {
+    color: #FFFFFF;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.btmInfo {
+    /*border: 1px solid black;*/
+    padding-left: 20px;
+}
+.lblHeader {
+    color: #2C344B;
+    font-family: Barlow;
+    font-size: 20px;
+    /*font-weight: 400;*/
+}
+.conInfo {
+    background-color: #FFFFFF;
+    /*border: 1px solid black;*/
+    /*height: 100%;*/
+}
+.btmHeader {
+    background-color: #F0F0F0;
+}
+.btmGroup p {
+    font-family: Barlow;
+    padding-top: 0px;
+}
+/*.colInfo {
+    height: 100% !important;
+}*/
+#firstRow {
+    padding-top: 30px;
+}
+img {
+    
+}
