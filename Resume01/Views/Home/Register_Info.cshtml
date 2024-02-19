@@ -171,29 +171,29 @@
 					<div class="col-3"><div class="row"><label class="" id="lblRegisterOnBehalf1">ลงทะเบียนในนาม</label></div></div>
 					<div class="col-3">
 						<div>
-							<input type="radio" id="txtLegalEntity1" name="radio_check1" value="นิติบุคคล" />
-							<label for="txtLegalEntity1" class="px-2" id="lblLegalEntity1">นิติบุคคล</label>
+							<input type="radio" id="rdoLegalEntity1" name="radio_check1" value="นิติบุคคล" />
+							<label for="rdoLegalEntity1" class="px-2" id="lblLegalEntity1">นิติบุคคล</label>
 						</div>
 					</div>
 					<div class="col-3">
 						<div>
-							<input type="radio" id="txtIndividual1" name="radio_check1" value="บุคคลธรรมดา" />
-							<label for="txtIndividual1" class="px-2" id="lblIndividual1">บุคคลธรรมดา</label>
+							<input type="radio" id="rdoIndividual1" name="radio_check1" value="บุคคลธรรมดา" />
+							<label for="rdoIndividual2" class="px-2" id="lblIndividual1">บุคคลธรรมดา</label>
 						</div>
 					</div>
 				</div>
 				<div class="row mt-1">
 					<div class="col-9">
 						<div class="row mt-1">
-							<label for="txtLegalEntity1-2" class="fontlbl" id="lblLegalEntity1-2">นิติบุคคล <span class="red-color fontlbl">*</span></label>
-							<div class="input-div"><input type="text" id="txtLegalEntity1-2" /></div>
+							<label for="txtLegalEntity1" class="fontlbl" id="lblLegalEntity1-2">นิติบุคคล <span class="red-color fontlbl">*</span></label>
+							<div class="input-div"><input type="text" id="txtLegalEntity1" /></div>
 						</div>
 					</div>
 					<div class="col-3 d-flex align-items-center justify-content-center">
 						<div class="row">
 							<div class="pt-4">
-								<input type="checkbox" id="txtVip1" name="checkBox1" value="ลูกค้า VIP" />
-								<label for="txtVip1" class="px-2" id="lblVip1">ลูกค้า VIP</label>
+								<input type="checkbox" id="chkVip1" name="checkBox1" value="ลูกค้า VIP" />
+								<label for="chkVip1" class="px-2" id="lblVip1">ลูกค้า VIP</label>
 							</div>
 						</div>
 					</div>
@@ -238,7 +238,11 @@
 							<div><label for="selectSurveyTime1" class="fontlbl d-block" id="lblSurveyTime1">เวลาให้เข้าสำรวจ <span class="red-color fontlbl">*</span></label></div>
 							<div>
 								<select name="Survey Time1" id="selectSurveyTime1" class="w-100 d-block">
-									<option value="all">--- เลือก ---</option>
+									<option value="">--- เลือก ---</option>
+									<option value="mornning">เช้า</option>
+									<option value="noon">เที่ยง</option>
+									<option value="afterNoon">บ่าย</option>
+									<option value="evenning">เย็น</option>
 								</select>
 							</div>
 						</div>
@@ -415,29 +419,29 @@
 					<div class="col-3"><div class="row"><label class="" id="lblRegisterOnBehalf2">ลงทะเบียนในนาม</label></div></div>
 					<div class="col-3">
 						<div>
-							<input type="radio" id="txtLegalEntity2" name="radio_check2" value="นิติบุคคล" />
-							<label for="txtLegalEntity2" class="px-2" id="lblLegalEntity2">นิติบุคคล</label>
+							<input type="radio" id="rdoLegalEntity2" name="radio_check2" value="นิติบุคคล" />
+							<label for="rdoLegalEntity2" class="px-2" id="lblLegalEntity2">นิติบุคคล</label>
 						</div>
 					</div>
 					<div class="col-3">
 						<div>
-							<input type="radio" id="txtIndividual2" name="radio_check2" value="บุคคลธรรมดา" />
-							<label for="txtIndividual2" class="px-2" id="lblIndividual2">บุคคลธรรมดา</label>
+							<input type="radio" id="rdoIndividual2" name="radio_check2" value="บุคคลธรรมดา" />
+							<label for="rdoIndividual2" class="px-2" id="lblIndividual2">บุคคลธรรมดา</label>
 						</div>
 					</div>
 				</div>
 				<div class="row mt-1">
 					<div class="col-9">
 						<div class="row mt-1">
-							<label for="txtLegalEntity2-2" class="fontlbl" id="lblLegalEntity2-2">นิติบุคคล <span class="red-color fontlbl">*</span></label>
-							<div class="input-div"><input type="text" id="txtLegalEntity2-2" value="abc" /></div>
+							<label for="txtLegalEntity2" class="fontlbl" id="lblLegalEntity2-2">นิติบุคคล <span class="red-color fontlbl">*</span></label>
+							<div class="input-div"><input type="text" id="txtLegalEntity2" value="abc" /></div>
 						</div>
 					</div>
 					<div class="col-3 d-flex align-items-center justify-content-center">
 						<div class="row">
 							<div class="pt-4">
-								<input type="checkbox" id="txtVip2" name="checkBox2" value="ลูกค้า VIP" />
-								<label for="txtVip2" class="px-2" id="lblVip2">ลูกค้า VIP</label>
+								<input type="checkbox" id="chkVip2" name="checkBox2" value="ลูกค้า VIP" />
+								<label for="chkVip2" class="px-2" id="lblVip2">ลูกค้า VIP</label>
 							</div>
 						</div>
 					</div>
@@ -474,7 +478,7 @@
 					<div class="col-4">
 						<div class="row mt-1">
 							<label for="txtSurveyDate2" class="fontlbl" id="lblSurveyDate2">วันที่ให้เข้าสำรวจ <span class="red-color fontlbl">*</span></label>
-							<div><input type="date" id="txtSurveyDate2" class="form-control"></div>
+							<div><input type="date" id="txtSurveyDate2" class="form-control" /></div>
 						</div>
 					</div>
 					<div class="col-4">
@@ -482,7 +486,11 @@
 							<div><label for="selectSurveyTime2" class="fontlbl d-block" id="lblSurveyTime2">เวลาให้เข้าสำรวจ <span class="red-color fontlbl">*</span></label></div>
 							<div>
 								<select name="Survey Time2" id="selectSurveyTime2" class="w-100 d-block">
-									<option value="all">--- เลือก ---</option>
+									<option value="">--- เลือก ---</option>
+									<option value="mornning">เช้า</option>
+									<option value="noon">เที่ยง</option>
+									<option value="afterNoon">บ่าย</option>
+									<option value="evenning">เย็น</option>
 								</select>
 							</div>
 						</div>
@@ -662,11 +670,69 @@
 
 		function clickToCopyTwo() {
 			debugger
-			$("#txtLegalEntity2-2").val("Hello"); //วิธีแปะค่า
-			var legalId1 = $("#txtLegalEntity1-2").val();
-			$("#lblLegalEntity2-2").text("eeee");
+			/*$("#txtLegalEntity2-2").val("Hello");*/ //วิธีแปะค่า
+			//var legalId1 = $("#txtLegalEntity1-2").val();
+			//$("#lblLegalEntity2-2").text("eeee");
+			var radio1A = document.getElementById('rdoLegalEntity1');
+			var radio1B = document.getElementById('rdoIndividual1');
+			var radio2A = document.getElementById('rdoLegalEntity2');
+			var radio2B = document.getElementById('rdoIndividual2');
+
+			if (radio1A.checked) {
+				radio1A.checked = true;
+				radio2A.checked = true;
+			} else if (radio1B.checked) {
+				radio1B.checked = true;
+				radio2B.checked = true;
+			}
+
+			var checkBox1 = document.getElementById('chkVip1');
+			var checkBox2 = document.getElementById('chkVip2');
+
+			if (checkBox1.checked) {
+				checkBox1.checked = true;
+				checkBox2.checked = true;
+			}
+
+			// Get the selected option from selectA
+			var selectSurveyTimeA = document.getElementById("selectSurveyTime1");
+			var selectedOptionValue = selectSurveyTimeA.options[selectSurveyTimeA.selectedIndex].value;
+
+			// Set the selected option in selectB
+			var selectSurveyTimeB = document.getElementById("selectSurveyTime2");
+			for (var i = 0; i < selectSurveyTimeB.options.length; i++) {
+				if (selectSurveyTimeB.options[i].value === selectedOptionValue) {
+					selectSurveyTimeB.selectedIndex = i;
+					break;
+				}
+			}
 
 			/*var transferText = $("#txtLegalEntity1-2").val();*/
+			$("#txtLegalEntity2").val($("#txtLegalEntity1").val());
+			$("#txtContact2").val($("#txtContact1").val());
+			$("#txtTelePhone2").val($("#txtTelePhone1").val());
+			$("#txtEmail2").val($("#txtEmail1").val());
+			$("#txtLineId2").val($("#txtLineId1").val());
+			$("#txtSurveyDate2").val($("#txtSurveyDate1").val());
+			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
+			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
+			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
+			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
+			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
+			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
+			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
+			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
+			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
+			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
+			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
+			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
+			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
+			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
+			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
+			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
+			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
+			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
+			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
 			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
 
 		}
