@@ -269,7 +269,12 @@
 							<div><label for="selectProvince1" class="fontlbl d-block" id="lblProvince1">จังหวัด <span class="red-color fontlbl">*</span></label></div>
 							<div>
 								<select name="selectProvince1" id="selectProvince1" class="w-100 d-block">
-									<option value="all"></option>
+									<option value="">--- เลือก ---</option>
+									<option value="bangkok">กรุงเทพฯ</option>
+									<option value="chiang_mai">เชียงใหม่</option>
+									<option value="chiang_rai">เชียงราย</option>
+									<option value="nakhon_nayok">นครนายก</option>
+									<option value="nakhon_sawan">นครสวรรค์</option>
 								</select>
 							</div>
 						</div>
@@ -322,7 +327,11 @@
 							<div><label for="selectDealerShop1" class="fontlbl d-block" id="lblDealerShop1">ร้านผู้แทนจำหน่าย <span class="red-color fontlbl">*</span></label></div>
 							<div>
 								<select name="Dealer shop1" id="selectDealerShop1" class="w-100 d-block">
-									<option value="all">--- เลือก ---</option>
+									<option value="">--- เลือก ---</option>
+									<option value="seven_eleven">เซเว่น อีเลฟเว่น</option>
+									<option value="lotus">โลตัส</option>
+									<option value="big_c">บิ๊กซี</option>
+									<option value="family_mart">แฟมิลี่มาร์ท</option>
 								</select>
 							</div>
 						</div>
@@ -355,7 +364,10 @@
 							<div><label for="selectBranch1" class="fontlbl d-block" id="lblBranch1">สาขา <span class="red-color fontlbl">*</span></label></div>
 							<div>
 								<select name="selectBranch1" id="selectBranch1" class="w-100 d-block">
-									<option value="all">สำนักงานใหญ่</option>
+									<option value="headquater">สำนักงานใหญ่</option>
+									<option value="branch1">สาขา1</option>
+									<option value="branch2">สาขา2</option>
+									<option value="branch3">สาขา3</option>
 								</select>
 							</div>
 						</div>
@@ -517,7 +529,12 @@
 							<div><label for="selectProvince2" class="fontlbl d-block" id="lblProvince2">จังหวัด <span class="red-color fontlbl">*</span></label></div>
 							<div>
 								<select name="selectProvince2" id="selectProvince2" class="w-100 d-block">
-									<option value="all"></option>
+									<option value="">--- เลือก ---</option>
+									<option value="bangkok">กรุงเทพฯ</option>
+									<option value="chiang_mai">เชียงใหม่</option>
+									<option value="chiang_rai">เชียงราย</option>
+									<option value="nakhon_nayok">นครนายก</option>
+									<option value="nakhon_sawan">นครสวรรค์</option>
 								</select>
 							</div>
 						</div>
@@ -570,7 +587,11 @@
 							<div><label for="selectDealerShop2" class="fontlbl d-block" id="lblDealerShop2">ร้านผู้แทนจำหน่าย <span class="red-color fontlbl">*</span></label></div>
 							<div>
 								<select name="Dealer shop2" id="selectDealerShop2" class="w-100 d-block">
-									<option value="all">--- เลือก ---</option>
+									<option value="">--- เลือก ---</option>
+									<option value="seven_eleven">เซเว่น อีเลฟเว่น</option>
+									<option value="lotus">โลตัส</option>
+									<option value="big_c">บิ๊กซี</option>
+									<option value="family_mart">แฟมิลี่มาร์ท</option>
 								</select>
 							</div>
 						</div>
@@ -603,7 +624,10 @@
 							<div><label for="selectBranch2" class="fontlbl d-block" id="lblBranch2">สาขา <span class="red-color fontlbl">*</span></label></div>
 							<div>
 								<select name="Branch" id="selectBranch2" class="w-100 d-block">
-									<option value="all">สำนักงานใหญ่</option>
+									<option value="headquater">สำนักงานใหญ่</option>
+									<option value="branch1">สาขา1</option>
+									<option value="branch2">สาขา2</option>
+									<option value="branch3">สาขา3</option>
 								</select>
 							</div>
 						</div>
@@ -706,6 +730,61 @@
 					break;
 				}
 			}
+			
+			// Get the selected option from selectA
+			var selectProvinceA = document.getElementById("selectProvince1");
+			var selectedOptionValue = selectProvinceA.options[selectProvinceA.selectedIndex].value;
+
+			// Set the selected option in selectB
+			var selectProvinceB = document.getElementById("selectProvince2");
+			for (var i = 0; i < selectProvinceB.options.length; i++) {
+				if (selectProvinceB.options[i].value === selectedOptionValue) {
+					selectProvinceB.selectedIndex = i;
+					break;
+				}
+			}
+			
+			// Get the selected option from selectA
+			var selectDealerShopA = document.getElementById("selectDealerShop1");
+			var selectedOptionValue = selectDealerShopA.options[selectDealerShopA.selectedIndex].value;
+
+			// Set the selected option in selectB
+			var selectDealerShopB = document.getElementById("selectDealerShop2");
+			for (var i = 0; i < selectDealerShopB.options.length; i++) {
+				if (selectDealerShopB.options[i].value === selectedOptionValue) {
+					selectDealerShopB.selectedIndex = i;
+					break;
+				}
+			}
+			
+			var checkBox1_2 = document.getElementById('chkTaxInvoice1');
+			var checkBox2_2 = document.getElementById('chkTaxInvoice2');
+
+			if (checkBox1_2.checked) {
+				checkBox1_2.checked = true;
+				checkBox2_2.checked = true;
+			}
+			
+			// Get the selected option from selectA
+			var selectBranchA = document.getElementById("selectBranch1");
+			var selectedOptionValue = selectBranchA.options[selectBranchA.selectedIndex].value;
+
+			// Set the selected option in selectB
+			var selectBranchB = document.getElementById("selectBranch2");
+			for (var i = 0; i < selectBranchB.options.length; i++) {
+				if (selectBranchB.options[i].value === selectedOptionValue) {
+					selectBranchB.selectedIndex = i;
+					break;
+				}
+			}
+			
+			var checkBox1_3 = document.getElementById('chkInvoiceIssuingAddress1');
+			var checkBox2_3 = document.getElementById('chkInvoiceIssuingAddress2');
+
+			if (checkBox1_3.checked) {
+				checkBox1_3.checked = true;
+				checkBox2_3.checked = true;
+			}
 
 			/*var transferText = $("#txtLegalEntity1-2").val();*/
 			$("#txtLegalEntity2").val($("#txtLegalEntity1").val());
@@ -714,26 +793,18 @@
 			$("#txtEmail2").val($("#txtEmail1").val());
 			$("#txtLineId2").val($("#txtLineId1").val());
 			$("#txtSurveyDate2").val($("#txtSurveyDate1").val());
-			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
-			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
-			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
-			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
-			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
-			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
-			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
-			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
-			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
-			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
-			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
-			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
-			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
-			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
-			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
-			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
-			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
-			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
-			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
-			$("#txtLegalEntity2-2").val($("#txtLegalEntity1-2").val());
+			$("#txtSpaceSize2").val($("#txtSpaceSize1").val());
+			$("#txtAddressSurvey2").val($("#txtAddressSurvey1").val());
+			$("#txtDistrict2").val($("#txtDistrict1").val());
+			$("#txtSubdistrict2").val($("#txtSubdistrict1").val());
+			$("#txtZipCode2").val($("#txtZipCode1").val());
+			$("#txtLink2").val($("#txtLink1").val());
+			$("#txtFullName2").val($("#txtFullName1").val());
+			$("#txtTelePhone2-2").val($("#txtTelePhone1-2").val());
+			$("#txtCoupon2").val($("#txtCoupon1").val());
+			$("#txtTaxInvoiceName2").val($("#txtTaxInvoiceName1").val());
+			$("#txtTaxIdentificationNumber2").val($("#txtTaxIdentificationNumber1").val());
+			$("#txtBranchCode2").val($("#txtBranchCode1").val());
 
 		}
 
