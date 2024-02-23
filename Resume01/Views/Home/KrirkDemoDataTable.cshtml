@@ -58,6 +58,11 @@
         .hidden {
             display: none;
         }
+
+        .xdsoft_datetimepicker {
+            z-index: 999999999;
+        }
+
     </style>
 
 }
@@ -129,6 +134,28 @@
 
                     </div>
 
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <label>Student Date</label>
+                            <div class="input-group">
+                                <input class="form-control" type="text" placeholder="From" id="txtStudentFr">
+                                <span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-1">
+                            <label>to</label>
+                        </div>
+                        <div class="col-sm-2">
+                            <label>&nbsp;</label>
+                            <div class="input-group">
+                                <input class="form-control" type="text" placeholder="To" id="txtStudentTo">
+                                <span class="input-group-addon bg-white"><i class="fa fa-calendar"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                  
+
 
                     <div class="row justify-content-end mt-3 ">
                         <div class="col-sm-1 text-end">
@@ -157,6 +184,10 @@
                                 <th>Room</th>
                                 <th>Status</th>
                                 <th>Description</th>
+                                <th>Student Start Date</th>
+                                <th>hidden Student Start Date</th>
+                                <th>Student Stop Date</th>
+                                <th>hidden Student Start Date</th>
                                 <th>Created Date</th>
                                 <th>hidden Date</th>
                             </tr>
@@ -212,10 +243,44 @@
         var studentList = [];
 
         $(document).ready(function () {
+
+            $("#txtStudentFr").datetimepicker({
+                mask: true,
+                autoClose: true,
+                step: 1,
+                format: 'd/m/Y',
+                formatDate: 'd/m/Y',
+                scrollInput: false,
+                onShow: function (ct) {
+                    this.setOptions({
+                        maxDate: $('#txtStudentTo').val() ? $('#txtStudentTo').val() : false
+                    })
+                },
+                timepicker: false,
+                value: moment().subtract(3, "days").format("DD/MM/YYYY"),
+            });
+            $("#txtStudentTo").datetimepicker({
+                mask: true,
+                autoClose: true,
+                step: 1,
+                format: 'd/m/Y',
+                formatDate: 'd/m/Y',
+                scrollInput: false,
+                onShow: function (ct) {
+                    this.setOptions({
+                        minDate: $('#txtStudentFr').val() ? $('#txtStudentFr').val() : false
+                    })
+                },
+                timepicker: false,
+                value: moment().format("DD/MM/YYYY"),
+            });
+
             $(".select2").select2();
         });
 
         function addStudentAndBinding() {
+            debugger
+            //var d = $('#txtStudentFr').datetimepicker('getValue');
 
             Swal.fire({
                 title: "Do you want to save the changes?",
@@ -243,6 +308,8 @@
                         Room: $('#ddlRoom option:selected').text(),
                         Status: $('#chkVIP').is(':checked'),
                         Description: $("#txtDescription").val(),
+                        StudentFr: moment($("#txtStudentFr").val(), 'DD/MM/YYYY').format('YYYY-MM-DD'),
+                        StudentTo: moment($("#txtStudentTo").val(), 'DD/MM/YYYY').format('YYYY-MM-DD'),
                         CreatedDate: currentDateTimeUTC7FormattedForSQL
 
                     }
@@ -264,7 +331,9 @@
                 data: dataList,
                 processing: true,
                 destroy: true,
-                //searching: true,
+                scrollX: true,
+                //scrollCollapse: true,
+                searching: true,
                 order: [[1, "desc"]],
                 //lengthChange: true,
                 //dom: "t" +
@@ -317,8 +386,32 @@
                             return html;
                         }
                     },
+
                     {
                         data: null, className: "text-center ", orderData: [8],
+                        render: function (data, type, full, meta) {
+                            var date = "";
+                            if (data.StudentFr != "" && data.StudentFr != null) {
+                                date = moment(data.StudentFr).format('DD/MM/YYYY h:mm');
+                            }
+                            return date;
+                        }
+                    },
+                    { data: "StudentFr", className: "", visible: false },
+
+                    {
+                        data: null, className: "text-center ", orderData: [10],
+                        render: function (data, type, full, meta) {
+                            var date = "";
+                            if (data.StudentTo != "" && data.StudentTo != null) {
+                                date = moment(data.StudentTo).format('DD/MM/YYYY h:mm');
+                            }
+                            return date;
+                        }
+                    },
+                    { data: "StudentTo", className: "", visible: false },
+                    {
+                        data: null, className: "text-center ", orderData: [12],
                         render: function (data, type, full, meta) {
                             var date = "";
                             if (data.CreatedDate != "" && data.CreatedDate != null) {
