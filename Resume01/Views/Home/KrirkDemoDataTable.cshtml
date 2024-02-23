@@ -1,0 +1,345 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    //4564654
+    //Layout = "_Layout3";
+}
+
+@section Styles {
+
+    <link href="~/lib/sweetalert2/css/sweetalert2.min.css" rel="stylesheet" />
+    <link href="~/lib/select2/css/select2.css" rel="stylesheet" />
+    <link href="~/lib/datetimepicker/css/jquery.datetimepicker.min.css" rel="stylesheet" />
+    <link href="~/lib/datatables/buttons/css/buttons.bootstrap.css" rel="stylesheet" />
+    <link href="~/lib/datatables/buttons/css/buttons.dataTables.css" rel="stylesheet" />
+    <link href="~/lib/datatables/css/jquery.dataTables.css" rel="stylesheet" />
+    @*<link href="~/lib/datatables/css/dataTables.bootstrap.css" rel="stylesheet" />*@
+
+
+    <style type="text/css">
+
+        body {
+            font-family: Roboto !important;
+        }
+
+        /* Custom DataTable Styles */
+        .dataTables_wrapper {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        table.dataTable thead th {
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+        }
+
+        table.dataTable tbody td {
+            border: 1px solid #ddd;
+        }
+
+        table.dataTable tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table.dataTable.no-footer {
+            border-bottom: 0;
+        }
+
+        .dataTables_paginate {
+            margin-top: 10px;
+        }
+
+        .dataTables_filter label {
+            margin-right: 10px;
+        }
+
+
+        .hidden {
+            display: none;
+        }
+    </style>
+
+}
+@*<div class="row">
+        <div class="col-sm-12">Student Page</div>
+    </div>*@
+<div class="row">
+    <div class="col-12">
+        <div class="container mt-1">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    Student Page
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <label class="col-form-label">Name</label>
+                            <input class="form-control" id="txtName" placeholder="student name" />
+                        </div>
+
+                        <div class="col-sm-2">
+                            <label class="col-form-label">Age</label>
+                            <input type="number" class="form-control" id="txtAge" placeholder="student age" />
+                        </div>
+
+                        <div class="col-sm-2">
+                            <label class="col-form-label">Gender</label>
+                            <br />
+                            <input type="radio" id="rdoBoy" name="gender" value="Boy" class="radio" checked>
+                            <label class="col-form-label" for="rdoBoy">Boy</label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="radio" id="rdoGirl" name="gender" value="Girl" class="radio">
+                            <label class="col-form-label" for="rdoGirl">Girl</label>
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-sm-2">
+                            <label class="col-form-label" for="ddlRoom">Room</label>
+                            <br />
+                            <select id="ddlRoom" name="room" class="form-select select2 ">
+                                <option value="A">Room A</option>
+                                <option value="B">Room B</option>
+                                <option value="C">Room C</option>
+                            </select>
+                        </div>
+
+                        <div class="col-sm-2">
+
+                        </div>
+
+
+                        <div class="col-sm-2">
+                            <label class="col-form-label">Status</label>
+                            <br />
+                            <input type="checkbox" id="chkVIP" name="vip" value="VIP" class="form-check-inline">
+                            <label for="chkVIP">VIP</label><br>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label class="col-form-label">Description</label>
+                            <br />
+                            <textarea class="form-control" rows="1" id="txtDescription"></textarea>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row justify-content-end mt-3 ">
+                        <div class="col-sm-1 text-end">
+                            <button class="btn btn-primary" onclick="addStudentAndBinding()">Save Student</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row hidden" id="divTable">
+    <div class="col-sm-12">
+
+        <div class="container mt-3">
+            <div class="card">
+                <div class="card-body">
+                    <table id="tblStudent" class="table table-student w-100 display">
+                        <thead id="tblHeader">
+                            <tr>
+                                <th>No.</th>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Gender</th>
+                                <th>Room</th>
+                                <th>Status</th>
+                                <th>Description</th>
+                                <th>Created Date</th>
+                                <th>hidden Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    @*popup*@
+    <script src="~/lib/sweetalert2/js/sweetalert2.min.js"></script>
+
+    @*dropdown beautiful tool*@
+    <script src="~/lib/select2/js/select2.full.js"></script>
+
+    @*create barcode*@
+    <script src="~/lib/JsBarcode/JsBarcode.code128.min.js"></script>
+
+    @*qr code*@
+    <script src="~/lib/html5-qrcode/qrcode.min.js"></script>
+
+    @*datetimePicker calendar*@
+    <script src="~/lib/datetimepicker/js/jquery.datetimepicker.full.js"></script>
+
+
+    @*datatable*@
+    <script src="~/lib/datatables/js/jquery.dataTables.js"></script>
+    @*<script src="~/lib/datatables/js/dataTables.bootstrap.js"></script>*@
+
+    @*click to print from data table*@
+    <script src="~/lib/datatables/buttons/js/dataTables.buttons.js"></script>
+    <script src="~/lib/datatables/buttons/js/buttons.bootstrap.js"></script>
+    <script src="~/lib/datatables/buttons/js/buttons.flash.js"></script>
+    <script src="~/lib/datatables/buttons/js/buttons.html5.js"></script>
+    <script src="~/lib/datatables/buttons/js/buttons.print.js"></script>
+    <script src="~/lib/datatables/buttons/js/jszip.js"></script>
+
+
+
+    <script type="text/javascript">
+
+        var studentList = [];
+
+        $(document).ready(function () {
+            $(".select2").select2();
+        });
+
+        function addStudentAndBinding() {
+
+            Swal.fire({
+                title: "Do you want to save the changes?",
+                //showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: "Save",
+                //denyButtonText: `Don't save`
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+
+                    var currentDateTimeUTC = moment().utc();
+
+                    // Add 7 hours to adjust to UTC+7
+                    var currentDateTimeUTC7 = currentDateTimeUTC.add(7, 'hours');
+
+                    // Format the date and time
+                    var currentDateTimeUTC7FormattedForSQL = currentDateTimeUTC7.format('YYYY-MM-DD h:mm');
+
+                    var studentObject = {
+                        Name: $("#txtName").val(),
+                        Age: $("#txtAge").val(),
+                        Gender: $('input[type=radio][name=gender]:checked').val(),
+                        //Room: $("#ddlRoom").val(),
+                        Room: $('#ddlRoom option:selected').text(),
+                        Status: $('#chkVIP').is(':checked'),
+                        Description: $("#txtDescription").val(),
+                        CreatedDate: currentDateTimeUTC7FormattedForSQL
+
+                    }
+                    studentList.push(studentObject);
+
+                    $("#divTable").show();
+
+                    bindingOrder(studentList);
+
+                } else if (result.isDenied) {
+                    Swal.fire("Changes are not saved", "", "info");
+                }
+            });
+
+        }
+
+        function bindingOrder(dataList) {
+            var table = $("#tblStudent").DataTable({
+                data: dataList,
+                processing: true,
+                destroy: true,
+                //searching: true,
+                order: [[1, "desc"]],
+                //lengthChange: true,
+                //dom: "t" +
+                //    "<'row'<'col-sm-6 col-md length-change'l><'col-sm-6 col-md info-table'i><'col-sm-12 col-md paging-table'p>>",
+                //buttons: [
+                //    {
+                //        text: '<i class="fa fa-download"></i>',
+                //        extend: 'excel', className: 'btn btn-outline-primary btn-excel',
+                //        exportOptions: {
+                //            columns: [1, 2, 5, 6, 7, 8, 9, 10]
+                //        }
+                //    }
+                //],
+                columns: [
+                    {
+                        data: null, className: "text-center", orderable: false,
+                        render: function (data, type, full, meta) {
+                            debugger
+                            return meta.row + 1;
+                        }
+                    },
+                    { data: "Name", className: "text-left" },
+                    {
+                        data: null, className: "", visible: false,
+                        render: function (data, type, full, meta) {
+                            var thisAge = data.Age;
+                            return thisAge;
+                        }
+                    },
+                    { data: "Gender", className: "text-left" },
+
+                    {
+                        data: "Room", className: "text-center", orderable: false,
+                        render: function (data, type, full, meta) {
+                            var html = "<label class='col-form-label'>" + data + "</label>";
+                            return html;
+                        }
+                    },
+                    {
+                        data: null, className: "text-center", orderable: false,
+                        render: function (data, type, full, meta) {
+                            var html = "<label class='col-form-label'>" + data.Status + "</label>";
+                            return html;
+                        }
+                    },
+                    {
+                        data: null, className: "text-center", orderable: false,
+                        render: function (data, type, full, meta) {
+                            var html = `<label class='col-form-label'>${data.Description}</label>`;
+                            return html;
+                        }
+                    },
+                    {
+                        data: null, className: "text-center ", orderData: [8],
+                        render: function (data, type, full, meta) {
+                            var date = "";
+                            if (data.CreatedDate != "" && data.CreatedDate != null) {
+                                date = moment(data.CreatedDate).format('DD/MM/YYYY h:mm');
+                            }
+                            return date;
+                        }
+                    },
+                    { data: "CreatedDate", className: "", visible: false },
+                ],
+            });
+            //$("#btnExport button").remove();
+            //table.buttons().container().appendTo('#btnExport');
+
+            Swal.fire({
+                title: "Good job!",
+                text: "You clicked the button!",
+                icon: "success",
+                timer: 3000
+            });
+        }
+    </script>
+}
+

@@ -1,0 +1,246 @@
+﻿    .checkbox-fade {
+        display: inline-block
+    }
+
+
+.checkbox-fade, .checkbox-zoom {
+    display: inline-block;
+    margin-right: 15px
+}
+
+    .checkbox-fade label, .checkbox-zoom label {
+        line-height: 20px
+    }
+
+        .checkbox-fade label input[type="checkbox"], .checkbox-fade label input[type="radio"], .checkbox-zoom label input[type="checkbox"], .checkbox-zoom label input[type="radio"] {
+            display: none
+        }
+
+            .checkbox-fade label input[type="checkbox"]:checked + .cr > .cr-icon, .checkbox-fade label input[type="radio"]:checked + .cr > .cr-icon, .checkbox-zoom label input[type="checkbox"]:checked + .cr > .cr-icon, .checkbox-zoom label input[type="radio"]:checked + .cr > .cr-icon {
+                -webkit-transform: scale(1) rotateZ(0deg);
+                -ms-transform: scale(1) rotate(0deg);
+                transform: scale(1) rotateZ(0deg);
+                opacity: 1
+            }
+
+            .checkbox-fade label input[type="checkbox"] + .cr > .cr-icon, .checkbox-fade label input[type="radio"] + .cr > .cr-icon, .checkbox-zoom label input[type="checkbox"] + .cr > .cr-icon, .checkbox-zoom label input[type="radio"] + .cr > .cr-icon {
+                -webkit-transform: scale(3) rotateZ(-20deg);
+                -ms-transform: scale(3) rotate(-20deg);
+                transform: scale(3) rotateZ(-20deg);
+                opacity: 0;
+                -webkit-transition: all 0.3s ease-in;
+                transition: all 0.3s ease-in
+            }
+
+        .checkbox-fade label:after, .checkbox-zoom label:after {
+            content: '';
+            display: table;
+            clear: both
+        }
+
+    .checkbox-fade.fade-in-disable .cr, .checkbox-fade.fade-in-disable label, .checkbox-zoom.fade-in-disable .cr, .checkbox-zoom.fade-in-disable label {
+        color: #ccc;
+        cursor: no-drop
+    }
+
+    .checkbox-fade .cr, .checkbox-zoom .cr {
+        border-radius: 0;
+        border: 2px solid #3498db;
+        cursor: pointer;
+        display: inline-block;
+        float: left;
+        height: 20px;
+        margin-right: 0.5em;
+        position: relative;
+        width: 20px
+    }
+
+        .checkbox-fade .cr .cr-icon, .checkbox-zoom .cr .cr-icon {
+            color: #3498db;
+            font-size: 0.8em;
+            left: 0;
+            line-height: 0;
+            position: absolute;
+            right: 0;
+            text-align: center;
+            top: 50%
+        }
+
+    .checkbox-fade label {
+        line-height: 20px
+    }
+
+        .checkbox-fade label input[type="checkbox"], .checkbox-fade label input[type="radio"] {
+            display: none
+        }
+
+            .checkbox-fade label input[type="checkbox"]:checked + .cr > .cr-icon, .checkbox-fade label input[type="radio"]:checked + .cr > .cr-icon {
+                -webkit-transform: scale(1) rotateZ(0deg);
+                -ms-transform: scale(1) rotate(0deg);
+                transform: scale(1) rotateZ(0deg);
+                opacity: 1
+            }
+
+            .checkbox-fade label input[type="checkbox"] + .cr > .cr-icon, .checkbox-fade label input[type="radio"] + .cr > .cr-icon {
+                -webkit-transform: scale(3) rotateZ(-20deg);
+                -ms-transform: scale(3) rotate(-20deg);
+                transform: scale(3) rotateZ(-20deg);
+                opacity: 0;
+                -webkit-transition: all 0.3s ease-in;
+                transition: all 0.3s ease-in
+            }
+
+    .checkbox-zoom label {
+        line-height: 20px
+    }
+
+        .checkbox-zoom label input[type="checkbox"], .checkbox-zoom label input[type="radio"] {
+            display: none
+        }
+
+            .checkbox-zoom label input[type="checkbox"]:checked + .cr > .cr-icon, .checkbox-zoom label input[type="radio"]:checked + .cr > .cr-icon {
+                -webkit-transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
+                transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
+                opacity: 1
+            }
+
+            .checkbox-zoom label input[type="checkbox"] + .cr > .cr-icon, .checkbox-zoom label input[type="radio"] + .cr > .cr-icon {
+                -webkit-transform: scale3d(0.2, 0.2, 0.1) translate3d(0, 0, 0);
+                transform: scale3d(0.2, 0.2, 0.1) translate3d(0, 0, 0);
+                opacity: 0;
+                -webkit-transition: all 0.3s ease-in;
+                transition: all 0.3s ease-in
+            }
+
+    .checkbox-fade.fade-in-primary .cr, .checkbox-fade.zoom-primary .cr, .checkbox-zoom.fade-in-primary .cr, .checkbox-zoom.zoom-primary .cr {
+        border: 2px solid #3498db
+    }
+
+        .checkbox-fade.fade-in-primary .cr .cr-icon, .checkbox-fade.zoom-primary .cr .cr-icon, .checkbox-zoom.fade-in-primary .cr .cr-icon, .checkbox-zoom.zoom-primary .cr .cr-icon {
+            color: #3498db
+        }
+
+    .checkbox-fade.fade-in-warning .cr, .checkbox-fade.zoom-warning .cr, .checkbox-zoom.fade-in-warning .cr, .checkbox-zoom.zoom-warning .cr {
+        border: 2px solid #fe9365
+    }
+
+        .checkbox-fade.fade-in-warning .cr .cr-icon, .checkbox-fade.zoom-warning .cr .cr-icon, .checkbox-zoom.fade-in-warning .cr .cr-icon, .checkbox-zoom.zoom-warning .cr .cr-icon {
+            color: #fe9365
+        }
+
+    .checkbox-fade.fade-in-default .cr, .checkbox-fade.zoom-default .cr, .checkbox-zoom.fade-in-default .cr, .checkbox-zoom.zoom-default .cr {
+        border: 2px solid #e0e0e0
+    }
+
+        .checkbox-fade.fade-in-default .cr .cr-icon, .checkbox-fade.zoom-default .cr .cr-icon, .checkbox-zoom.fade-in-default .cr .cr-icon, .checkbox-zoom.zoom-default .cr .cr-icon {
+            color: #e0e0e0
+        }
+
+    .checkbox-fade.fade-in-danger .cr, .checkbox-fade.zoom-danger .cr, .checkbox-zoom.fade-in-danger .cr, .checkbox-zoom.zoom-danger .cr {
+        border: 2px solid #eb3422
+    }
+
+        .checkbox-fade.fade-in-danger .cr .cr-icon, .checkbox-fade.zoom-danger .cr .cr-icon, .checkbox-zoom.fade-in-danger .cr .cr-icon, .checkbox-zoom.zoom-danger .cr .cr-icon {
+            color: #eb3422
+        }
+
+    .checkbox-fade.fade-in-success .cr, .checkbox-fade.zoom-success .cr, .checkbox-zoom.fade-in-success .cr, .checkbox-zoom.zoom-success .cr {
+        border: 2px solid #0ac282
+    }
+
+        .checkbox-fade.fade-in-success .cr .cr-icon, .checkbox-fade.zoom-success .cr .cr-icon, .checkbox-zoom.fade-in-success .cr .cr-icon, .checkbox-zoom.zoom-success .cr .cr-icon {
+            color: #0ac282
+        }
+
+    .checkbox-fade.fade-in-inverse .cr, .checkbox-fade.zoom-inverse .cr, .checkbox-zoom.fade-in-inverse .cr, .checkbox-zoom.zoom-inverse .cr {
+        border: 2px solid #404E67
+    }
+
+        .checkbox-fade.fade-in-inverse .cr .cr-icon, .checkbox-fade.zoom-inverse .cr .cr-icon, .checkbox-zoom.fade-in-inverse .cr .cr-icon, .checkbox-zoom.zoom-inverse .cr .cr-icon {
+            color: #404E67
+        }
+
+    .checkbox-fade.fade-in-info .cr, .checkbox-fade.zoom-info .cr, .checkbox-zoom.fade-in-info .cr, .checkbox-zoom.zoom-info .cr {
+        border: 2px solid #2DCEE3
+    }
+
+        .checkbox-fade.fade-in-info .cr .cr-icon, .checkbox-fade.zoom-info .cr .cr-icon, .checkbox-zoom.fade-in-info .cr .cr-icon, .checkbox-zoom.zoom-info .cr .cr-icon {
+            color: #2DCEE3
+        }
+
+
+.j-unit .checkbox-fade {
+    display: block;
+    margin-top: 20px
+}
+
+
+#styleSelector .checkbox-fade label {
+    margin-bottom: 0.8rem
+}
+
+
+.search-api .checkbox-fade {
+    display: block;
+    text-align: center
+}
+
+
+.job-right-header .checkbox-fade {
+    display: block
+}
+
+    .job-right-header .checkbox-fade label {
+        position: absolute;
+        z-index: 99
+    }
+
+    .job-right-header .checkbox-fade div {
+        position: relative;
+        padding-left: 40px;
+        margin-bottom: 20px
+    }
+
+
+.table-card .card-block {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0
+}
+
+    .table-card .card-block .table > thead > tr > th {
+        border-top: 0
+    }
+
+    .table-card .card-block .table .chk-option {
+        vertical-align: middle;
+        width: 30px;
+        display: inline-block
+    }
+
+        .table-card .card-block .table .chk-option .checkbox-fade, .table-card .card-block .table .chk-option .checkbox-fade .cr, .table-card .card-block .table .chk-option .checkbox-zoom, .table-card .card-block .table .chk-option .checkbox-zoom .cr {
+            margin-right: 0
+        }
+
+    .table-card .card-block .table label {
+        margin-bottom: 0
+    }
+
+    .table-card .card-block .table tr td:first-child, .table-card .card-block .table tr th:first-child {
+        padding-left: 20px
+    }
+
+    .table-card .card-block .table tr td:last-child, .table-card .card-block .table tr th:last-child {
+        padding-right: 20px
+    }
+
+.to-do-label .checkbox-fade {
+    display: block
+}
+
+    .to-do-label .checkbox-fade .delete_todo {
+        float: right;
+        font-size: 24px;
+        color: #ccc
+    }
+
