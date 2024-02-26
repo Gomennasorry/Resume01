@@ -120,6 +120,37 @@
 			display: none;
 		}
 
+		/* Custom DataTable Styles */
+		.dataTables_wrapper {
+			font-family: Arial, sans-serif;
+			font-size: 14px;
+		}
+
+		table.dataTable thead th {
+			background-color: #f2f2f2;
+			border: 1px solid #ddd;
+		}
+
+		table.dataTable tbody td {
+			border: 1px solid #ddd;
+		}
+
+		table.dataTable tbody tr:nth-child(even) {
+			background-color: #f9f9f9;
+		}
+
+		table.dataTable.no-footer {
+			border-bottom: 0;
+		}
+
+		.dataTables_paginate {
+			margin-top: 10px;
+		}
+
+		.dataTables_filter label {
+			margin-right: 10px;
+		}
+
 	</style>
 }
 
@@ -198,7 +229,7 @@
 						<div class="row mt-1">
 							<div><label for="selectSurveyTime1" class="fontlbl d-block" id="lblSurveyTime1">เวลาให้เข้าสำรวจ <span class="red-color fontlbl">*</span></label></div>
 							<div>
-								<select name="Survey Time1" id="selectSurveyTime1" class="w-100 d-block">
+								<select name="Survey Time1" id="selectSurveyTime1" class="w-100 d-block select2">
 									<option value="">--- เลือก ---</option>
 									<option value="mornning">เช้า</option>
 									<option value="noon">เที่ยง</option>
@@ -229,7 +260,7 @@
 						<div class="row mt-1">
 							<div><label for="selectProvince1" class="fontlbl d-block" id="lblProvince1">จังหวัด <span class="red-color fontlbl">*</span></label></div>
 							<div>
-								<select name="selectProvince1" id="selectProvince1" class="w-100 d-block">
+								<select name="selectProvince1" id="selectProvince1" class="w-100 d-block select2">
 									<option value="">--- เลือก ---</option>
 									<option value="bangkok">กรุงเทพฯ</option>
 									<option value="chiang_mai">เชียงใหม่</option>
@@ -287,7 +318,7 @@
 						<div class="row mt-1">
 							<div><label for="selectDealerShop1" class="fontlbl d-block" id="lblDealerShop1">ร้านผู้แทนจำหน่าย <span class="red-color fontlbl">*</span></label></div>
 							<div>
-								<select name="Dealer shop1" id="selectDealerShop1" class="w-100 d-block">
+								<select name="Dealer shop1" id="selectDealerShop1" class="w-100 d-block select2">
 									<option value="">--- เลือก ---</option>
 									<option value="seven_eleven">เซเว่น อีเลฟเว่น</option>
 									<option value="lotus">โลตัส</option>
@@ -324,7 +355,7 @@
 						<div class="row mt-1">
 							<div><label for="selectBranch1" class="fontlbl d-block" id="lblBranch1">สาขา <span class="red-color fontlbl">*</span></label></div>
 							<div>
-								<select name="selectBranch1" id="selectBranch1" class="w-100 d-block">
+								<select name="selectBranch1" id="selectBranch1" class="w-100 d-block select2">
 									<option value="headquater">สำนักงานใหญ่</option>
 									<option value="branch1">สาขา1</option>
 									<option value="branch2">สาขา2</option>
@@ -371,16 +402,16 @@
 	</div>
 	<div class="row my-3 btm-div">
 		<div class="px-0">
-			<button class="button-size float-end submit-button text-light" id="btnSubmit1" onclick="clickToCopyTwo()">บันทึก</button>
+			<button class="button-size float-end submit-button text-light" id="btnSubmit1" onclick="addInfoAndBinding()">บันทึก</button>
 			<button class="button-size float-end me-2" id="btnCancel1">ยกเลิก</button>
 		</div>
 	</div>
-	<div class="row" id="divTable">
+	<div class="row hidden" id="divTable">
 		<div class="col-sm-12">
 			<div class="container mt-3">
 				<div class="card">
 					<div class="card-body">
-						<table id="tblStudent" class="table table-student w-100 display">
+						<table id="tblInfo" class="table table-student w-100 display">
 							<thead id="tblHeader">
 								<tr>
 									<th>ลำดับ</th>
@@ -674,6 +705,35 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+	@*popup*@
+	<script src="~/lib/sweetalert2/js/sweetalert2.min.js"></script>
+
+	@*dropdown beautiful tool*@
+	<script src="~/lib/select2/js/select2.full.js"></script>
+
+	@*create barcode*@
+	<script src="~/lib/JsBarcode/JsBarcode.code128.min.js"></script>
+
+	@*qr code*@
+	<script src="~/lib/html5-qrcode/qrcode.min.js"></script>
+
+	@*datetimePicker calendar*@
+	<script src="~/lib/datetimepicker/js/jquery.datetimepicker.full.js"></script>
+
+
+	@*datatable*@
+	<script src="~/lib/datatables/js/jquery.dataTables.js"></script>
+	@*<script src="~/lib/datatables/js/dataTables.bootstrap.js"></script>*@
+
+	@*click to print from data table*@
+	<script src="~/lib/datatables/buttons/js/dataTables.buttons.js"></script>
+	<script src="~/lib/datatables/buttons/js/buttons.bootstrap.js"></script>
+	<script src="~/lib/datatables/buttons/js/buttons.flash.js"></script>
+	<script src="~/lib/datatables/buttons/js/buttons.html5.js"></script>
+	<script src="~/lib/datatables/buttons/js/buttons.print.js"></script>
+	<script src="~/lib/datatables/buttons/js/jszip.js"></script>
 	<script type="text/javascript">
 
 		//$(document).ready(function () {
@@ -809,7 +869,111 @@
 			$("#conBtm").hide();
 		});
 
-		
+		var InfoList = []; //ObjectList
+
+		$(document).ready(function () { //โหลด HTML เสร็จแล้วทำ Function;
+
+			$("#txtSurveyDate1").datetimepicker({ //เรียกไอดี txtStudentFr
+				mask: true, //หน้ากากทำตาม Format ของ datetimepicker
+				autoClose: true, //กดคลิกนอกกรอบจะปิดให้เอง
+				step: 1, //เพิ่มขึ้นทีละ 1 นาที
+				format: 'd/m/Y', //Format ของ datetimepicker Y-m-d ตั้งค่าเองได้
+				formatDate: 'd/m/Y', //ควรตั้งให้เหมือนกัน
+				scrollInput: false, //Scroll mouse
+				timepicker: false, //เปิดเวลาใน datetimepicker
+				value: moment().format("DD/MM/YYYY"), //moment library เวลาปัจจุบัน, subtarct ลบ 3 วันจากวันนี้
+			});
+
+			$(".select2").select2(); //ใช้เรียก library select2 จัด dropdown
+		});
+
+		function addInfoAndBinding() { //funcction เพิ่มนักเรียน
+			debugger
+
+			Swal.fire({ //switch alert, popup
+				title: "Do you want to save the changes?", //ชื่อเรื่อง
+				//showDenyButton: true,
+				showCancelButton: true, //โชว์ปุ่ม cancel
+				confirmButtonText: "Save", //คำพูดในปุ่ม confirmButton
+				//denyButtonText: `Don't save`
+			}).then((result) => { //หลังจากกดปุ่ม
+				/* Read more about isConfirmed, isDenied below */
+				if (result.isConfirmed) { //ถ้ากดปุ่ม comfirm
+
+					var InfoObject = { //สร้างตัวแปร object
+						LegalEntity: $("#txtLegalEntity1").val(),
+						Name: $("#txtContact1").val(),
+						PhoneNumber: $("#txtTelePhone1").val(),
+						Email: $("#txtEmail1").val(),
+						LineID: $("#txtLineId1").val(),
+						SurveyDate: moment($("#txtStudentFr").val(), 'DD/MM/YYYY').format('DD/MM/YYYY'),
+						SurveyTime: $('#selectSurveyTime1 option:selected').text(),
+						SpaceSize: $("#txtSpaceSize1").val(),
+					}
+					debugger
+					InfoList.push(InfoObject); //ใส่ object ใน objectlist
+
+					$("#divTable").show();
+
+					bindingOrder(InfoList);
+
+				} else if (result.isDenied) {
+					Swal.fire("Changes are not saved", "", "info");
+				}
+			});
+
+		}
+
+		function bindingOrder(dataList) { //รับ parameter จาก studentList
+			var table = $("#tblInfo").DataTable({ //select id
+				data: dataList, //เอา parameter มาเก็บใน data
+				processing: true,
+				destroy: true, //สร้างซ้ำได้
+				scrollX: true, //เลื่อนแนวนอน
+				searching: true, //filter ของ library
+				order: [[1, "desc"]], //desc เรียงจากมากไปน้อย, asc เรียงจากน้อยไปมาก, 1 = name, 2 = age, 0 = row
+				columns: [ //จำนวน columns ต้องตรงกับจำนวน tableHead และอย่าลืม tableBody
+					{ //0
+						data: null, className: "text-center", orderable: true, //data = null ไม่โชว์, classname ใส่ class, orderable เปิดการเรียงลำดับ
+						render: function (data, type, full, meta) { //type, full = data ทั้งหมด, meta เป็น default
+							debugger
+							return meta.row + 1;
+						}
+					},//ตัวหนังสือชิดซ้าย ex.name, ตัวเลขชิดขวา ex.age, format เหมือนกันชิดกลาง ex.date, status
+					{ data: "LegalEntity", className: "text-left" }, //1
+					{ data: "Name", className: "text-left" }, //3
+					{ data: "PhoneNumber", className: "text-center" },
+					{ data: "Email", className: "text-left" },
+					{ data: "LineID", className: "text-left" },
+					{ //7
+						data: null, className: "text-center ", orderData: [7],
+						render: function (data, type, full, meta) {
+							var date = "";
+							if (data.SurveyDate != "" && data.SurveyDate != null) {
+								date = moment(data.SurveyDate).format('DD/MM/YYYY h:mm');
+							}
+							return date;
+						}
+					},
+					{ data: "SurveyDate", className: "", visible: false }, //8
+					{ //4
+						data: "SurveyTime", className: "text-center", orderable: false,
+						render: function (data, type, full, meta) {
+							var html = "<label class='col-form-label'>" + data + "</label>";
+							return html;
+						}
+					},
+					{ data: "SpaceSize", className: "text-right" },
+				],
+			});
+
+			Swal.fire({
+				title: "Good job!",
+				text: "You clicked the button!",
+				icon: "success",
+				timer: 3000
+			});
+		}
 
 	</script>
 }
