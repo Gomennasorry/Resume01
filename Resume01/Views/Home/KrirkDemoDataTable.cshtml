@@ -63,6 +63,10 @@
             z-index: 999999999;
         }
 
+		.abcdClass {
+            color: red !important;
+		}
+
     </style>
 
 }
@@ -240,26 +244,29 @@
 
     <script type="text/javascript">
 
-        var studentList = [];
+        var studentList = []; //ObjectList
 
-        $(document).ready(function () {
+        $(document).ready(function () { //โหลด HTML เสร็จแล้วทำ Function;
 
-            $("#txtStudentFr").datetimepicker({
-                mask: true,
-                autoClose: true,
-                step: 1,
-                format: 'd/m/Y',
-                formatDate: 'd/m/Y',
-                scrollInput: false,
-                onShow: function (ct) {
-                    this.setOptions({
-                        maxDate: $('#txtStudentTo').val() ? $('#txtStudentTo').val() : false
+            $("#txtStudentFr").datetimepicker({ //เรียกไอดี txtStudentFr
+                mask: true, //หน้ากากทำตาม Format ของ datetimepicker
+                autoClose: true, //กดคลิกนอกกรอบจะปิดให้เอง
+                step: 1, //เพิ่มขึ้นทีละ 1 นาที
+                format: 'd/m/Y', //Format ของ datetimepicker Y-m-d ตั้งค่าเองได้
+                formatDate: 'd/m/Y', //ควรตั้งให้เหมือนกัน
+                scrollInput: false, //Scroll mouse
+                onShow: function (ct) { //เมื่อเปิดหน้าต่าง ทำตามคำสั่งข้างใน
+                    this.setOptions({ //ตั่งค่า
+                        maxDate: $('#txtStudentTo').val() ? $('#txtStudentTo').val() : false //วันที่มากที่สุด ? = function if else
+                        //var word = (a > b) ? true : false;
+                        //var word = (a > b) ? "hello" : "world";
+                        //var word = (a) ?? "hello"; ถ้า a มีค่าใส่ค่า a ถ้าเป็น null ใส่ค่า hello
                     })
                 },
-                timepicker: false,
-                value: moment().subtract(3, "days").format("DD/MM/YYYY"),
+                timepicker: false, //เปิดเวลาใน datetimepicker
+                value: moment().subtract(3, "days").format("DD/MM/YYYY"), //moment library เวลาปัจจุบัน, subtarct ลบ 3 วันจากวันนี้
             });
-            $("#txtStudentTo").datetimepicker({
+			$("#txtStudentTo").datetimepicker({ //เรียกไอดี txtStudentTo
                 mask: true,
                 autoClose: true,
                 step: 1,
@@ -275,24 +282,24 @@
                 value: moment().format("DD/MM/YYYY"),
             });
 
-            $(".select2").select2();
+            $(".select2").select2(); //ใช้เรียก library select2 จัด dropdown
         });
 
-        function addStudentAndBinding() {
+        function addStudentAndBinding() { //funcction เพิ่มนักเรียน
             debugger
             //var d = $('#txtStudentFr').datetimepicker('getValue');
 
-            Swal.fire({
-                title: "Do you want to save the changes?",
+            Swal.fire({ //switch alert, popup
+                title: "Do you want to save the changes?", //ชื่อเรื่อง
                 //showDenyButton: true,
-                showCancelButton: true,
-                confirmButtonText: "Save",
-                //denyButtonText: `Don't save`
-            }).then((result) => {
+                showCancelButton: true, //โชว์ปุ่ม cancel
+                confirmButtonText: "Save", //คำพูดในปุ่ม confirmButton
+                //denyButtonText: `Don't save` 
+            }).then((result) => { //หลังจากกดปุ่ม
                 /* Read more about isConfirmed, isDenied below */
-                if (result.isConfirmed) {
+                if (result.isConfirmed) { //ถ้ากดปุ่ม comfirm
 
-                    var currentDateTimeUTC = moment().utc();
+                    var currentDateTimeUTC = moment().utc(); //เวลาปัจจุบันแล้วใช้ timezone UTC
 
                     // Add 7 hours to adjust to UTC+7
                     var currentDateTimeUTC7 = currentDateTimeUTC.add(7, 'hours');
@@ -300,20 +307,27 @@
                     // Format the date and time
                     var currentDateTimeUTC7FormattedForSQL = currentDateTimeUTC7.format('YYYY-MM-DD h:mm');
 
-                    var studentObject = {
-                        Name: $("#txtName").val(),
+                    var studentObject = { //สร้างตัวแปร object
+                        Name: $("#txtName").val(), //select ค่าของ html มาเก็บใน name
+                        Name2: document.getElementById("txtName").value,
                         Age: $("#txtAge").val(),
-                        Gender: $('input[type=radio][name=gender]:checked').val(),
+                        Gender: $('input[type=radio][name=gender]:checked').val(), //checked radio
                         //Room: $("#ddlRoom").val(),
-                        Room: $('#ddlRoom option:selected').text(),
-                        Status: $('#chkVIP').is(':checked'),
+                        Room: $('#ddlRoom option:selected').text(), //dropdown slected
+                        Status: $('#chkVIP').is(':checked'), //เป็นการ checked อีกวิธี
                         Description: $("#txtDescription").val(),
                         StudentFr: moment($("#txtStudentFr").val(), 'DD/MM/YYYY').format('YYYY-MM-DD'),
+                        //moment("10-12-2000", "DD-MM-YYYY").format("MM-DD-YYYY") = 12-10-2000
                         StudentTo: moment($("#txtStudentTo").val(), 'DD/MM/YYYY').format('YYYY-MM-DD'),
-                        CreatedDate: currentDateTimeUTC7FormattedForSQL
+                        CreatedDate: currentDateTimeUTC7FormattedForSQL,
+                        CreatedDate2: "วันนี้"
+                        //Goddate: "2024-02-25"
+                        //Fatherday: "monday"
+                        //FavoriteColor: "blue"
 
                     }
-                    studentList.push(studentObject);
+                    debugger
+                    studentList.push(studentObject); //ใส่ object ใน objectlist
 
                     $("#divTable").show();
 
@@ -326,19 +340,19 @@
 
         }
 
-        function bindingOrder(dataList) {
-            var table = $("#tblStudent").DataTable({
-                data: dataList,
+        function bindingOrder(dataList) { //รับ parameter จาก studentList
+            var table = $("#tblStudent").DataTable({ //select id 
+                data: dataList, //เอา parameter มาเก็บใน data
                 processing: true,
-                destroy: true,
-                scrollX: true,
+                destroy: true, //สร้างซ้ำได้
+                scrollX: true, //เลื่อนแนวนอน
                 //scrollCollapse: true,
-                searching: true,
-                order: [[1, "desc"]],
-                //lengthChange: true,
-                //dom: "t" +
+                searching: true, //filter ของ library
+                order: [[1, "desc"]], //desc เรียงจากมากไปน้อย, asc เรียงจากน้อยไปมาก, 1 = name, 2 = age, 0 = row
+                //lengthChange: true, show จำนวนนักเรียนที่เพิ่มเข้าไปตามจำนวนที่เลือก
+                //dom: "t" + //dom จัดรูป
                 //    "<'row'<'col-sm-6 col-md length-change'l><'col-sm-6 col-md info-table'i><'col-sm-12 col-md paging-table'p>>",
-                //buttons: [
+                //buttons: [ //หานอกรอบ dataTable print excel
                 //    {
                 //        text: '<i class="fa fa-download"></i>',
                 //        extend: 'excel', className: 'btn btn-outline-primary btn-excel',
@@ -347,39 +361,39 @@
                 //        }
                 //    }
                 //],
-                columns: [
-                    {
-                        data: null, className: "text-center", orderable: false,
-                        render: function (data, type, full, meta) {
+				columns: [ //จำนวน columns ต้องตรงกับจำนวน tableHead และอย่าลืม tableBody
+                    { //0
+                        data: null, className: "text-center abcdClass", orderable: true, //data = null ไม่โชว์, classname ใส่ class, orderable เปิดการเรียงลำดับ
+                        render: function (data, type, full, meta) { //type, full = data ทั้งหมด, meta เป็น default
                             debugger
                             return meta.row + 1;
                         }
                     },
-                    { data: "Name", className: "text-left" },
-                    {
-                        data: null, className: "", visible: false,
+                    { data: "Name", className: "text-left" }, //1
+                    { //2
+                        data: null, className: "", visible: true, //ตัวหนังสือชิดซ้าย ex.name, ตัวเลขชิดขวา ex.age, format เหมือนกันชิดกลาง ex.date, status
                         render: function (data, type, full, meta) {
                             var thisAge = data.Age;
                             return thisAge;
                         }
                     },
-                    { data: "Gender", className: "text-left" },
+                    { data: "Gender", className: "text-left" }, //3
 
-                    {
+                    { //4
                         data: "Room", className: "text-center", orderable: false,
                         render: function (data, type, full, meta) {
                             var html = "<label class='col-form-label'>" + data + "</label>";
                             return html;
                         }
                     },
-                    {
+                    { //5
                         data: null, className: "text-center", orderable: false,
                         render: function (data, type, full, meta) {
                             var html = "<label class='col-form-label'>" + data.Status + "</label>";
                             return html;
                         }
                     },
-                    {
+                    { //6
                         data: null, className: "text-center", orderable: false,
                         render: function (data, type, full, meta) {
                             var html = `<label class='col-form-label'>${data.Description}</label>`;
@@ -387,7 +401,7 @@
                         }
                     },
 
-                    {
+                    { //7
                         data: null, className: "text-center ", orderData: [8],
                         render: function (data, type, full, meta) {
                             var date = "";
@@ -397,9 +411,9 @@
                             return date;
                         }
                     },
-                    { data: "StudentFr", className: "", visible: false },
+                    { data: "StudentFr", className: "", visible: false }, //8
 
-                    {
+                    { //9
                         data: null, className: "text-center ", orderData: [10],
                         render: function (data, type, full, meta) {
                             var date = "";
@@ -409,8 +423,8 @@
                             return date;
                         }
                     },
-                    { data: "StudentTo", className: "", visible: false },
-                    {
+                    { data: "StudentTo", className: "", visible: false }, //10
+                    { //11
                         data: null, className: "text-center ", orderData: [12],
                         render: function (data, type, full, meta) {
                             var date = "";
@@ -420,7 +434,7 @@
                             return date;
                         }
                     },
-                    { data: "CreatedDate", className: "", visible: false },
+                    { data: "CreatedDate", className: "", visible: false }, //12
                 ],
             });
             //$("#btnExport button").remove();

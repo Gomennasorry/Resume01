@@ -1,0 +1,815 @@
+﻿@*
+	For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@section Styles {
+	<style type="text/css">
+
+		body {
+			font-family: Arial !important;
+			/*background-color: #f6f2f2;*/
+		}
+
+		.con-box {
+			border-radius: 5px;
+			background-color: #f3efef;
+			padding-top: 12px;
+			padding-bottom: 12px;
+			border: 1px solid #dad6d6;
+		}
+
+		.head-fontlbl {
+			color: #ff6a00;
+			font-size: 15px;
+		}
+
+		.fontlbl {
+			font-size: 12px;
+		}
+
+		.button-size {
+			width: 70px;
+			height: 35px;
+			font-size: 12px;
+			border-radius: 3px;
+			border: 1px solid;
+		}
+
+		.submit-button {
+			background-color: #0a941c;
+			border: 1px solid #0b8b1b;
+		}
+
+		.custom-div-col {
+			border-radius: 3px;
+			background-color: white;
+			height: 100%;
+		}
+
+		.number-lbl {
+			border-radius: 50%;
+			background-color: #f46500;
+			width: 30px;
+			height: auto;
+		}
+
+		.orange-color {
+			color: #f46500;
+		}
+
+		.red-color {
+			color: red;
+		}
+
+		.hr-custom {
+		}
+
+		.hr-div {
+			padding: 0px 12px 0px 12px;
+			height: 5px;
+		}
+
+		.input-div {
+			width: 100%;
+		}
+
+		#legalEntity2 {
+			width: 100%;
+		}
+
+		.btn {
+			width: 105px;
+		}
+
+		.bg-custom {
+			background-color: #3D6CCA;
+			border-radius: 5px;
+		}
+
+		.btm-div {
+			padding: 0px 12px 0px 12px;
+		}
+
+		select {
+			height: 29.2px;
+			border-radius: 3px;
+			border: 1px solid #F1F1F1;
+		}
+
+		input[type="date"] {
+			height: 29.2px;
+			border: 1px solid #F1F1F1;
+		}
+
+		input[type="text"] {
+			border-radius: 3px;
+			border: 1px solid #F1F1F1;
+		}
+
+		textarea {
+			border-radius: 3px;
+			border: 1px solid #F1F1F1;
+		}
+
+		.col {
+			max-height: 100% !important;
+		}
+
+		.hidden {
+			display: none;
+		}
+
+	</style>
+}
+
+<div class="container px-4">
+	<div class="row">
+		<div class="col">
+			<div class="custom-div-col shadow pt-4 pb-5 px-3">
+				<div class="row"><div><label class="fs-5 number-lbl text-center text-light" id="lblHeaderOne1">1</label><label class="fs-5 fw-bold orange-color ms-2" id="lblCustomerInformation1">ข้อมูลลูกค้า</label></div><div class="hr-div"><hr class="hr-custom mt-1" /></div></div>
+				<div class="row mt-2">
+					<div class="col-3"><div class="row"><label class="" id="lblRegisterOnBehalf1">ลงทะเบียนในนาม</label></div></div>
+					<div class="col-3">
+						<div>
+							<input type="radio" id="rdoLegalEntity1" name="radio_check1" value="นิติบุคคล" />
+							<label for="rdoLegalEntity1" class="px-2" id="lblLegalEntity1">นิติบุคคล</label>
+						</div>
+					</div>
+					<div class="col-3">
+						<div>
+							<input type="radio" id="rdoIndividual1" name="radio_check1" value="บุคคลธรรมดา" />
+							<label for="rdoIndividual1" class="px-2" id="lblIndividual1">บุคคลธรรมดา</label>
+						</div>
+					</div>
+				</div>
+				<div class="row mt-1">
+					<div class="col-9">
+						<div class="row mt-1">
+							<label for="txtLegalEntity1" class="fontlbl" id="lblLegalEntity1-2">นิติบุคคล <span class="red-color fontlbl">*</span></label>
+							<div class="input-div"><input type="text" class="w-100" id="txtLegalEntity1" /></div>
+						</div>
+					</div>
+					<div class="col-3 d-flex align-items-center justify-content-center">
+						<div class="row">
+							<div class="pt-4">
+								<input type="checkbox" id="chkVip1" name="checkBox1" value="ลูกค้า VIP" />
+								<label for="chkVip1" class="px-2" id="lblVip1">ลูกค้า VIP</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row mt-1">
+					<div class="col-6">
+						<div class="row mt-1">
+							<label for="txtContact1" class="fontlbl" id="lblContact1">ชื่อผู้ติดต่อ <span class="red-color fontlbl">*</span></label>
+							<div class="input-div"><input type="text" id="txtContact1" class="w-100" /></div>
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="row mt-1">
+							<label for="txtTelePhone1" class="fontlbl" id="lblTelephone1">เบอร์โทรศัพท์ <span class="red-color fontlbl">*</span></label>
+							<div class="input-div"><input type="text" id="txtTelePhone1" class="w-100" /></div>
+						</div>
+					</div>
+				</div>
+				<div class="row mt-1">
+					<div class="col-6">
+						<div class="row mt-1">
+							<label for="txtEmail1" class="fontlbl" id="lblEmail1">Email <span class="red-color fontlbl">*</span></label>
+							<div class="input-div"><input type="text" id="txtEmail1" class="w-100" /></div>
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="row mt-1">
+							<label for="txtLineId1" class="fontlbl" id="lblLineId1">Line ID</label>
+							<div class="input-div"><input type="text" id="txtLineId1" class="w-100" /></div>
+						</div>
+					</div>
+				</div>
+				<div class="row mt-1">
+					<div class="col-4">
+						<div class="row mt-1">
+							<label for="txtSurveyDate1" class="fontlbl" id="lblSurveyDate1">วันที่ให้เข้าสำรวจ <span class="red-color fontlbl">*</span></label>
+							<div><input type="date" id="txtSurveyDate1" class="form-control"></div>
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="row mt-1">
+							<div><label for="selectSurveyTime1" class="fontlbl d-block" id="lblSurveyTime1">เวลาให้เข้าสำรวจ <span class="red-color fontlbl">*</span></label></div>
+							<div>
+								<select name="Survey Time1" id="selectSurveyTime1" class="w-100 d-block">
+									<option value="">--- เลือก ---</option>
+									<option value="mornning">เช้า</option>
+									<option value="noon">เที่ยง</option>
+									<option value="afterNoon">บ่าย</option>
+									<option value="evenning">เย็น</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="row mt-1">
+							<label for="txtSpaceSize1" class="fontlbl" id="lblSpaceSize1">ขนาดพื้นที่(ตร.ม.) <span class="red-color fontlbl">*</span></label>
+							<div class="input-div"><input type="text" id="txtSpaceSize1" class="w-100" /></div>
+						</div>
+					</div>
+				</div>
+				<div class="row mt-4"><div><label class="fs-5 number-lbl text-center text-light" id="lblHeaderTwo1">2</label><label class="fs-5 fw-bold orange-color ms-2" id="lblAddress1">ข้อมูลที่อยู่</label></div><div class="hr-div"><hr class="hr-custom mt-1" /></div></div>
+				<div class="row mt-2">
+					<div class="col-12">
+						<div class="row mt-1">
+							<label for="txtAddressSurvey1" class="fontlbl" id="lblAddressSurvey1">ที่อยู่ที่ต้องการให้สำรวจ <span class="red-color fontlbl">*</span></label>
+							<div class="input-div"><textarea class="w-100 text-area" id="txtAddressSurvey1"></textarea></div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-3">
+						<div class="row mt-1">
+							<div><label for="selectProvince1" class="fontlbl d-block" id="lblProvince1">จังหวัด <span class="red-color fontlbl">*</span></label></div>
+							<div>
+								<select name="selectProvince1" id="selectProvince1" class="w-100 d-block">
+									<option value="">--- เลือก ---</option>
+									<option value="bangkok">กรุงเทพฯ</option>
+									<option value="chiang_mai">เชียงใหม่</option>
+									<option value="chiang_rai">เชียงราย</option>
+									<option value="nakhon_nayok">นครนายก</option>
+									<option value="nakhon_sawan">นครสวรรค์</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="col-3">
+						<div class="row mt-1">
+							<label for="txtDistrict1" class="fontlbl" id="lblDistrict1">อำเภอ / เขต <span class="red-color fontlbl">*</span></label>
+							<div class="input-div"><input type="text" id="txtDistrict1" class="w-100" disabled /></div>
+						</div>
+					</div>
+					<div class="col-3">
+						<div class="row mt-1">
+							<label for="txtSubdistrict1" class="fontlbl" id="lblSubdistrict1">ตำบล / แขวง <span class="red-color fontlbl">*</span></label>
+							<div class="input-div"><input type="text" id="txtSubdistrict1" class="w-100" disabled /></div>
+						</div>
+					</div>
+					<div class="col-3">
+						<div class="row mt-1">
+							<label for="txtZipCode1" class="fontlbl" id="lblZipCode1">รหัสไปรษณีย์ <span class="red-color fontlbl">*</span></label>
+							<div class="input-div"><input type="text" id="txtZipCode1" class="w-100" /></div>
+						</div>
+					</div>
+				</div>
+				<div class="row mt-1">
+					<label for="txtLink1" class="fontlbl" id="lblLink2">Link จาก Google Map เพื่อพิกัดที่แม่นยำ</label>
+					<div class="input-div"><input type="text" id="txtLink1" class="w-100" /></div>
+				</div>
+			</div>
+		</div>
+		<div class="col">
+			<div class="custom-div-col shadow pt-4 pb-5 px-3">
+				<div class="row"><div class="row"><div><label class="fs-5 number-lbl text-center text-light" id="lblHeaderThree1">3</label><label class="fs-5 fw-bold orange-color ms-2" id="lblSellerInformation1">ข้อมูลผู้ขาย</label></div><div class="hr-div"><hr class="hr-custom mt-1" /></div></div></div>
+				<div class="row mt-2">
+					<div class="col-6">
+						<div class="row mt-1">
+							<label for="txtFullName1" class="fontlbl" id="lblFullName1">ชื่อ-นามสกุล <span class="red-color fontlbl">*</span></label>
+							<div class="input-div"><input type="text" id="txtFullName1" class="w-100" /></div>
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="row mt-1">
+							<label for="txtTelePhone1-2" class="fontlbl" id="lblTelePhone1-2">เบอร์โทรศัพท์ <span class="red-color fontlbl">*</span></label>
+							<div class="input-div"><input type="text" id="txtTelePhone1-2" class="w-100" /></div>
+						</div>
+					</div>
+				</div>
+				<div class="row mt-1">
+					<div class="col-6">
+						<div class="row mt-1">
+							<div><label for="selectDealerShop1" class="fontlbl d-block" id="lblDealerShop1">ร้านผู้แทนจำหน่าย <span class="red-color fontlbl">*</span></label></div>
+							<div>
+								<select name="Dealer shop1" id="selectDealerShop1" class="w-100 d-block">
+									<option value="">--- เลือก ---</option>
+									<option value="seven_eleven">เซเว่น อีเลฟเว่น</option>
+									<option value="lotus">โลตัส</option>
+									<option value="big_c">บิ๊กซี</option>
+									<option value="family_mart">แฟมิลี่มาร์ท</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="row mt-1">
+							<label for="txtCoupon1" class="fontlbl" id="lblCoupon1">คูปองส่วนลด</label>
+							<div class="input-div"><input type="text" id="txtCoupon1" class="w-100" /></div>
+						</div>
+					</div>
+				</div>
+				<div class="row mt-4"><div><label class="fs-5 number-lbl text-center text-light" id="lblHeaderFour1">4</label><label class="fs-5 fw-bold orange-color ms-2" id="lblTaxInvoiceInformation1">ข้อมูลใบกำกับภาษี</label></div><div class="hr-div"><hr class="hr-custom mt-1" /></div></div>
+				<div class="row mt-2">
+					<div class="col-12">
+						<div>
+							<input type="checkbox" id="chkTaxInvoice1" name="checkBox1-2" value="ต้องการใบกำกับภาษี" />
+							<label for="chkTaxInvoice1" class="px-2" id="lblTaxInvoice1">ต้องการใบกำกับภาษี</label>
+						</div>
+					</div>
+				</div>
+				<div class="row mt-1">
+					<div class="col-8">
+						<div class="row mt-1">
+							<label for="txtTaxInvoiceName1" class="fontlbl" id="lblTaxInvoiceName1">ชื่อในใบกำกับภาษี <span class="red-color fontlbl">*</span></label>
+							<div class="input-div"><input type="text" id="txtTaxInvoiceName1" class="w-100" /></div>
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="row mt-1">
+							<div><label for="selectBranch1" class="fontlbl d-block" id="lblBranch1">สาขา <span class="red-color fontlbl">*</span></label></div>
+							<div>
+								<select name="selectBranch1" id="selectBranch1" class="w-100 d-block">
+									<option value="headquater">สำนักงานใหญ่</option>
+									<option value="branch1">สาขา1</option>
+									<option value="branch2">สาขา2</option>
+									<option value="branch3">สาขา3</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row mt-1">
+					<div class="col-8">
+						<div class="row mt-1">
+							<label for="txtTaxIdentificationNumber1" class="fontlbl" id="lblTaxIdentificationNumber1">เลขประจำตัวผู้เสียภาษี <span class="red-color fontlbl">*</span></label>
+							<div class="input-div"><input type="text" id="txtTaxIdentificationNumber1" class="w-100" /></div>
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="row mt-1">
+							<label for="txtBranchCode1" class="fontlbl" id="lblBranchCode1">รหัสสาขา <span class="red-color fontlbl">*</span></label>
+							<div class="input-div"><input type="text" id="txtBranchCode1" class="w-100" placeholder="0000" disabled /></div>
+						</div>
+					</div>
+				</div>
+				<div class="row mt-2">
+					<div class="col-12">
+						<div class="row mt-1">
+							<div class="d-inline">
+								<input type="checkbox" id="chkInvoiceIssuingAddress1" name="checkBox1-3" value="ที่อยู่ออกใบกำกับ ใช้ที่อยู่เดียวกันกับสถานที่เข้าสำรวจ" />
+								<label for="chkInvoiceIssuingAddress1" class="px-2" id="lblInvoiceIssuingAddress1">ที่อยู่ออกใบกำกับ ใช้ที่อยู่เดียวกันกับสถานที่เข้าสำรวจ</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row mt-2">
+					<div class="col-6">
+						<div class="row"><label id="lblFile1">ไฟล์แนบ</label></div>
+					</div>
+					<div class="col-6">
+						<div class="row"><button class="btn btn-primary text-start pe-0" id="btnUpload1">Upload<div class="ps-2 d-inline"><i class="bi bi-upload bg-custom p-2"></i></div></button></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row my-3 btm-div">
+		<div class="px-0">
+			<button class="button-size float-end submit-button text-light" id="btnSubmit1" onclick="clickToCopyTwo()">บันทึก</button>
+			<button class="button-size float-end me-2" id="btnCancel1">ยกเลิก</button>
+		</div>
+	</div>
+	<div class="row" id="divTable">
+		<div class="col-sm-12">
+			<div class="container mt-3">
+				<div class="card">
+					<div class="card-body">
+						<table id="tblStudent" class="table table-student w-100 display">
+							<thead id="tblHeader">
+								<tr>
+									<th>ลำดับ</th>
+									<th>นิติบุคคล</th>
+									<th>ชื่อ</th>
+									<th>เบอร์</th>
+									<th>อีเมล</th>
+									<th>ไลน์</th>
+									<th>วันที่ให้เข้าสำรวจ</th>
+									<th>เวลาให้เข้าสำรวจ</th>
+									<th>ขนาดพื้นที่(ตร.ม.)</th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row btm-div mt-3">
+		<div class="con-box">
+			<div class="row"><label class="head-fontlbl" id="lblCondition1">เงื่อนไข</label></div>
+			<div class="row"><label class="fontlbl" id="lblConditionCompanyTerm1">*เงื่อนไขตามที่บริษัททั้งหมด</label></div>
+		</div>
+	</div>
+</div>
+
+<div class="container px-4" id="conBtm">
+	<div class="row">
+		<div class="col">
+			<div class="custom-div-col shadow pt-4 pb-5 px-3">
+				<div class="row"><div><label class="fs-5 number-lbl text-center text-light" id="lblHeaderOne2">1</label><label class="fs-5 fw-bold orange-color ms-2" id="lblCustomerInformation2">ข้อมูลลูกค้า</label></div><div class="hr-div"><hr class="hr-custom mt-1" /></div></div>
+				<div class="row mt-2">
+					<div class="col-3"><div class="row"><label class="" id="lblRegisterOnBehalf2">ลงทะเบียนในนาม</label></div></div>
+					<div class="col-3">
+						<div>
+							<input type="radio" id="rdoLegalEntity2" name="radio_check2" value="นิติบุคคล" />
+							<label for="rdoLegalEntity2" class="px-2" id="lblLegalEntity2">นิติบุคคล</label>
+						</div>
+					</div>
+					<div class="col-3">
+						<div>
+							<input type="radio" id="rdoIndividual2" name="radio_check2" value="บุคคลธรรมดา" />
+							<label for="rdoIndividual2" class="px-2" id="lblIndividual2">บุคคลธรรมดา</label>
+						</div>
+					</div>
+				</div>
+				<div class="row mt-1">
+					<div class="col-9">
+						<div class="row mt-1">
+							<label for="txtLegalEntity2" class="fontlbl" id="lblLegalEntity2-2">นิติบุคคล <span class="red-color fontlbl">*</span></label>
+							<div class="input-div"><input type="text" id="txtLegalEntity2" value="abc" /></div>
+						</div>
+					</div>
+					<div class="col-3 d-flex align-items-center justify-content-center">
+						<div class="row">
+							<div class="pt-4">
+								<input type="checkbox" id="chkVip2" name="checkBox2" value="ลูกค้า VIP" />
+								<label for="chkVip2" class="px-2" id="lblVip2">ลูกค้า VIP</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row mt-1">
+					<div class="col-6">
+						<div class="row mt-1">
+							<label for="txtContact2" class="fontlbl" id="lblContact2">ชื่อผู้ติดต่อ <span class="red-color fontlbl">*</span></label>
+							<div class="input-div"><input type="text" id="txtContact2" class="w-100" /></div>
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="row mt-1">
+							<label for="txtTelePhone2" class="fontlbl" id="lblTelephone2">เบอร์โทรศัพท์ <span class="red-color fontlbl">*</span></label>
+							<div class="input-div"><input type="text" id="txtTelePhone2" class="w-100" /></div>
+						</div>
+					</div>
+				</div>
+				<div class="row mt-1">
+					<div class="col-6">
+						<div class="row mt-1">
+							<label for="txtEmail2" class="fontlbl" id="lblEmail2">Email <span class="red-color fontlbl">*</span></label>
+							<div class="input-div"><input type="text" id="txtEmail2" class="w-100" /></div>
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="row mt-1">
+							<label for="txtLineId2" class="fontlbl" id="lblLineId2">Line ID</label>
+							<div class="input-div"><input type="text" id="txtLineId2" class="w-100" /></div>
+						</div>
+					</div>
+				</div>
+				<div class="row mt-1">
+					<div class="col-4">
+						<div class="row mt-1">
+							<label for="txtSurveyDate2" class="fontlbl" id="lblSurveyDate2">วันที่ให้เข้าสำรวจ <span class="red-color fontlbl">*</span></label>
+							<div><input type="date" id="txtSurveyDate2" class="form-control" /></div>
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="row mt-1">
+							<div><label for="selectSurveyTime2" class="fontlbl d-block" id="lblSurveyTime2">เวลาให้เข้าสำรวจ <span class="red-color fontlbl">*</span></label></div>
+							<div>
+								<select name="Survey Time2" id="selectSurveyTime2" class="w-100 d-block">
+									<option value="">--- เลือก ---</option>
+									<option value="mornning">เช้า</option>
+									<option value="noon">เที่ยง</option>
+									<option value="afterNoon">บ่าย</option>
+									<option value="evenning">เย็น</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="row mt-1">
+							<label for="txtSpaceSize2" class="fontlbl" id="lblSpaceSize2">ขนาดพื้นที่(ตร.ม.) <span class="red-color fontlbl">*</span></label>
+							<div class="input-div"><input type="text" id="txtSpaceSize2" class="w-100" /></div>
+						</div>
+					</div>
+				</div>
+				<div class="row mt-4"><div><label class="fs-5 number-lbl text-center text-light" id="lblHeaderTwo2">2</label><label class="fs-5 fw-bold orange-color ms-2" id="lblAddress2">ข้อมูลที่อยู่</label></div><div class="hr-div"><hr class="hr-custom mt-1" /></div></div>
+				<div class="row mt-2">
+					<div class="col-12">
+						<div class="row mt-1">
+							<label for="txtAddressSurvey2" class="fontlbl" id="lblAddressSurvey2">ที่อยู่ที่ต้องการให้สำรวจ <span class="red-color fontlbl">*</span></label>
+							<div class="input-div"><textarea class="w-100 text-area" id="txtAddressSurvey2"></textarea></div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-3">
+						<div class="row mt-1">
+							<div><label for="selectProvince2" class="fontlbl d-block" id="lblProvince2">จังหวัด <span class="red-color fontlbl">*</span></label></div>
+							<div>
+								<select name="selectProvince2" id="selectProvince2" class="w-100 d-block">
+									<option value="">--- เลือก ---</option>
+									<option value="bangkok">กรุงเทพฯ</option>
+									<option value="chiang_mai">เชียงใหม่</option>
+									<option value="chiang_rai">เชียงราย</option>
+									<option value="nakhon_nayok">นครนายก</option>
+									<option value="nakhon_sawan">นครสวรรค์</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="col-3">
+						<div class="row mt-1">
+							<label for="txtDistrict2" class="fontlbl" id="lblDistrict2">อำเภอ / เขต <span class="red-color fontlbl">*</span></label>
+							<div class="input-div"><input type="text" id="txtDistrict2" class="w-100" disabled /></div>
+						</div>
+					</div>
+					<div class="col-3">
+						<div class="row mt-1">
+							<label for="txtSubdistrict2" class="fontlbl" id="lblSubdistrict2">ตำบล / แขวง <span class="red-color fontlbl">*</span></label>
+							<div class="input-div"><input type="text" id="txtSubdistrict2" class="w-100" disabled /></div>
+						</div>
+					</div>
+					<div class="col-3">
+						<div class="row mt-1">
+							<label for="txtZipCode2" class="fontlbl" id="lblZipCode2">รหัสไปรษณีย์ <span class="red-color fontlbl">*</span></label>
+							<div class="input-div"><input type="text" id="txtZipCode2" class="w-100" /></div>
+						</div>
+					</div>
+				</div>
+				<div class="row mt-1">
+					<label for="txtLink2" class="fontlbl" id="lblLink2">Link จาก Google Map เพื่อพิกัดที่แม่นยำ</label>
+					<div class="input-div"><input type="text" id="txtLink2" class="w-100" /></div>
+				</div>
+			</div>
+		</div>
+		<div class="col">
+			<div class="custom-div-col shadow pt-4 pb-5 px-3">
+				<div class="row"><div class="row"><div><label class="fs-5 number-lbl text-center text-light" id="lblHeaderThree2">3</label><label class="fs-5 fw-bold orange-color ms-2" id="lblSellerInformation2">ข้อมูลผู้ขาย</label></div><div class="hr-div"><hr class="hr-custom mt-1" /></div></div></div>
+				<div class="row mt-2">
+					<div class="col-6">
+						<div class="row mt-1">
+							<label for="txtFullName2" class="fontlbl" id="lblFullName2">ชื่อ-นามสกุล <span class="red-color fontlbl">*</span></label>
+							<div class="input-div"><input type="text" id="txtFullName2" class="w-100" /></div>
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="row mt-1">
+							<label for="txtTelePhone2-2" class="fontlbl" id="lblTelePhone2-2">เบอร์โทรศัพท์ <span class="red-color fontlbl">*</span></label>
+							<div class="input-div"><input type="text" id="txtTelePhone2-2" class="w-100" /></div>
+						</div>
+					</div>
+				</div>
+				<div class="row mt-1">
+					<div class="col-6">
+						<div class="row mt-1">
+							<div><label for="selectDealerShop2" class="fontlbl d-block" id="lblDealerShop2">ร้านผู้แทนจำหน่าย <span class="red-color fontlbl">*</span></label></div>
+							<div>
+								<select name="Dealer shop2" id="selectDealerShop2" class="w-100 d-block">
+									<option value="">--- เลือก ---</option>
+									<option value="seven_eleven">เซเว่น อีเลฟเว่น</option>
+									<option value="lotus">โลตัส</option>
+									<option value="big_c">บิ๊กซี</option>
+									<option value="family_mart">แฟมิลี่มาร์ท</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="row mt-1">
+							<label for="txtCoupon2" class="fontlbl" id="lblCoupon2">คูปองส่วนลด</label>
+							<div class="input-div"><input type="text" id="txtCoupon2" class="w-100" /></div>
+						</div>
+					</div>
+				</div>
+				<div class="row mt-4"><div><label class="fs-5 number-lbl text-center text-light" id="lblHeaderFour2">4</label><label class="fs-5 fw-bold orange-color ms-2" id="lblTaxInvoiceInformation2">ข้อมูลใบกำกับภาษี</label></div><div class="hr-div"><hr class="hr-custom mt-1" /></div></div>
+				<div class="row mt-2">
+					<div class="col-12">
+						<div>
+							<input type="checkbox" id="chkTaxInvoice2" name="checkBox2-2" value="ต้องการใบกำกับภาษี" />
+							<label for="chkTaxInvoice2" class="px-2" id="lblTaxInvoice2">ต้องการใบกำกับภาษี</label>
+						</div>
+					</div>
+				</div>
+				<div class="row mt-1">
+					<div class="col-8">
+						<div class="row mt-1">
+							<label for="txtTaxInvoiceName2" class="fontlbl" id="lblTaxInvoiceName2">ชื่อในใบกำกับภาษี <span class="red-color fontlbl">*</span></label>
+							<div class="input-div"><input type="text" id="txtTaxInvoiceName2" class="w-100" /></div>
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="row mt-1">
+							<div><label for="selectBranch2" class="fontlbl d-block" id="lblBranch2">สาขา <span class="red-color fontlbl">*</span></label></div>
+							<div>
+								<select name="Branch" id="selectBranch2" class="w-100 d-block">
+									<option value="headquater">สำนักงานใหญ่</option>
+									<option value="branch1">สาขา1</option>
+									<option value="branch2">สาขา2</option>
+									<option value="branch3">สาขา3</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row mt-1">
+					<div class="col-8">
+						<div class="row mt-1">
+							<label for="txtTaxIdentificationNumber2" class="fontlbl" id="lblTaxIdentificationNumber2">เลขประจำตัวผู้เสียภาษี <span class="red-color fontlbl">*</span></label>
+							<div class="input-div"><input type="text" id="txtTaxIdentificationNumber2" class="w-100" /></div>
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="row mt-1">
+							<label for="txtBranchCode2" class="fontlbl" id="lblBranchCode2">รหัสสาขา <span class="red-color fontlbl">*</span></label>
+							<div class="input-div"><input type="text" id="txtBranchCode2" class="w-100" placeholder="0000" disabled /></div>
+						</div>
+					</div>
+				</div>
+				<div class="row mt-2">
+					<div class="col-12">
+						<div class="row mt-1">
+							<div class="d-inline">
+								<input type="checkbox" id="chkInvoiceIssuingAddress2" name="checkBox2-3" value="ที่อยู่ออกใบกำกับ ใช้ที่อยู่เดียวกันกับสถานที่เข้าสำรวจ" />
+								<label for="chkInvoiceIssuingAddress2" class="px-2" id="lblInvoiceIssuingAddress2">ที่อยู่ออกใบกำกับ ใช้ที่อยู่เดียวกันกับสถานที่เข้าสำรวจ</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row mt-2">
+					<div class="col-6">
+						<div class="row"><label id="lblFile2">ไฟล์แนบ</label></div>
+					</div>
+					<div class="col-6">
+						<div class="row"><button class="btn btn-primary text-start pe-0" id="btnUpload2">Upload<div class="ps-2 d-inline"><i class="bi bi-upload bg-custom p-2"></i></div></button></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row my-3 btm-div">
+		<div class="px-0">
+			<button class="button-size float-end submit-button text-light" id="btnSubmit2">บันทึก</button>
+			<button class="button-size float-end me-2" id="btnCancel2">ยกเลิก</button>
+		</div>
+	</div>
+	<div class="row btm-div">
+		<div class="con-box">
+			<div class="row"><label class="head-fontlbl" id="lblCondition2">เงื่อนไข</label></div>
+			<div class="row"><label class="fontlbl" id="lblConditionCompanyTerm2">*เงื่อนไขตามที่บริษัททั้งหมด</label></div>
+		</div>
+	</div>
+</div>
+
+@section Scripts {
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+	<script type="text/javascript">
+
+		//$(document).ready(function () {
+		//	$('.js-example-basic-single').select2();
+		//});
+
+		//function clickToCopyTwo() {
+		//	debugger
+		//	/*$("#txtLegalEntity2-2").val("Hello");*/ //วิธีแปะค่า
+		//	//var legalId1 = $("#txtLegalEntity1-2").val();
+		//	//$("#lblLegalEntity2-2").text("eeee");
+		//	var radio1A = document.getElementById('rdoLegalEntity1');
+		//	var radio1B = document.getElementById('rdoIndividual1');
+		//	var radio2A = document.getElementById('rdoLegalEntity2');
+		//	var radio2B = document.getElementById('rdoIndividual2');
+
+		//	if (radio1A.checked) {
+		//		radio1A.checked = true;
+		//		radio2A.checked = true;
+		//	} else if (radio1B.checked) {
+		//		radio1B.checked = true;
+		//		radio2B.checked = true;
+		//	}
+
+		//	var checkBox1 = document.getElementById('chkVip1');
+		//	var checkBox2 = document.getElementById('chkVip2');
+
+		//	if (checkBox1.checked) {
+		//		checkBox1.checked = true;
+		//		checkBox2.checked = true;
+		//	} else {
+		//		checkBox1.checked = false;
+		//		checkBox2.checked = false;
+		//	}
+
+		//	// Get the selected option from selectA
+		//	var selectSurveyTimeA = document.getElementById("selectSurveyTime1");
+		//	var selectedOptionValue = selectSurveyTimeA.options[selectSurveyTimeA.selectedIndex].value;
+
+		//	// Set the selected option in selectB
+		//	var selectSurveyTimeB = document.getElementById("selectSurveyTime2");
+		//	for (var i = 0; i < selectSurveyTimeB.options.length; i++) {
+		//		if (selectSurveyTimeB.options[i].value === selectedOptionValue) {
+		//			selectSurveyTimeB.selectedIndex = i;
+		//			break;
+		//		}
+		//	}
+
+		//	// Get the selected option from selectA
+		//	var selectProvinceA = document.getElementById("selectProvince1");
+		//	var selectedOptionValue = selectProvinceA.options[selectProvinceA.selectedIndex].value;
+
+		//	// Set the selected option in selectB
+		//	var selectProvinceB = document.getElementById("selectProvince2");
+		//	for (var i = 0; i < selectProvinceB.options.length; i++) {
+		//		if (selectProvinceB.options[i].value === selectedOptionValue) {
+		//			selectProvinceB.selectedIndex = i;
+		//			break;
+		//		}
+		//	}
+
+		//	// Get the selected option from selectA
+		//	var selectDealerShopA = document.getElementById("selectDealerShop1");
+		//	var selectedOptionValue = selectDealerShopA.options[selectDealerShopA.selectedIndex].value;
+
+		//	// Set the selected option in selectB
+		//	var selectDealerShopB = document.getElementById("selectDealerShop2");
+		//	for (var i = 0; i < selectDealerShopB.options.length; i++) {
+		//		if (selectDealerShopB.options[i].value === selectedOptionValue) {
+		//			selectDealerShopB.selectedIndex = i;
+		//			break;
+		//		}
+		//	}
+
+		//	var checkBox1_2 = document.getElementById('chkTaxInvoice1');
+		//	var checkBox2_2 = document.getElementById('chkTaxInvoice2');
+
+		//	if (checkBox1_2.checked) {
+		//		checkBox1_2.checked = true;
+		//		checkBox2_2.checked = true;
+		//	} else {
+		//		checkBox1_2.checked = false;
+		//		checkBox2_2.checked = false;
+		//	}
+
+		//	// Get the selected option from selectA
+		//	var selectBranchA = document.getElementById("selectBranch1");
+		//	var selectedOptionValue = selectBranchA.options[selectBranchA.selectedIndex].value;
+
+		//	// Set the selected option in selectB
+		//	var selectBranchB = document.getElementById("selectBranch2");
+		//	for (var i = 0; i < selectBranchB.options.length; i++) {
+		//		if (selectBranchB.options[i].value === selectedOptionValue) {
+		//			selectBranchB.selectedIndex = i;
+		//			break;
+		//		}
+		//	}
+
+		//	var checkBox1_3 = document.getElementById('chkInvoiceIssuingAddress1');
+		//	var checkBox2_3 = document.getElementById('chkInvoiceIssuingAddress2');
+
+		//	if (checkBox1_3.checked) {
+		//		checkBox1_3.checked = true;
+		//		checkBox2_3.checked = true;
+		//	} else {
+		//		checkBox1_3.checked = false;
+		//		checkBox2_3.checked = false;
+		//	}
+
+		//	/*var transferText = $("#txtLegalEntity1-2").val();*/
+		//	$("#txtLegalEntity2").val($("#txtLegalEntity1").val());
+		//	$("#txtContact2").val($("#txtContact1").val());
+		//	$("#txtTelePhone2").val($("#txtTelePhone1").val());
+		//	$("#txtEmail2").val($("#txtEmail1").val());
+		//	$("#txtLineId2").val($("#txtLineId1").val());
+		//	$("#txtSurveyDate2").val($("#txtSurveyDate1").val());
+		//	$("#txtSpaceSize2").val($("#txtSpaceSize1").val());
+		//	$("#txtAddressSurvey2").val($("#txtAddressSurvey1").val());
+		//	$("#txtDistrict2").val($("#txtDistrict1").val());
+		//	$("#txtSubdistrict2").val($("#txtSubdistrict1").val());
+		//	$("#txtZipCode2").val($("#txtZipCode1").val());
+		//	$("#txtLink2").val($("#txtLink1").val());
+		//	$("#txtFullName2").val($("#txtFullName1").val());
+		//	$("#txtTelePhone2-2").val($("#txtTelePhone1-2").val());
+		//	$("#txtCoupon2").val($("#txtCoupon1").val());
+		//	$("#txtTaxInvoiceName2").val($("#txtTaxInvoiceName1").val());
+		//	$("#txtTaxIdentificationNumber2").val($("#txtTaxIdentificationNumber1").val());
+		//	$("#txtBranchCode2").val($("#txtBranchCode1").val());
+
+		//}
+
+		$(document).ready(function () {
+			$("#conBtm").hide();
+		});
+
+		
+
+	</script>
+}
