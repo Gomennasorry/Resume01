@@ -1,0 +1,598 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@section Styles {
+
+
+    <link href="~/lib/sweetalert2/css/sweetalert2.min.css" rel="stylesheet" />
+    <link href="~/lib/select2/css/select2.css" rel="stylesheet" />
+    <link href="~/lib/datetimepicker/css/jquery.datetimepicker.min.css" rel="stylesheet" />
+    <link href="~/lib/datatables/buttons/css/buttons.bootstrap.css" rel="stylesheet" />
+    <link href="~/lib/datatables/buttons/css/buttons.dataTables.css" rel="stylesheet" />
+    <link href="~/lib/datatables/css/jquery.dataTables.css" rel="stylesheet" />
+    @*<link href="~/lib/datatables/css/dataTables.bootstrap.css" rel="stylesheet" />*@
+
+
+    <style type="text/css">
+
+        body {
+            font-family: Arial !important;
+            /*background-color: #f6f2f2;*/
+        }
+
+        .con-box {
+            border-radius: 5px;
+            background-color: #f3efef;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            border: 1px solid #dad6d6;
+        }
+
+        .head-fontlbl {
+            color: #ff6a00;
+            font-size: 15px;
+        }
+
+        .fontlbl {
+            font-size: 12px;
+        }
+
+        .button-size {
+            width: 70px;
+            height: 35px;
+            font-size: 12px;
+            border-radius: 3px;
+            border: 1px solid;
+        }
+
+        .submit-button {
+            background-color: #0a941c;
+            border: 1px solid #0b8b1b;
+        }
+
+        .custom-div-col {
+            border-radius: 3px;
+            background-color: white;
+            height: 100%;
+        }
+
+        .number-lbl {
+            border-radius: 50%;
+            background-color: #f46500;
+            width: 30px;
+            height: auto;
+        }
+
+        .orange-color {
+            color: #f46500;
+        }
+
+        .red-color {
+            color: red;
+        }
+
+        .hr-custom {
+        }
+
+        .hr-div {
+            padding: 0px 12px 0px 12px;
+            height: 5px;
+        }
+
+        .input-div {
+            width: 100%;
+        }
+
+        #legalEntity2 {
+            width: 100%;
+        }
+
+        .btn {
+            width: 105px;
+        }
+
+        .bg-custom {
+            background-color: #3D6CCA;
+            border-radius: 5px;
+        }
+
+        .btm-div {
+            padding: 0px 12px 0px 12px;
+        }
+
+        select {
+            height: 29.2px;
+            border-radius: 3px;
+            border: 1px solid #F1F1F1;
+        }
+
+        input[type="date"] {
+            height: 29.2px;
+            border: 1px solid #F1F1F1;
+        }
+
+        input[type="text"] {
+            border-radius: 3px;
+            border: 1px solid #F1F1F1;
+        }
+
+        textarea {
+            border-radius: 3px;
+            border: 1px solid #F1F1F1;
+        }
+
+        .col {
+            max-height: 100% !important;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Custom DataTable Styles */
+        .dataTables_wrapper {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        table.dataTable thead th {
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+        }
+
+        table.dataTable tbody td {
+            border: 1px solid #ddd;
+        }
+
+        table.dataTable tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table.dataTable.no-footer {
+            border-bottom: 0;
+        }
+
+        .dataTables_paginate {
+            margin-top: 10px;
+        }
+
+        .dataTables_filter label {
+            margin-right: 10px;
+        }
+    </style>
+}
+
+<div class="container px-4">
+    <div class="row">
+        <div class="col">
+            <div class="custom-div-col shadow pt-4 pb-5 px-3">
+                <div class="row"><div><label class="fs-5 number-lbl text-center text-light" id="lblHeaderOne1">1</label><label class="fs-5 fw-bold orange-color ms-2" id="lblCustomerInformation1">ข้อมูลลูกค้า</label></div><div class="hr-div"><hr class="hr-custom mt-1" /></div></div>
+                <div class="row mt-2">
+                    <div class="col-3"><div class="row"><label class="" id="lblRegisterOnBehalf1">ลงทะเบียนในนาม</label></div></div>
+                    <div class="col-3">
+                        <div>
+                            <input type="radio" id="rdoLegalEntity1" name="radio_check1" value="นิติบุคคล" />
+                            <label for="rdoLegalEntity1" class="px-2" id="lblLegalEntity1">นิติบุคคล</label>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div>
+                            <input type="radio" id="rdoIndividual1" name="radio_check1" value="บุคคลธรรมดา" />
+                            <label for="rdoIndividual1" class="px-2" id="lblIndividual1">บุคคลธรรมดา</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-9">
+                        <div class="row mt-1">
+                            <label for="txtLegalEntity1" class="fontlbl" id="lblLegalEntity1-2">นิติบุคคล <span class="red-color fontlbl">*</span></label>
+                            <div class="input-div"><input type="text" class="w-100" id="txtLegalEntity1" /></div>
+                        </div>
+                    </div>
+                    <div class="col-3 d-flex align-items-center justify-content-center">
+                        <div class="row">
+                            <div class="pt-4">
+                                <input type="checkbox" id="chkVip1" name="checkBox1" value="ลูกค้า VIP" />
+                                <label for="chkVip1" class="px-2" id="lblVip1">ลูกค้า VIP</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-6">
+                        <div class="row mt-1">
+                            <label for="txtContact1" class="fontlbl" id="lblContact1">ชื่อผู้ติดต่อ <span class="red-color fontlbl">*</span></label>
+                            <div class="input-div"><input type="text" id="txtContact1" class="w-100" /></div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row mt-1">
+                            <label for="txtTelePhone1" class="fontlbl" id="lblTelephone1">เบอร์โทรศัพท์ <span class="red-color fontlbl">*</span></label>
+                            <div class="input-div"><input type="text" id="txtTelePhone1" class="w-100" /></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-6">
+                        <div class="row mt-1">
+                            <label for="txtEmail1" class="fontlbl" id="lblEmail1">Email <span class="red-color fontlbl">*</span></label>
+                            <div class="input-div"><input type="text" id="txtEmail1" class="w-100" /></div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row mt-1">
+                            <label for="txtLineId1" class="fontlbl" id="lblLineId1">Line ID</label>
+                            <div class="input-div"><input type="text" id="txtLineId1" class="w-100" /></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-4">
+                        <div class="row mt-1">
+                            <label for="txtSurveyDate1" class="fontlbl" id="lblSurveyDate1">วันที่ให้เข้าสำรวจ <span class="red-color fontlbl">*</span></label>
+                            <input type="text" id="txtSurveyDate1" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row mt-1">
+                            <div><label for="selectSurveyTime1" class="fontlbl d-block" id="lblSurveyTime1">เวลาให้เข้าสำรวจ <span class="red-color fontlbl">*</span></label></div>
+                            <div>
+                                <select name="Survey Time1" id="selectSurveyTime1" class="w-100 d-block select2">
+                                    <option value="">--- เลือก ---</option>
+                                    <option value="mornning">เช้า</option>
+                                    <option value="noon">เที่ยง</option>
+                                    <option value="afterNoon">บ่าย</option>
+                                    <option value="evenning">เย็น</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row mt-1">
+                            <label for="txtSpaceSize1" class="fontlbl" id="lblSpaceSize1">ขนาดพื้นที่(ตร.ม.) <span class="red-color fontlbl">*</span></label>
+                            <div class="input-div"><input type="text" id="txtSpaceSize1" class="w-100" /></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4"><div><label class="fs-5 number-lbl text-center text-light" id="lblHeaderTwo1">2</label><label class="fs-5 fw-bold orange-color ms-2" id="lblAddress1">ข้อมูลที่อยู่</label></div><div class="hr-div"><hr class="hr-custom mt-1" /></div></div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <div class="row mt-1">
+                            <label for="txtAddressSurvey1" class="fontlbl" id="lblAddressSurvey1">ที่อยู่ที่ต้องการให้สำรวจ <span class="red-color fontlbl">*</span></label>
+                            <div class="input-div"><textarea class="w-100 text-area" id="txtAddressSurvey1"></textarea></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="row mt-1">
+                            <div><label for="selectProvince1" class="fontlbl d-block" id="lblProvince1">จังหวัด <span class="red-color fontlbl">*</span></label></div>
+                            <div>
+                                <select name="selectProvince1" id="selectProvince1" class="w-100 d-block select2">
+                                    <option value="">--- เลือก ---</option>
+                                    <option value="bangkok">กรุงเทพฯ</option>
+                                    <option value="chiang_mai">เชียงใหม่</option>
+                                    <option value="chiang_rai">เชียงราย</option>
+                                    <option value="nakhon_nayok">นครนายก</option>
+                                    <option value="nakhon_sawan">นครสวรรค์</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row mt-1">
+                            <label for="txtDistrict1" class="fontlbl" id="lblDistrict1">อำเภอ / เขต <span class="red-color fontlbl">*</span></label>
+                            <div class="input-div"><input type="text" id="txtDistrict1" class="w-100" disabled /></div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row mt-1">
+                            <label for="txtSubdistrict1" class="fontlbl" id="lblSubdistrict1">ตำบล / แขวง <span class="red-color fontlbl">*</span></label>
+                            <div class="input-div"><input type="text" id="txtSubdistrict1" class="w-100" disabled /></div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row mt-1">
+                            <label for="txtZipCode1" class="fontlbl" id="lblZipCode1">รหัสไปรษณีย์ <span class="red-color fontlbl">*</span></label>
+                            <div class="input-div"><input type="text" id="txtZipCode1" class="w-100" /></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <label for="txtLink1" class="fontlbl" id="lblLink2">Link จาก Google Map เพื่อพิกัดที่แม่นยำ</label>
+                    <div class="input-div"><input type="text" id="txtLink1" class="w-100" /></div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="custom-div-col shadow pt-4 pb-5 px-3">
+                <div class="row"><div class="row"><div><label class="fs-5 number-lbl text-center text-light" id="lblHeaderThree1">3</label><label class="fs-5 fw-bold orange-color ms-2" id="lblSellerInformation1">ข้อมูลผู้ขาย</label></div><div class="hr-div"><hr class="hr-custom mt-1" /></div></div></div>
+                <div class="row mt-2">
+                    <div class="col-6">
+                        <div class="row mt-1">
+                            <label for="txtFullName1" class="fontlbl" id="lblFullName1">ชื่อ-นามสกุล <span class="red-color fontlbl">*</span></label>
+                            <div class="input-div"><input type="text" id="txtFullName1" class="w-100" /></div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row mt-1">
+                            <label for="txtTelePhone1-2" class="fontlbl" id="lblTelePhone1-2">เบอร์โทรศัพท์ <span class="red-color fontlbl">*</span></label>
+                            <div class="input-div"><input type="text" id="txtTelePhone1-2" class="w-100" /></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-6">
+                        <div class="row mt-1">
+                            <div><label for="selectDealerShop1" class="fontlbl d-block" id="lblDealerShop1">ร้านผู้แทนจำหน่าย <span class="red-color fontlbl">*</span></label></div>
+                            <div>
+                                <select name="Dealer shop1" id="selectDealerShop1" class="w-100 d-block select2">
+                                    <option value="">--- เลือก ---</option>
+                                    <option value="seven_eleven">เซเว่น อีเลฟเว่น</option>
+                                    <option value="lotus">โลตัส</option>
+                                    <option value="big_c">บิ๊กซี</option>
+                                    <option value="family_mart">แฟมิลี่มาร์ท</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row mt-1">
+                            <label for="txtCoupon1" class="fontlbl" id="lblCoupon1">คูปองส่วนลด</label>
+                            <div class="input-div"><input type="text" id="txtCoupon1" class="w-100" /></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4"><div><label class="fs-5 number-lbl text-center text-light" id="lblHeaderFour1">4</label><label class="fs-5 fw-bold orange-color ms-2" id="lblTaxInvoiceInformation1">ข้อมูลใบกำกับภาษี</label></div><div class="hr-div"><hr class="hr-custom mt-1" /></div></div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <div>
+                            <input type="checkbox" id="chkTaxInvoice1" name="checkBox1-2" value="ต้องการใบกำกับภาษี" />
+                            <label for="chkTaxInvoice1" class="px-2" id="lblTaxInvoice1">ต้องการใบกำกับภาษี</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-8">
+                        <div class="row mt-1">
+                            <label for="txtTaxInvoiceName1" class="fontlbl" id="lblTaxInvoiceName1">ชื่อในใบกำกับภาษี <span class="red-color fontlbl">*</span></label>
+                            <div class="input-div"><input type="text" id="txtTaxInvoiceName1" class="w-100" /></div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row mt-1">
+                            <div><label for="selectBranch1" class="fontlbl d-block" id="lblBranch1">สาขา <span class="red-color fontlbl">*</span></label></div>
+                            <div>
+                                <select name="selectBranch1" id="selectBranch1" class="w-100 d-block select2">
+                                    <option value="headquater">สำนักงานใหญ่</option>
+                                    <option value="branch1">สาขา1</option>
+                                    <option value="branch2">สาขา2</option>
+                                    <option value="branch3">สาขา3</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-8">
+                        <div class="row mt-1">
+                            <label for="txtTaxIdentificationNumber1" class="fontlbl" id="lblTaxIdentificationNumber1">เลขประจำตัวผู้เสียภาษี <span class="red-color fontlbl">*</span></label>
+                            <div class="input-div"><input type="text" id="txtTaxIdentificationNumber1" class="w-100" /></div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row mt-1">
+                            <label for="txtBranchCode1" class="fontlbl" id="lblBranchCode1">รหัสสาขา <span class="red-color fontlbl">*</span></label>
+                            <div class="input-div"><input type="text" id="txtBranchCode1" class="w-100" placeholder="0000" disabled /></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <div class="row mt-1">
+                            <div class="d-inline">
+                                <input type="checkbox" id="chkInvoiceIssuingAddress1" name="checkBox1-3" value="ที่อยู่ออกใบกำกับ ใช้ที่อยู่เดียวกันกับสถานที่เข้าสำรวจ" />
+                                <label for="chkInvoiceIssuingAddress1" class="px-2" id="lblInvoiceIssuingAddress1">ที่อยู่ออกใบกำกับ ใช้ที่อยู่เดียวกันกับสถานที่เข้าสำรวจ</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-6">
+                        <div class="row"><label id="lblFile1">ไฟล์แนบ</label></div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row"><button class="btn btn-primary text-start pe-0" id="btnUpload1">Upload<div class="ps-2 d-inline"><i class="bi bi-upload bg-custom p-2"></i></div></button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row my-3 btm-div">
+        <div class="px-0">
+            <button class="button-size float-end submit-button text-light" id="btnSubmit1" onclick="addInfoAndBinding()">บันทึก</button>
+            <button class="button-size float-end me-2" id="btnCancel1">ยกเลิก</button>
+        </div>
+    </div>
+    <div class="row hidden" id="divTable">
+        <div class="col-sm-12">
+            <div class="container mt-3">
+                <div class="card">
+                    <div class="card-body">
+                        <table id="tblInfo" class="table table-student w-100 display">
+                            <thead id="tblHeader">
+                                <tr>
+                                    <th>ลำดับ</th>
+                                    <th>นิติบุคคล</th>
+                                    <th>ชื่อ</th>
+                                    <th>เบอร์</th>
+                                    <th>อีเมล</th>
+                                    <th>ไลน์</th>
+                                    <th>วันที่ให้เข้าสำรวจ</th>
+                                    <th>เวลาให้เข้าสำรวจ</th>
+                                    <th>ขนาดพื้นที่(ตร.ม.)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row btm-div mt-3">
+        <div class="con-box">
+            <div class="row"><label class="head-fontlbl" id="lblCondition1">เงื่อนไข</label></div>
+            <div class="row"><label class="fontlbl" id="lblConditionCompanyTerm1">*เงื่อนไขตามที่บริษัททั้งหมด</label></div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+    @*popup*@
+    <script src="~/lib/sweetalert2/js/sweetalert2.min.js"></script>
+
+    @*dropdown beautiful tool*@
+    <script src="~/lib/select2/js/select2.full.js"></script>
+
+    @*create barcode*@
+    <script src="~/lib/JsBarcode/JsBarcode.code128.min.js"></script>
+
+    @*qr code*@
+    <script src="~/lib/html5-qrcode/qrcode.min.js"></script>
+
+    @*datetimePicker calendar*@
+    <script src="~/lib/datetimepicker/js/jquery.datetimepicker.full.js"></script>
+
+
+    @*datatable*@
+    <script src="~/lib/datatables/js/jquery.dataTables.js"></script>
+    @*<script src="~/lib/datatables/js/dataTables.bootstrap.js"></script>*@
+
+    @*click to print from data table*@
+    <script src="~/lib/datatables/buttons/js/dataTables.buttons.js"></script>
+    <script src="~/lib/datatables/buttons/js/buttons.bootstrap.js"></script>
+    <script src="~/lib/datatables/buttons/js/buttons.flash.js"></script>
+    <script src="~/lib/datatables/buttons/js/buttons.html5.js"></script>
+    <script src="~/lib/datatables/buttons/js/buttons.print.js"></script>
+    <script src="~/lib/datatables/buttons/js/jszip.js"></script>
+    <script type="text/javascript">
+
+
+
+        var InfoList = []; //ObjectList
+
+        $(document).ready(function () { //โหลด HTML เสร็จแล้วทำ Function;
+
+            $("#txtSurveyDate1").datetimepicker({ //เรียกไอดี txtStudentFr
+                mask: true, //หน้ากากทำตาม Format ของ datetimepicker
+                autoClose: true, //กดคลิกนอกกรอบจะปิดให้เอง
+                step: 1, //เพิ่มขึ้นทีละ 1 นาที
+                format: 'd/m/Y', //Format ของ datetimepicker Y-m-d ตั้งค่าเองได้
+                formatDate: 'd/m/Y', //ควรตั้งให้เหมือนกัน
+                scrollInput: false, //Scroll mouse
+                timepicker: false, //เปิดเวลาใน datetimepicker
+                value: moment().format("DD/MM/YYYY"), //moment library เวลาปัจจุบัน, subtarct ลบ 3 วันจากวันนี้
+            });
+
+            $(".select2").select2(); //ใช้เรียก library select2 จัด dropdown
+        });
+
+        function addInfoAndBinding() { //funcction เพิ่มนักเรียน
+            debugger
+
+            Swal.fire({ //switch alert, popup
+                title: "Do you want to save the changes?", //ชื่อเรื่อง
+                //showDenyButton: true,
+                showCancelButton: true, //โชว์ปุ่ม cancel
+                confirmButtonText: "Save", //คำพูดในปุ่ม confirmButton
+                //denyButtonText: `Don't save`
+            }).then((result) => { //หลังจากกดปุ่ม
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) { //ถ้ากดปุ่ม comfirm
+
+                    var InfoObject = { //สร้างตัวแปร object
+                        LegalEntity: $("#txtLegalEntity1").val(),
+                        Name: $("#txtContact1").val(),
+                        PhoneNumber: $("#txtTelePhone1").val(),
+                        Email: $("#txtEmail1").val(),
+                        LineID: $("#txtLineId1").val(),
+                        SurveyDate: moment($("#txtStudentFr").val(), 'DD/MM/YYYY').format('DD/MM/YYYY'),
+                        SurveyTime: $('#selectSurveyTime1 option:selected').text(),
+                        SpaceSize: $("#txtSpaceSize1").val(),
+                    }
+                    debugger
+                    InfoList.push(InfoObject); //ใส่ object ใน objectlist
+
+                    $("#divTable").show();
+
+                    bindingOrder(InfoList);
+
+                } else if (result.isDenied) {
+                    Swal.fire("Changes are not saved", "", "info");
+                }
+            });
+
+        }
+
+        function bindingOrder(dataList) { //รับ parameter จาก studentList
+            var table = $("#tblInfo").DataTable({ //select id
+                data: dataList, //เอา parameter มาเก็บใน data
+                processing: true,
+                destroy: true, //สร้างซ้ำได้
+                scrollX: true, //เลื่อนแนวนอน
+                searching: true, //filter ของ library
+                order: [[1, "desc"]], //desc เรียงจากมากไปน้อย, asc เรียงจากน้อยไปมาก, 1 = name, 2 = age, 0 = row
+                columns: [ //จำนวน columns ต้องตรงกับจำนวน tableHead และอย่าลืม tableBody
+                    { //0
+                        data: null, className: "text-center", orderable: true, //data = null ไม่โชว์, classname ใส่ class, orderable เปิดการเรียงลำดับ
+                        render: function (data, type, full, meta) { //type, full = data ทั้งหมด, meta เป็น default
+                            debugger
+                            return meta.row + 1;
+                        }
+                    },//ตัวหนังสือชิดซ้าย ex.name, ตัวเลขชิดขวา ex.age, format เหมือนกันชิดกลาง ex.date, status
+                    { data: "LegalEntity", className: "text-left" }, //1
+                    { data: "Name", className: "text-left" }, //3
+                    { data: "PhoneNumber", className: "text-center" },
+                    { data: "Email", className: "text-left" },
+                    { data: "LineID", className: "text-left" },
+                    { //7
+                        data: null, className: "text-center ", orderData: [7],
+                        render: function (data, type, full, meta) {
+                            var date = "";
+                            if (data.SurveyDate != "" && data.SurveyDate != null) {
+                                date = moment(data.SurveyDate).format('DD/MM/YYYY h:mm');
+                            }
+                            return date;
+                        }
+                    },
+                    { data: "SurveyDate", className: "", visible: false }, //8
+                    { //4
+                        data: "SurveyTime", className: "text-center", orderable: false,
+                        render: function (data, type, full, meta) {
+                            var html = "<label class='col-form-label'>" + data + "</label>";
+                            return html;
+                        }
+                    },
+                    { data: "SpaceSize", className: "text-right" },
+                ],
+            });
+
+            Swal.fire({
+                title: "Good job!",
+                text: "You clicked the button!",
+                icon: "success",
+                timer: 3000
+            });
+        }
+
+    </script>
+}

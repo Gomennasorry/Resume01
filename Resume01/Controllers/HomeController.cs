@@ -101,6 +101,10 @@ namespace Resume01.Controllers
         {
             return View();
         }
+        public IActionResult tryFixError_herrr()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
