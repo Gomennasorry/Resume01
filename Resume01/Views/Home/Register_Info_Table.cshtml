@@ -352,23 +352,21 @@
 					</div>
 				</div>
 				<div class="row mt-1">
-					<div class="col-8">
+					<div class="col-12 col-lg-6 col-xl-8">
 						<div class="row mt-1">
 							<label for="txtTaxInvoiceName1" class="fontlbl" id="lblTaxInvoiceName1">ชื่อในใบกำกับภาษี <span class="red-color fontlbl">*</span></label>
 							<div class="input-div"><input type="text" id="txtTaxInvoiceName1" class="w-100" /></div>
 						</div>
 					</div>
-					<div class="col-4">
+					<div class="col-12 col-lg-6 col-xl-4">
 						<div class="row mt-1">
-							<div><label for="selectBranch1" class="fontlbl d-block" id="lblBranch1">สาขา <span class="red-color fontlbl">*</span></label></div>
-							<div>
+							<label for="selectBranch1" class="fontlbl d-block" id="lblBranch1">สาขา <span class="red-color fontlbl">*</span></label>
 								<select name="selectBranch1" id="selectBranch1" class="w-100 d-block select2">
 									<option value="headquater">สำนักงานใหญ่</option>
 									<option value="branch1">สาขา1</option>
 									<option value="branch2">สาขา2</option>
 									<option value="branch3">สาขา3</option>
 								</select>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -428,6 +426,7 @@
 									<th>อีเมล</th>
 									<th>ไลน์</th>
 									<th>วันที่ให้เข้าสำรวจ</th>
+									<th>วันที่ให้เข้าสำรวจซ่อนนะ</th>
 									<th>เวลาให้เข้าสำรวจ</th>
 									<th>ขนาดพื้นที่(ตร.ม.)</th>
 								</tr>
@@ -562,6 +561,7 @@
 					{ //7
 						data: null, className: "text-center ", orderData: [7],
 						render: function (data, type, full, meta) {
+							debugger
 							var date = "";
 							if (data.SurveyDate != "" && data.SurveyDate != null) {
 								date = moment(data.SurveyDate).format('DD/MM/YYYY h:mm');
