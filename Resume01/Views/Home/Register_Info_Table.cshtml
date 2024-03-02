@@ -529,6 +529,25 @@
 				placeholder: "--- เลือก ---",
 				allowClear: true
 			}); //ใช้เรียก library select2 จัด dropdown
+
+			$("#selectProvince1").change(function () {
+				if ($(this).val()) {
+					$('#txtDistrict1').prop('disabled', false);
+					$('#txtSubdistrict1').prop('disabled', false);
+				} else {
+					$('#txtDistrict1').prop('disabled', true);
+					$('#txtSubdistrict1').prop('disabled', true);
+				}
+			});
+
+			$("#selectBranch1").change(function () {
+				if ($(this).val()) {
+					$('#txtBranchCode1').prop('disabled', false);
+				} else {
+					$('#txtBranchCode1').prop('disabled', true);
+				}
+			});
+
 		});
 
 		function addInfoAndBinding() { //funcction เพิ่มนักเรียน
@@ -545,14 +564,32 @@
 				if (result.isConfirmed) { //ถ้ากดปุ่ม comfirm
 
 					var InfoObject = { //สร้างตัวแปร object
+						RegisterOnBehalf: $('input[type=radio][name=radio_check1]:checked').val(),
 						LegalEntity: $("#txtLegalEntity1").val(),
+						VIPCustomer: $('#chkVip1').is(':checked'),
 						Name: $("#txtContact1").val(),
-						PhoneNumber: $("#txtTelePhone1").val(),
+						PhoneNumber1: $("#txtTelePhone1").val(),
 						Email: $("#txtEmail1").val(),
 						LineID: $("#txtLineId1").val(),
 						SurveyDate: moment($("#txtSurveyDate1").val(), 'DD/MM/YYYY').format('DD/MM/YYYY'),
 						SurveyTime: $('#selectSurveyTime1 option:selected').text(),
 						SpaceSize: $("#numSpaceSize1").val(),
+						AddressSurvey: $("#txtAddressSurvey1").val(),
+						Province: $('#selectProvince1 option:selected').text(),
+						District: $("#txtDistrict1").val(),
+						Subdistrict: $("#txtSubdistrict1").val(),
+						ZipCode: $("#txtZipCode1").val(),
+						Link: $("#txtLink1").val(),
+						FullName: $("#txtFullName1").val(),
+						PhoneNumber2: $("#txtTelePhone1-2").val(),
+						DealerShop: $('#selectDealerShop1 option:selected').text(),
+						Coupon: $("#txtCoupon1").val(),
+						TaxInvoice: $('#chkTaxInvoice1').is(':checked'),
+						TaxInvoiceName: $("#txtTaxInvoiceName1").val(),
+						Branch: $('#selectBranch1 option:selected').text(),
+						TaxIdentificationNumber: $("#txtTaxIdentificationNumber1").val(),
+						BranchCode: $("#txtBranchCode1").val(),
+						InvoiceIssuingAddress: $('#chkInvoiceIssuingAddress1').is(':checked')
 					}
 					debugger
 					InfoList.push(InfoObject); //ใส่ object ใน objectlist
