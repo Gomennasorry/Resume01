@@ -10,6 +10,7 @@
 	<link href="~/lib/datatables/buttons/css/buttons.bootstrap.css" rel="stylesheet" />
 	<link href="~/lib/datatables/buttons/css/buttons.dataTables.css" rel="stylesheet" />
 	<link href="~/lib/datatables/css/jquery.dataTables.css" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
 	<style type="text/css">
 
@@ -113,6 +114,11 @@
 			border-radius: 3px;
 			border: 1px solid #F1F1F1;
 		}
+		
+		input[type="number"] {
+			border-radius: 3px;
+			border: 1px solid #F1F1F1;
+		}
 
 		textarea {
 			border-radius: 3px;
@@ -156,6 +162,14 @@
 
 		.dataTables_filter label {
 			margin-right: 10px;
+		}
+
+		.select2-container--default .select2-selection--single .select2-selection__arrow {
+			right: 13px;
+		}
+
+		option[default] {
+			display: none;
 		}
 
 	</style>
@@ -226,30 +240,28 @@
 					</div>
 				</div>
 				<div class="row mt-1">
-					<div class="col-4">
+					<div class="col-12 col-lg-6 col-xl-4">
 						<div class="row mt-1">
 							<label for="txtSurveyDate1" class="fontlbl" id="lblSurveyDate1">วันที่ให้เข้าสำรวจ <span class="red-color fontlbl">*</span></label>
 							<div><input type="text" id="txtSurveyDate1" class="form-control" /></div>
 						</div>
 					</div>
-					<div class="col-4">
+					<div class="col-12 col-lg-6 col-xl-4">
 						<div class="row mt-1">
-							<div><label for="selectSurveyTime1" class="fontlbl d-block" id="lblSurveyTime1">เวลาให้เข้าสำรวจ <span class="red-color fontlbl">*</span></label></div>
-							<div>
-								<select name="Survey Time1" id="selectSurveyTime1" class="w-100 d-block select2">
-									<option value="">--- เลือก ---</option>
-									<option value="mornning">เช้า</option>
-									<option value="noon">เที่ยง</option>
-									<option value="afterNoon">บ่าย</option>
-									<option value="evenning">เย็น</option>
-								</select>
-							</div>
+							<label for="selectSurveyTime1" class="fontlbl d-block" id="lblSurveyTime1">เวลาให้เข้าสำรวจ <span class="red-color fontlbl">*</span></label>
+							<select name="Survey Time1" id="selectSurveyTime1" class="w-100 d-block select2 js-states form-control">
+								<option></option>
+								<option value="mornning">เช้า</option>
+								<option value="noon">เที่ยง</option>
+								<option value="afterNoon">บ่าย</option>
+								<option value="evenning">เย็น</option>
+							</select>
 						</div>
 					</div>
-					<div class="col-4">
+					<div class="col-12 col-lg-6 col-xl-4">
 						<div class="row mt-1">
-							<label for="txtSpaceSize1" class="fontlbl" id="lblSpaceSize1">ขนาดพื้นที่(ตร.ม.) <span class="red-color fontlbl">*</span></label>
-							<div class="input-div"><input type="text" id="txtSpaceSize1" class="w-100" /></div>
+							<label for="numSpaceSize1" class="fontlbl" id="lblSpaceSize1">ขนาดพื้นที่(ตร.ม.) <span class="red-color fontlbl">*</span></label>
+							<div class="input-div"><input type="number" id="numSpaceSize1" class="w-100" /></div>
 						</div>
 					</div>
 				</div>
@@ -265,17 +277,15 @@
 				<div class="row">
 					<div class="col-3">
 						<div class="row mt-1">
-							<div><label for="selectProvince1" class="fontlbl d-block" id="lblProvince1">จังหวัด <span class="red-color fontlbl">*</span></label></div>
-							<div>
-								<select name="selectProvince1" id="selectProvince1" class="w-100 d-block select2">
-									<option value="">--- เลือก ---</option>
-									<option value="bangkok">กรุงเทพฯ</option>
-									<option value="chiang_mai">เชียงใหม่</option>
-									<option value="chiang_rai">เชียงราย</option>
-									<option value="nakhon_nayok">นครนายก</option>
-									<option value="nakhon_sawan">นครสวรรค์</option>
-								</select>
-							</div>
+							<label for="selectProvince1" class="fontlbl d-block" id="lblProvince1">จังหวัด <span class="red-color fontlbl">*</span></label>
+							<select name="selectProvince1" id="selectProvince1" class="w-100 d-block select2 js-states form-control">
+								<option></option>
+								<option value="bangkok">กรุงเทพฯ</option>
+								<option value="chiang_mai">เชียงใหม่</option>
+								<option value="chiang_rai">เชียงราย</option>
+								<option value="nakhon_nayok">นครนายก</option>
+								<option value="nakhon_sawan">นครสวรรค์</option>
+							</select>
 						</div>
 					</div>
 					<div class="col-3">
@@ -323,16 +333,14 @@
 				<div class="row mt-1">
 					<div class="col-6">
 						<div class="row mt-1">
-							<div><label for="selectDealerShop1" class="fontlbl d-block" id="lblDealerShop1">ร้านผู้แทนจำหน่าย <span class="red-color fontlbl">*</span></label></div>
-							<div>
-								<select name="Dealer shop1" id="selectDealerShop1" class="w-100 d-block select2">
-									<option value="">--- เลือก ---</option>
-									<option value="seven_eleven">เซเว่น อีเลฟเว่น</option>
-									<option value="lotus">โลตัส</option>
-									<option value="big_c">บิ๊กซี</option>
-									<option value="family_mart">แฟมิลี่มาร์ท</option>
-								</select>
-							</div>
+							<label for="selectDealerShop1" class="fontlbl d-block" id="lblDealerShop1">ร้านผู้แทนจำหน่าย <span class="red-color fontlbl">*</span></label>
+							<select name="Dealer shop1" id="selectDealerShop1" class="w-100 d-block select2 js-states form-control">
+								<option></option>
+								<option value="seven_eleven">เซเว่น อีเลฟเว่น</option>
+								<option value="lotus">โลตัส</option>
+								<option value="big_c">บิ๊กซี</option>
+								<option value="family_mart">แฟมิลี่มาร์ท</option>
+							</select>
 						</div>
 					</div>
 					<div class="col-6">
@@ -361,12 +369,14 @@
 					<div class="col-12 col-lg-6 col-xl-4">
 						<div class="row mt-1">
 							<label for="selectBranch1" class="fontlbl d-block" id="lblBranch1">สาขา <span class="red-color fontlbl">*</span></label>
-								<select name="selectBranch1" id="selectBranch1" class="w-100 d-block select2">
-									<option value="headquater">สำนักงานใหญ่</option>
-									<option value="branch1">สาขา1</option>
-									<option value="branch2">สาขา2</option>
-									<option value="branch3">สาขา3</option>
-								</select>
+							<select name="selectBranch1" id="selectBranch1" class="w-100 d-block select2 js-states form-control">
+								@*<option value="" default selected disabled hidden>--- เลือก ---</option>*@
+								<option></option>
+								<option value="headquater">สำนักงานใหญ่</option>
+								<option value="branch1">สาขา1</option>
+								<option value="branch2">สาขา2</option>
+								<option value="branch3">สาขา3</option>
+							</select>
 						</div>
 					</div>
 				</div>
@@ -420,7 +430,9 @@
 							<thead id="tblHeader">
 								<tr>
 									<th>ลำดับ</th>
+									<th>ลงทะเบียนในนาม</th>
 									<th>นิติบุคคล</th>
+									<th>ลูกค้า VIP</th>
 									<th>ชื่อ</th>
 									<th>เบอร์</th>
 									<th>อีเมล</th>
@@ -428,7 +440,22 @@
 									<th>วันที่ให้เข้าสำรวจ</th>
 									<th>วันที่ให้เข้าสำรวจซ่อนนะ</th>
 									<th>เวลาให้เข้าสำรวจ</th>
-									<th>ขนาดพื้นที่(ตร.ม.)</th>
+									<th>ที่อยู่ที่ต้องการให้สำรวจ</th>
+									<th>จังหวัด</th>
+									<th>อำเภอ / เขต</th>
+									<th>ตำบล / แขวง</th>
+									<th>รหัสไปรษณีย์</th>
+									<th>Link จาก Google Map เพื่อพิกัดที่แม่นยำ</th>
+									<th>ชื่อ-นามสกุล</th>
+									<th>เบอร์โทรศัพท์</th>
+									<th>ร้านผู้แทนจำหน่าย</th>
+									<th>คูปองส่วนลด</th>
+									<th>ต้องการใบกำกับภาษี</th>
+									<th>ชื่อในใบกำกับภาษี</th>
+									<th>สาขา</th>
+									<th>เลขประจำตัวผู้เสียภาษี</th>
+									<th>รหัสสาขา</th>
+									<th>ที่อยู่ออกใบกำกับ ใช้ที่อยู่เดียวกันกับสถานที่เข้าสำรวจ</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -480,6 +507,7 @@
 	<script src="~/lib/datatables/buttons/js/buttons.html5.js"></script>
 	<script src="~/lib/datatables/buttons/js/buttons.print.js"></script>
 	<script src="~/lib/datatables/buttons/js/jszip.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 	<script type="text/javascript">
 
 		var InfoList = []; //ObjectList
@@ -497,7 +525,10 @@
 				value: moment().format("DD/MM/YYYY"), //moment library เวลาปัจจุบัน, subtarct ลบ 3 วันจากวันนี้
 			});
 
-			$(".select2").select2(); //ใช้เรียก library select2 จัด dropdown
+			$(".select2").select2({
+				placeholder: "--- เลือก ---",
+				allowClear: true
+			}); //ใช้เรียก library select2 จัด dropdown
 		});
 
 		function addInfoAndBinding() { //funcction เพิ่มนักเรียน
@@ -519,9 +550,9 @@
 						PhoneNumber: $("#txtTelePhone1").val(),
 						Email: $("#txtEmail1").val(),
 						LineID: $("#txtLineId1").val(),
-						SurveyDate: moment($("#txtStudentFr").val(), 'DD/MM/YYYY').format('DD/MM/YYYY'),
+						SurveyDate: moment($("#txtSurveyDate1").val(), 'DD/MM/YYYY').format('DD/MM/YYYY'),
 						SurveyTime: $('#selectSurveyTime1 option:selected').text(),
-						SpaceSize: $("#txtSpaceSize1").val(),
+						SpaceSize: $("#numSpaceSize1").val(),
 					}
 					debugger
 					InfoList.push(InfoObject); //ใส่ object ใน objectlist
