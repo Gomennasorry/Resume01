@@ -261,7 +261,7 @@
 					<div class="col-12 col-lg-6 col-xl-4">
 						<div class="row mt-1">
 							<label for="numSpaceSize1" class="fontlbl" id="lblSpaceSize1">ขนาดพื้นที่(ตร.ม.) <span class="red-color fontlbl">*</span></label>
-							<div class="input-div"><input type="number" id="numSpaceSize1" class="w-100" /></div>
+							<div class="input-div"><input type="text" id="txtSpaceSize1" class="w-100" /></div>
 						</div>
 					</div>
 				</div>
@@ -429,33 +429,34 @@
 						<table id="tblInfo" class="table table-student w-100 display">
 							<thead id="tblHeader">
 								<tr>
-									<th>ลำดับ</th>
-									<th>ลงทะเบียนในนาม</th>
-									<th>นิติบุคคล</th>
-									<th>ลูกค้า VIP</th>
-									<th>ชื่อ</th>
-									<th>เบอร์</th>
-									<th>อีเมล</th>
-									<th>ไลน์</th>
-									<th>วันที่ให้เข้าสำรวจ</th>
-									<th>วันที่ให้เข้าสำรวจซ่อนนะ</th>
-									<th>เวลาให้เข้าสำรวจ</th>
-									<th>ที่อยู่ที่ต้องการให้สำรวจ</th>
-									<th>จังหวัด</th>
-									<th>อำเภอ / เขต</th>
-									<th>ตำบล / แขวง</th>
-									<th>รหัสไปรษณีย์</th>
-									<th>Link จาก Google Map เพื่อพิกัดที่แม่นยำ</th>
-									<th>ชื่อ-นามสกุล</th>
-									<th>เบอร์โทรศัพท์</th>
-									<th>ร้านผู้แทนจำหน่าย</th>
-									<th>คูปองส่วนลด</th>
-									<th>ต้องการใบกำกับภาษี</th>
-									<th>ชื่อในใบกำกับภาษี</th>
-									<th>สาขา</th>
-									<th>เลขประจำตัวผู้เสียภาษี</th>
-									<th>รหัสสาขา</th>
-									<th>ที่อยู่ออกใบกำกับ ใช้ที่อยู่เดียวกันกับสถานที่เข้าสำรวจ</th>
+									<th>ลำดับ</th> @*1*@
+									<th>ลงทะเบียนในนาม</th> @*2*@
+									<th>นิติบุคคล</th> @*3*@
+									<th>ลูกค้า VIP</th> @*4*@
+									<th>ชื่อ</th> @*1*@
+									<th>เบอร์</th> @*5*@
+									<th>อีเมล</th> @*6*@
+									<th>ไลน์</th> @*7*@
+									<th>วันที่ให้เข้าสำรวจ</th> @*8*@
+									<th>วันที่ให้เข้าสำรวจซ่อนนะ</th> @*9*@
+									<th>เวลาให้เข้าสำรวจ</th> @*10*@
+									<th>ขนาดพื้นที่(ตร.ม.)</th> @*11*@
+									<th>ที่อยู่ที่ต้องการให้สำรวจ</th> @*12*@
+									<th>จังหวัด</th> @*13*@
+									<th>อำเภอ / เขต</th> @*14*@
+									<th>ตำบล / แขวง</th> @*15*@
+									<th>รหัสไปรษณีย์</th> @*16*@
+									<th>Link จาก Google Map เพื่อพิกัดที่แม่นยำ</th> @*17*@
+									<th>ชื่อ-นามสกุล</th> @*18*@
+									<th>เบอร์โทรศัพท์</th> @*19*@
+									<th>ร้านผู้แทนจำหน่าย</th> @*20*@
+									<th>คูปองส่วนลด</th> @*21*@
+									<th>ต้องการใบกำกับภาษี</th> @*22*@
+									<th>ชื่อในใบกำกับภาษี</th> @*23*@
+									<th>สาขา</th> @*24*@
+									<th>เลขประจำตัวผู้เสียภาษี</th> @*25*@
+									<th>รหัสสาขา</th> @*26*@
+									<th>ที่อยู่ออกใบกำกับ ใช้ที่อยู่เดียวกันกับสถานที่เข้าสำรวจ</th> @*27*@
 								</tr>
 							</thead>
 							<tbody>
@@ -530,6 +531,14 @@
 				allowClear: true
 			}); //ใช้เรียก library select2 จัด dropdown
 
+			$('input[type="radio"]').change(function () {
+				if ($('#rdoIndividual1').is(':checked')) {
+					$('#txtLegalEntity1').prop('disabled', true);
+				} else {
+					$('#txtLegalEntity1').prop('disabled', false);
+				}
+			});
+
 			$("#selectProvince1").change(function () {
 				if ($(this).val()) {
 					$('#txtDistrict1').prop('disabled', false);
@@ -547,6 +556,7 @@
 					$('#txtBranchCode1').prop('disabled', true);
 				}
 			});
+
 
 		});
 
@@ -573,7 +583,7 @@
 						LineID: $("#txtLineId1").val(),
 						SurveyDate: moment($("#txtSurveyDate1").val(), 'DD/MM/YYYY').format('DD/MM/YYYY'),
 						SurveyTime: $('#selectSurveyTime1 option:selected').text(),
-						SpaceSize: $("#numSpaceSize1").val(),
+						SpaceSize: $("txtSpaceSize1").val(),
 						AddressSurvey: $("#txtAddressSurvey1").val(),
 						Province: $('#selectProvince1 option:selected').text(),
 						District: $("#txtDistrict1").val(),
@@ -621,13 +631,15 @@
 							return meta.row + 1;
 						}
 					},//ตัวหนังสือชิดซ้าย ex.name, ตัวเลขชิดขวา ex.age, format เหมือนกันชิดกลาง ex.date, status
-					{ data: "LegalEntity", className: "text-left" }, //1
-					{ data: "Name", className: "text-left" }, //3
-					{ data: "PhoneNumber", className: "text-center" },
-					{ data: "Email", className: "text-left" },
-					{ data: "LineID", className: "text-left" },
-					{ //7
-						data: null, className: "text-center ", orderData: [7],
+					{ data: "RegisterOnBehalf", className: "text-center" }, //1
+					{ data: "LegalEntity", className: "text-left" }, //2
+					{ data: "VIPCustomer", className: "text-center" }, //3
+					{ data: "Name", className: "text-left" }, //4
+					{ data: "PhoneNumber1", className: "text-center" }, //5
+					{ data: "Email", className: "text-left" }, //6
+					{ data: "LineID", className: "text-left" }, //7
+					{ //8
+						data: null, className: "text-center ", orderData: [8],
 						render: function (data, type, full, meta) {
 							debugger
 							var date = "";
@@ -637,15 +649,32 @@
 							return date;
 						}
 					},
-					{ data: "SurveyDate", className: "", visible: false }, //8
-					{ //4
+					{ data: "SurveyDate", className: "", visible: false }, //9
+					{ //10
 						data: "SurveyTime", className: "text-center", orderable: false,
 						render: function (data, type, full, meta) {
 							var html = "<label class='col-form-label'>" + data + "</label>";
 							return html;
 						}
 					},
-					{ data: "SpaceSize", className: "text-right" },
+					{ data: "SpaceSize", className: "text-right" }, //11
+					{ data: "AddressSurvey", className: "text-left" }, //12
+					{ data: "Province", className: "text-left" }, //13
+					{ data: "District", className: "text-left" }, //14
+					{ data: "Subdistrict", className: "text-left" }, //15
+					{ data: "ZipCode", className: "text-center" }, //16
+					{ data: "Link", className: "text-left" }, //17
+					{ data: "FullName", className: "text-left" }, //18
+					{ data: "PhoneNumber2", className: "text-right" }, //19
+					{ data: "DealerShop", className: "text-left" }, //20
+					{ data: "Coupon", className: "text-center" }, //21
+					{ data: "TaxInvoice", className: "text-center" }, //22
+					{ data: "TaxInvoiceName", className: "text-left" }, //23
+					{ data: "Branch", className: "text-left" }, //24
+					{ data: "TaxIdentificationNumber", className: "text-right" }, //25
+					{ data: "BranchCode", className: "text-center" }, //26
+					{ data: "InvoiceIssuingAddress", className: "text-center" }, //27
+
 				],
 			});
 
