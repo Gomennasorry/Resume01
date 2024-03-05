@@ -15,161 +15,31 @@
 	<style type="text/css">
 
 		body {
-			font-family: Arial !important;
-			/*background-color: #f6f2f2;*/
-		}
-
-		.con-box {
-			border-radius: 5px;
-			background-color: #f3efef;
-			padding-top: 12px;
-			padding-bottom: 12px;
-			border: 1px solid #dad6d6;
-		}
-
-		.head-fontlbl {
-			color: #ff6a00;
-			font-size: 15px;
-		}
-
-		.fontlbl {
-			font-size: 12px;
-		}
-
-		.button-size {
-			width: 70px;
-			height: 35px;
-			font-size: 12px;
-			border-radius: 3px;
-			border: 1px solid;
-		}
-
-		.submit-button {
-			background-color: #0a941c;
-			border: 1px solid #0b8b1b;
-		}
-
-		.custom-div-col {
-			border-radius: 3px;
-			background-color: white;
-			height: 100%;
-		}
-
-		.number-lbl {
-			border-radius: 50%;
-			background-color: #f46500;
-			width: 30px;
-			height: auto;
-		}
-
-		.orange-color {
-			color: #f46500;
-		}
-
-		.red-color {
-			color: red;
-		}
-
-		.hr-custom {
-		}
-
-		.hr-div {
-			padding: 0px 12px 0px 12px;
-			height: 5px;
-		}
-
-		.input-div {
-			width: 100%;
-		}
-
-		#legalEntity2 {
-			width: 100%;
-		}
-
-		.btn {
-			width: 105px;
-		}
-
-		.bg-custom {
-			background-color: #3D6CCA;
-			border-radius: 5px;
-		}
-
-		.btm-div {
-			padding: 0px 12px 0px 12px;
-		}
-
-		select {
-			height: 29.2px;
-			border-radius: 3px;
-			border: 1px solid #F1F1F1;
-		}
-
-		input[type="date"] {
-			height: 29.2px;
-			border: 1px solid #F1F1F1;
+			font-family: Roboto !important;
 		}
 
 		input[type="text"] {
-			border-radius: 3px;
-			border: 1px solid #F1F1F1;
-		}
-		
-		input[type="number"] {
-			border-radius: 3px;
-			border: 1px solid #F1F1F1;
+			padding: 1px 0px;
+			border: none;
+			border-bottom: 1px solid #b1acac;
+			outline: none;
 		}
 
-		textarea {
-			border-radius: 3px;
-			border: 1px solid #F1F1F1;
+		.div-input {
+			padding: 0px 12px;
 		}
 
-		.col {
-			max-height: 100% !important;
+		.lbl-color {
+			color: #b1acac;
 		}
 
-		.hidden {
-			display: none;
+		.purple-color {
+			color: #9C27B0;
 		}
 
-		/* Custom DataTable Styles */
-		.dataTables_wrapper {
-			font-family: Arial, sans-serif;
-			font-size: 14px;
-		}
-
-		table.dataTable thead th {
-			background-color: #f2f2f2;
-			border: 1px solid #ddd;
-		}
-
-		table.dataTable tbody td {
-			border: 1px solid #ddd;
-		}
-
-		table.dataTable tbody tr:nth-child(even) {
-			background-color: #f9f9f9;
-		}
-
-		table.dataTable.no-footer {
-			border-bottom: 0;
-		}
-
-		.dataTables_paginate {
-			margin-top: 10px;
-		}
-
-		.dataTables_filter label {
-			margin-right: 10px;
-		}
-
-		.select2-container--default .select2-selection--single .select2-selection__arrow {
-			right: 13px;
-		}
-
-		option[default] {
-			display: none;
+		#btn_select_unused_ip {
+			background-color: #9C27B0;
+			color: #fff;
 		}
 
 	</style>
@@ -177,300 +47,57 @@
 
 <div class="container px-4">
 	<div class="row">
-		<div class="col">
-			<div class="custom-div-col shadow pt-4 pb-5 px-3">
-				<div class="row"><div><label class="fs-5 number-lbl text-center text-light" id="lblHeaderOne1">1</label><label class="fs-5 fw-bold orange-color ms-2" id="lblCustomerInformation1">ข้อมูลลูกค้า</label></div><div class="hr-div"><hr class="hr-custom mt-1" /></div></div>
-				<div class="row mt-2">
-					<div class="col-3"><div class="row"><label class="" id="lblRegisterOnBehalf1">ลงทะเบียนในนาม</label></div></div>
-					<div class="col-3">
-						<div>
-							<input type="radio" id="rdoLegalEntity1" name="radio_check1" value="นิติบุคคล" />
-							<label for="rdoLegalEntity1" class="px-2" id="lblLegalEntity1">นิติบุคคล</label>
-						</div>
-					</div>
-					<div class="col-3">
-						<div>
-							<input type="radio" id="rdoIndividual1" name="radio_check1" value="บุคคลธรรมดา" />
-							<label for="rdoIndividual1" class="px-2" id="lblIndividual1">บุคคลธรรมดา</label>
-						</div>
-					</div>
-				</div>
-				<div class="row mt-1">
-					<div class="col-9">
-						<div class="row mt-1">
-							<label for="txtLegalEntity1" class="fontlbl" id="lblLegalEntity1-2">นิติบุคคล <span class="red-color fontlbl">*</span></label>
-							<div class="input-div"><input type="text" class="w-100" id="txtLegalEntity1" /></div>
-						</div>
-					</div>
-					<div class="col-3 d-flex align-items-center justify-content-center">
-						<div class="row">
-							<div class="pt-4">
-								<input type="checkbox" id="chkVip1" name="checkBox1" value="ลูกค้า VIP" />
-								<label for="chkVip1" class="px-2" id="lblVip1">ลูกค้า VIP</label>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row mt-1">
-					<div class="col-6">
-						<div class="row mt-1">
-							<label for="txtContact1" class="fontlbl" id="lblContact1">ชื่อผู้ติดต่อ <span class="red-color fontlbl">*</span></label>
-							<div class="input-div"><input type="text" id="txtContact1" class="w-100" /></div>
-						</div>
-					</div>
-					<div class="col-6">
-						<div class="row mt-1">
-							<label for="txtTelePhone1" class="fontlbl" id="lblTelephone1">เบอร์โทรศัพท์ <span class="red-color fontlbl">*</span></label>
-							<div class="input-div"><input type="text" id="txtTelePhone1" class="w-100" /></div>
-						</div>
-					</div>
-				</div>
-				<div class="row mt-1">
-					<div class="col-6">
-						<div class="row mt-1">
-							<label for="txtEmail1" class="fontlbl" id="lblEmail1">Email <span class="red-color fontlbl">*</span></label>
-							<div class="input-div"><input type="text" id="txtEmail1" class="w-100" /></div>
-						</div>
-					</div>
-					<div class="col-6">
-						<div class="row mt-1">
-							<label for="txtLineId1" class="fontlbl" id="lblLineId1">Line ID</label>
-							<div class="input-div"><input type="text" id="txtLineId1" class="w-100" /></div>
-						</div>
-					</div>
-				</div>
-				<div class="row mt-1">
-					<div class="col-12 col-lg-6 col-xl-4">
-						<div class="row mt-1">
-							<label for="txtSurveyDate1" class="fontlbl" id="lblSurveyDate1">วันที่ให้เข้าสำรวจ <span class="red-color fontlbl">*</span></label>
-							<div><input type="text" id="txtSurveyDate1" class="form-control" /></div>
-						</div>
-					</div>
-					<div class="col-12 col-lg-6 col-xl-4">
-						<div class="row mt-1">
-							<label for="selectSurveyTime1" class="fontlbl d-block" id="lblSurveyTime1">เวลาให้เข้าสำรวจ <span class="red-color fontlbl">*</span></label>
-							<select name="Survey Time1" id="selectSurveyTime1" class="w-100 d-block select2 js-states form-control">
-								<option></option>
-								<option value="mornning">เช้า</option>
-								<option value="noon">เที่ยง</option>
-								<option value="afterNoon">บ่าย</option>
-								<option value="evenning">เย็น</option>
-							</select>
-						</div>
-					</div>
-					<div class="col-12 col-lg-6 col-xl-4">
-						<div class="row mt-1">
-							<label for="numSpaceSize1" class="fontlbl" id="lblSpaceSize1">ขนาดพื้นที่(ตร.ม.) <span class="red-color fontlbl">*</span></label>
-							<div class="input-div"><input type="text" id="txtSpaceSize1" class="w-100" /></div>
-						</div>
-					</div>
-				</div>
-				<div class="row mt-4"><div><label class="fs-5 number-lbl text-center text-light" id="lblHeaderTwo1">2</label><label class="fs-5 fw-bold orange-color ms-2" id="lblAddress1">ข้อมูลที่อยู่</label></div><div class="hr-div"><hr class="hr-custom mt-1" /></div></div>
-				<div class="row mt-2">
-					<div class="col-12">
-						<div class="row mt-1">
-							<label for="txtAddressSurvey1" class="fontlbl" id="lblAddressSurvey1">ที่อยู่ที่ต้องการให้สำรวจ <span class="red-color fontlbl">*</span></label>
-							<div class="input-div"><textarea class="w-100 text-area" id="txtAddressSurvey1"></textarea></div>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-3">
-						<div class="row mt-1">
-							<label for="selectProvince1" class="fontlbl d-block" id="lblProvince1">จังหวัด <span class="red-color fontlbl">*</span></label>
-							<select name="selectProvince1" id="selectProvince1" class="w-100 d-block select2 js-states form-control">
-								<option></option>
-								<option value="bangkok">กรุงเทพฯ</option>
-								<option value="chiang_mai">เชียงใหม่</option>
-								<option value="chiang_rai">เชียงราย</option>
-								<option value="nakhon_nayok">นครนายก</option>
-								<option value="nakhon_sawan">นครสวรรค์</option>
-							</select>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="row mt-1">
-							<label for="txtDistrict1" class="fontlbl" id="lblDistrict1">อำเภอ / เขต <span class="red-color fontlbl">*</span></label>
-							<div class="input-div"><input type="text" id="txtDistrict1" class="w-100" disabled /></div>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="row mt-1">
-							<label for="txtSubdistrict1" class="fontlbl" id="lblSubdistrict1">ตำบล / แขวง <span class="red-color fontlbl">*</span></label>
-							<div class="input-div"><input type="text" id="txtSubdistrict1" class="w-100" disabled /></div>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="row mt-1">
-							<label for="txtZipCode1" class="fontlbl" id="lblZipCode1">รหัสไปรษณีย์ <span class="red-color fontlbl">*</span></label>
-							<div class="input-div"><input type="text" id="txtZipCode1" class="w-100" /></div>
-						</div>
-					</div>
-				</div>
-				<div class="row mt-1">
-					<label for="txtLink1" class="fontlbl" id="lblLink2">Link จาก Google Map เพื่อพิกัดที่แม่นยำ</label>
-					<div class="input-div"><input type="text" id="txtLink1" class="w-100" /></div>
+		<div class="col-6">
+			<div class="row">
+				<label class="purple-color" id="lblSelectUserType">Select User Type</label>
+			</div>
+			<div class="row mt-2">
+				<div class="col-12">
+					<input type="radio" class="" id="rdoUser" name="selectusertype" value="user" checked />
+					<label for="rdoUser" class="ps-2 pe-4 lbl-color" id="lblUser">USER</label>
+					<input type="radio" id="rdoMAC" name="selectusertype" value="mac" />
+					<label for="rdoMAC" class="ps-2 pe-4 lbl-color" id="lblMAC">MAC</label>
+					<input type="radio" id="rdoStatic_IP" name="selectusertype" value="static_ip" />
+					<label for="rdoStatic_IP" class="ps-2 lbl-color" id="lblStatic_IP">Static IP</label>
 				</div>
 			</div>
-		</div>
-		<div class="col">
-			<div class="custom-div-col shadow pt-4 pb-5 px-3">
-				<div class="row"><div class="row"><div><label class="fs-5 number-lbl text-center text-light" id="lblHeaderThree1">3</label><label class="fs-5 fw-bold orange-color ms-2" id="lblSellerInformation1">ข้อมูลผู้ขาย</label></div><div class="hr-div"><hr class="hr-custom mt-1" /></div></div></div>
-				<div class="row mt-2">
-					<div class="col-6">
-						<div class="row mt-1">
-							<label for="txtFullName1" class="fontlbl" id="lblFullName1">ชื่อ-นามสกุล <span class="red-color fontlbl">*</span></label>
-							<div class="input-div"><input type="text" id="txtFullName1" class="w-100" /></div>
-						</div>
-					</div>
-					<div class="col-6">
-						<div class="row mt-1">
-							<label for="txtTelePhone1-2" class="fontlbl" id="lblTelePhone1-2">เบอร์โทรศัพท์ <span class="red-color fontlbl">*</span></label>
-							<div class="input-div"><input type="text" id="txtTelePhone1-2" class="w-100" /></div>
-						</div>
-					</div>
-				</div>
-				<div class="row mt-1">
-					<div class="col-6">
-						<div class="row mt-1">
-							<label for="selectDealerShop1" class="fontlbl d-block" id="lblDealerShop1">ร้านผู้แทนจำหน่าย <span class="red-color fontlbl">*</span></label>
-							<select name="Dealer shop1" id="selectDealerShop1" class="w-100 d-block select2 js-states form-control">
-								<option></option>
-								<option value="seven_eleven">เซเว่น อีเลฟเว่น</option>
-								<option value="lotus">โลตัส</option>
-								<option value="big_c">บิ๊กซี</option>
-								<option value="family_mart">แฟมิลี่มาร์ท</option>
-							</select>
-						</div>
-					</div>
-					<div class="col-6">
-						<div class="row mt-1">
-							<label for="txtCoupon1" class="fontlbl" id="lblCoupon1">คูปองส่วนลด</label>
-							<div class="input-div"><input type="text" id="txtCoupon1" class="w-100" /></div>
-						</div>
-					</div>
-				</div>
-				<div class="row mt-4"><div><label class="fs-5 number-lbl text-center text-light" id="lblHeaderFour1">4</label><label class="fs-5 fw-bold orange-color ms-2" id="lblTaxInvoiceInformation1">ข้อมูลใบกำกับภาษี</label></div><div class="hr-div"><hr class="hr-custom mt-1" /></div></div>
-				<div class="row mt-2">
-					<div class="col-12">
-						<div>
-							<input type="checkbox" id="chkTaxInvoice1" name="checkBox1-2" value="ต้องการใบกำกับภาษี" />
-							<label for="chkTaxInvoice1" class="px-2" id="lblTaxInvoice1">ต้องการใบกำกับภาษี</label>
-						</div>
-					</div>
-				</div>
-				<div class="row mt-1">
-					<div class="col-12 col-lg-6 col-xl-8">
-						<div class="row mt-1">
-							<label for="txtTaxInvoiceName1" class="fontlbl" id="lblTaxInvoiceName1">ชื่อในใบกำกับภาษี <span class="red-color fontlbl">*</span></label>
-							<div class="input-div"><input type="text" id="txtTaxInvoiceName1" class="w-100" /></div>
-						</div>
-					</div>
-					<div class="col-12 col-lg-6 col-xl-4">
-						<div class="row mt-1">
-							<label for="selectBranch1" class="fontlbl d-block" id="lblBranch1">สาขา <span class="red-color fontlbl">*</span></label>
-							<select name="selectBranch1" id="selectBranch1" class="w-100 d-block select2 js-states form-control">
-								@*<option value="" default selected disabled hidden>--- เลือก ---</option>*@
-								<option></option>
-								<option value="headquater">สำนักงานใหญ่</option>
-								<option value="branch1">สาขา1</option>
-								<option value="branch2">สาขา2</option>
-								<option value="branch3">สาขา3</option>
-							</select>
-						</div>
-					</div>
-				</div>
-				<div class="row mt-1">
-					<div class="col-8">
-						<div class="row mt-1">
-							<label for="txtTaxIdentificationNumber1" class="fontlbl" id="lblTaxIdentificationNumber1">เลขประจำตัวผู้เสียภาษี <span class="red-color fontlbl">*</span></label>
-							<div class="input-div"><input type="text" id="txtTaxIdentificationNumber1" class="w-100" /></div>
-						</div>
-					</div>
-					<div class="col-4">
-						<div class="row mt-1">
-							<label for="txtBranchCode1" class="fontlbl" id="lblBranchCode1">รหัสสาขา <span class="red-color fontlbl">*</span></label>
-							<div class="input-div"><input type="text" id="txtBranchCode1" class="w-100" placeholder="0000" disabled /></div>
-						</div>
-					</div>
-				</div>
-				<div class="row mt-2">
-					<div class="col-12">
-						<div class="row mt-1">
-							<div class="d-inline">
-								<input type="checkbox" id="chkInvoiceIssuingAddress1" name="checkBox1-3" value="ที่อยู่ออกใบกำกับ ใช้ที่อยู่เดียวกันกับสถานที่เข้าสำรวจ" />
-								<label for="chkInvoiceIssuingAddress1" class="px-2" id="lblInvoiceIssuingAddress1">ที่อยู่ออกใบกำกับ ใช้ที่อยู่เดียวกันกับสถานที่เข้าสำรวจ</label>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row mt-2">
-					<div class="col-6">
-						<div class="row"><label id="lblFile1">ไฟล์แนบ</label></div>
-					</div>
-					<div class="col-6">
-						<div class="row"><button class="btn btn-primary text-start pe-0" id="btnUpload1">Upload<div class="ps-2 d-inline"><i class="bi bi-upload bg-custom p-2"></i></div></button></div>
-					</div>
-				</div>
+			<div class="row mt-4">
+				<label for="txtUsername" class="lbl-color" id="lblUsername">Username</label>
+			</div>
+			<div class="row div-input">
+				<input type="text" class="" id="txtUsername" />
+			</div>
+			<div class="row mt-2">
+				<label for="txtPassword" class="lbl-color" id="lblPassword">Password</label>
+			</div>
+			<div class="row div-input">
+				<input type="text" class="" id="txtPassword" />
+			</div>
+			<div class="row mt-2">
+				<label for="txtSimultaneous_Use" class="lbl-color" id="lblSimultaneous_Use">Simultaneous-Use</label>
+			</div>
+			<div class="row div-input">
+				<input type="text" class="" id="txtSimultaneous_Use" />
 			</div>
 		</div>
-	</div>
-	<div class="row my-3 btm-div">
-		<div class="px-0">
-			<button class="button-size float-end submit-button text-light" id="btnSubmit1" onclick="addInfoAndBinding()">บันทึก</button>
-			<button class="button-size float-end me-2" id="btnCancel1">ยกเลิก</button>
-		</div>
-	</div>
-	<div class="row hidden" id="divTable">
-		<div class="col-sm-12">
-			<div class="container mt-3">
-				<div class="card">
-					<div class="card-body">
-						<table id="tblInfo" class="table table-student w-100 display">
-							<thead id="tblHeader">
-								<tr>
-									<th>ลำดับ</th> @*1*@
-									<th>ลงทะเบียนในนาม</th> @*2*@
-									<th>นิติบุคคล</th> @*3*@
-									<th>ลูกค้า VIP</th> @*4*@
-									<th>ชื่อ</th> @*5*@
-									<th>เบอร์</th> @*6*@
-									<th>อีเมล</th> @*7*@
-									<th>ไลน์</th> @*8*@
-									<th>วันที่ให้เข้าสำรวจ</th> @*9*@
-									<th>วันที่ให้เข้าสำรวจซ่อนนะ</th> @*10*@
-									<th>เวลาให้เข้าสำรวจ</th> @*11*@
-									<th>ขนาดพื้นที่(ตร.ม.)</th> @*12*@
-									<th>ที่อยู่ที่ต้องการให้สำรวจ</th> @*13*@
-									<th>จังหวัด</th> @*14*@
-									<th>อำเภอ / เขต</th> @*15*@
-									<th>ตำบล / แขวง</th> @*16*@
-									<th>รหัสไปรษณีย์</th> @*17*@
-									<th>Link จาก Google Map เพื่อพิกัดที่แม่นยำ</th> @*18*@
-									<th>ชื่อ-นามสกุล</th> @*19*@
-									<th>เบอร์โทรศัพท์</th> @*20*@
-									<th>ร้านผู้แทนจำหน่าย</th> @*21*@
-									<th>คูปองส่วนลด</th> @*22*@
-									<th>ต้องการใบกำกับภาษี</th> @*23*@
-									<th>ชื่อในใบกำกับภาษี</th> @*24*@
-									<th>สาขา</th> @*25*@
-									<th>เลขประจำตัวผู้เสียภาษี</th> @*26*@
-									<th>รหัสสาขา</th> @*27*@
-									<th>ที่อยู่ออกใบกำกับ ใช้ที่อยู่เดียวกันกับสถานที่เข้าสำรวจ</th> @*28*@
-								</tr>
-							</thead>
-							<tbody>
-							</tbody>
-						</table>
-					</div>
-				</div>
+		<div class="col-6">
+			<div class="row">
+				<label class="lbl-color" id="lblPassword">Plan</label>
 			</div>
-		</div>
-	</div>
-	<div class="row btm-div mt-3">
-		<div class="con-box">
-			<div class="row"><label class="head-fontlbl" id="lblCondition1">เงื่อนไข</label></div>
-			<div class="row"><label class="fontlbl" id="lblConditionCompanyTerm1">*เงื่อนไขตามที่บริษัททั้งหมด</label></div>
+			<div class="row">
+				<input type="text" class="" id="txtPassword" />
+				<button class="" id="btn_select_unused_ip">SELECT UNUSED IP</button>
+			</div>
+			<div class="row">
+				<label for="txtPassword" class="lbl-color" id="lblPassword">IP Address</label>
+			</div>
+			<div class="row">
+
+			</div>
+			<div class="row">
+				<label class="lbl-color" id="lblPassword">User Assign TO Franchisee</label>
+			</div>
+			<div class="row"></div>
 		</div>
 	</div>
 </div>
@@ -511,180 +138,14 @@
 	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 	<script type="text/javascript">
 
-		var InfoList = []; //ObjectList
-
 		$(document).ready(function () { //โหลด HTML เสร็จแล้วทำ Function;
-
-			$("#txtSurveyDate1").datetimepicker({ //เรียกไอดี txtStudentFr
-				mask: true, //หน้ากากทำตาม Format ของ datetimepicker
-				autoClose: true, //กดคลิกนอกกรอบจะปิดให้เอง
-				step: 1, //เพิ่มขึ้นทีละ 1 นาที
-				format: 'd/m/Y', //Format ของ datetimepicker Y-m-d ตั้งค่าเองได้
-				formatDate: 'd/m/Y', //ควรตั้งให้เหมือนกัน
-				scrollInput: false, //Scroll mouse
-				timepicker: false, //เปิดเวลาใน datetimepicker
-				value: moment().format("DD/MM/YYYY"), //moment library เวลาปัจจุบัน, subtarct ลบ 3 วันจากวันนี้
-			});
 
 			$(".select2").select2({
 				placeholder: "--- เลือก ---",
 				allowClear: true
-			}); //ใช้เรียก library select2 จัด dropdown
-
-			$('input[type="radio"]').change(function () {
-				if ($('#rdoIndividual1').is(':checked')) {
-					$('#txtLegalEntity1').prop('disabled', true);
-				} else {
-					$('#txtLegalEntity1').prop('disabled', false);
-				}
 			});
-
-			$("#selectProvince1").change(function () {
-				if ($(this).val()) {
-					$('#txtDistrict1').prop('disabled', false);
-					$('#txtSubdistrict1').prop('disabled', false);
-				} else {
-					$('#txtDistrict1').prop('disabled', true);
-					$('#txtSubdistrict1').prop('disabled', true);
-				}
-			});
-
-			$("#selectBranch1").change(function () {
-				if ($(this).val()) {
-					$('#txtBranchCode1').prop('disabled', false);
-				} else {
-					$('#txtBranchCode1').prop('disabled', true);
-				}
-			});
-
 
 		});
-
-		function addInfoAndBinding() { //funcction เพิ่มนักเรียน
-			debugger
-
-			Swal.fire({ //switch alert, popup
-				title: "Do you want to save the changes?", //ชื่อเรื่อง
-				//showDenyButton: true,
-				showCancelButton: true, //โชว์ปุ่ม cancel
-				confirmButtonText: "Save", //คำพูดในปุ่ม confirmButton
-				//denyButtonText: `Don't save`
-			}).then((result) => { //หลังจากกดปุ่ม
-				/* Read more about isConfirmed, isDenied below */
-				if (result.isConfirmed) { //ถ้ากดปุ่ม comfirm
-
-					var InfoObject = { //สร้างตัวแปร object
-						RegisterOnBehalf: $('input[type=radio][name=radio_check1]:checked').val(),
-						LegalEntity: $("#txtLegalEntity1").val(),
-						VIPCustomer: $('#chkVip1').is(':checked'),
-						Name: $("#txtContact1").val(),
-						PhoneNumber1: $("#txtTelePhone1").val(),
-						Email: $("#txtEmail1").val(),
-						LineID: $("#txtLineId1").val(),
-						SurveyDate: moment($("#txtSurveyDate1").val(), 'DD/MM/YYYY').format('DD/MM/YYYY'),
-						SurveyTime: $('#selectSurveyTime1 option:selected').text(),
-						SpaceSize: $("#txtSpaceSize1").val(),
-						AddressSurvey: $("#txtAddressSurvey1").val(),
-						Province: $('#selectProvince1 option:selected').text(),
-						District: $("#txtDistrict1").val(),
-						Subdistrict: $("#txtSubdistrict1").val(),
-						ZipCode: $("#txtZipCode1").val(),
-						Link: $("#txtLink1").val(),
-						FullName: $("#txtFullName1").val(),
-						PhoneNumber2: $("#txtTelePhone1-2").val(),
-						DealerShop: $('#selectDealerShop1 option:selected').text(),
-						Coupon: $("#txtCoupon1").val(),
-						TaxInvoice: $('#chkTaxInvoice1').is(':checked'),
-						TaxInvoiceName: $("#txtTaxInvoiceName1").val(),
-						Branch: $('#selectBranch1 option:selected').text(),
-						TaxIdentificationNumber: $("#txtTaxIdentificationNumber1").val(),
-						BranchCode: $("#txtBranchCode1").val(),
-						InvoiceIssuingAddress: $('#chkInvoiceIssuingAddress1').is(':checked')
-					}
-					debugger
-					InfoList.push(InfoObject); //ใส่ object ใน objectlist
-
-					$("#divTable").show();
-
-					bindingOrder(InfoList);
-
-				} else if (result.isDenied) {
-					Swal.fire("Changes are not saved", "", "info");
-				}
-			});
-
-		}
-
-		function bindingOrder(dataList) { //รับ parameter จาก studentList
-			var table = $("#tblInfo").DataTable({ //select id
-				data: dataList, //เอา parameter มาเก็บใน data
-				processing: true,
-				destroy: true, //สร้างซ้ำได้
-				scrollX: true, //เลื่อนแนวนอน
-				searching: true, //filter ของ library
-				order: [[1, "desc"]], //desc เรียงจากมากไปน้อย, asc เรียงจากน้อยไปมาก, 1 = name, 2 = age, 0 = row
-				columns: [ //จำนวน columns ต้องตรงกับจำนวน tableHead และอย่าลืม tableBody
-					{ //0
-						data: null, className: "text-center", orderable: true, //data = null ไม่โชว์, classname ใส่ class, orderable เปิดการเรียงลำดับ
-						render: function (data, type, full, meta) { //type, full = data ทั้งหมด, meta เป็น default
-							debugger
-							return meta.row + 1;
-						}
-					},//ตัวหนังสือชิดซ้าย ex.name, ตัวเลขชิดขวา ex.age, format เหมือนกันชิดกลาง ex.date, status
-					{ data: "RegisterOnBehalf", className: "text-center" }, //1
-					{ data: "LegalEntity", className: "text-left" }, //2
-					{ data: "VIPCustomer", className: "text-center" }, //3
-					{ data: "Name", className: "text-left" }, //4
-					{ data: "PhoneNumber1", className: "text-center" }, //5
-					{ data: "Email", className: "text-left" }, //6
-					{ data: "LineID", className: "text-left" }, //7
-					{ //8
-						data: null, className: "text-center ", orderData: [8],
-						render: function (data, type, full, meta) {
-							debugger
-							var date = "";
-							if (data.SurveyDate != "" && data.SurveyDate != null) {
-								date = moment(data.SurveyDate).format('DD/MM/YYYY h:mm');
-							}
-							return date;
-						}
-					},
-					{ data: "SurveyDate", className: "", visible: false }, //9
-					{ //10
-						data: "SurveyTime", className: "text-center", orderable: false,
-						render: function (data, type, full, meta) {
-							var html = "<label class='col-form-label'>" + data + "</label>";
-							return html;
-						}
-					},
-					{ data: "SpaceSize", className: "text-right" }, //11
-					{ data: "AddressSurvey", className: "text-left" }, //12
-					{ data: "Province", className: "text-left" }, //13
-					{ data: "District", className: "text-left" }, //14
-					{ data: "Subdistrict", className: "text-left" }, //15
-					{ data: "ZipCode", className: "text-center" }, //16
-					{ data: "Link", className: "text-left" }, //17
-					{ data: "FullName", className: "text-left" }, //18
-					{ data: "PhoneNumber2", className: "text-right" }, //19
-					{ data: "DealerShop", className: "text-left" }, //20
-					{ data: "Coupon", className: "text-center" }, //21
-					{ data: "TaxInvoice", className: "text-center" }, //22
-					{ data: "TaxInvoiceName", className: "text-left" }, //23
-					{ data: "Branch", className: "text-left" }, //24
-					{ data: "TaxIdentificationNumber", className: "text-right" }, //25
-					{ data: "BranchCode", className: "text-center" }, //26
-					{ data: "InvoiceIssuingAddress", className: "text-center" }, //27
-
-				],
-			});
-
-			Swal.fire({
-				title: "Good job!",
-				text: "You clicked the button!",
-				icon: "success",
-				timer: 3000
-			});
-		}
 
 	</script>
 }
