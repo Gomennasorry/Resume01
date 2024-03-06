@@ -63,16 +63,17 @@
             z-index: 999999999;
         }
 
-		.abcdClass {
+        .abcdClass {
             color: red !important;
-		}
-
+        }
     </style>
 
 }
 @*<div class="row">
         <div class="col-sm-12">Student Page</div>
     </div>*@
+<p id="gfg"></p>
+
 <div class="row">
     <div class="col-12">
         <div class="container mt-1">
@@ -158,7 +159,7 @@
                         </div>
                     </div>
 
-                  
+
 
 
                     <div class="row justify-content-end mt-3 ">
@@ -208,6 +209,7 @@
     </div>
 </div>
 
+
 @section Scripts {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -247,7 +249,7 @@
         var studentList = []; //ObjectList
 
         $(document).ready(function () { //โหลด HTML เสร็จแล้วทำ Function;
-
+            getIPAddress();
             $("#txtStudentFr").datetimepicker({ //เรียกไอดี txtStudentFr
                 mask: true, //หน้ากากทำตาม Format ของ datetimepicker
                 autoClose: true, //กดคลิกนอกกรอบจะปิดให้เอง
@@ -266,7 +268,7 @@
                 timepicker: false, //เปิดเวลาใน datetimepicker
                 value: moment().subtract(3, "days").format("DD/MM/YYYY"), //moment library เวลาปัจจุบัน, subtarct ลบ 3 วันจากวันนี้
             });
-			$("#txtStudentTo").datetimepicker({ //เรียกไอดี txtStudentTo
+            $("#txtStudentTo").datetimepicker({ //เรียกไอดี txtStudentTo
                 mask: true,
                 autoClose: true,
                 step: 1,
@@ -294,7 +296,7 @@
                 //showDenyButton: true,
                 showCancelButton: true, //โชว์ปุ่ม cancel
                 confirmButtonText: "Save", //คำพูดในปุ่ม confirmButton
-                //denyButtonText: `Don't save` 
+                //denyButtonText: `Don't save`
             }).then((result) => { //หลังจากกดปุ่ม
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) { //ถ้ากดปุ่ม comfirm
@@ -341,7 +343,7 @@
         }
 
         function bindingOrder(dataList) { //รับ parameter จาก studentList
-            var table = $("#tblStudent").DataTable({ //select id 
+            var table = $("#tblStudent").DataTable({ //select id
                 data: dataList, //เอา parameter มาเก็บใน data
                 processing: true,
                 destroy: true, //สร้างซ้ำได้
@@ -361,7 +363,7 @@
                 //        }
                 //    }
                 //],
-				columns: [ //จำนวน columns ต้องตรงกับจำนวน tableHead และอย่าลืม tableBody
+                columns: [ //จำนวน columns ต้องตรงกับจำนวน tableHead และอย่าลืม tableBody
                     { //0
                         data: null, className: "text-center abcdClass", orderable: true, //data = null ไม่โชว์, classname ใส่ class, orderable เปิดการเรียงลำดับ
                         render: function (data, type, full, meta) { //type, full = data ทั้งหมด, meta เป็น default
@@ -447,6 +449,19 @@
                 timer: 3000
             });
         }
+
+        /* Add "https://api.ipify.org?format=json" to 
+       get the IP Address of user*/
+        $(document).ready(() => {
+            $.getJSON("https://api.ipify.org?format=json",
+                function (data) {
+
+                    // Displayin IP address on screen
+                    $("#gfg").html(data.ip);
+                })
+        });
+
+
     </script>
 }
 
