@@ -179,7 +179,7 @@
 					<input type="text" class="w-100" id="txtIPAddress" />
 				</div>
 				<div class="col-3">
-					<button class="w-100 h-100" id="btn_select_unused_ip">SELECT UNUSED IP</button>
+					<button class="w-100 h-100" id="btn_select_unused_ip" onclick="genRandomIP()">SELECT UNUSED IP</button>
 				</div>
 			</div>
 			<div class="row mt-3">
@@ -231,7 +231,6 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
 	@*popup*@
 	<script src="~/lib/sweetalert2/js/sweetalert2.min.js"></script>
@@ -260,7 +259,7 @@
 	<script src="~/lib/datatables/buttons/js/buttons.html5.js"></script>
 	<script src="~/lib/datatables/buttons/js/buttons.print.js"></script>
 	<script src="~/lib/datatables/buttons/js/jszip.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
 	<script type="text/javascript">
 
 		var InfoList = [];
@@ -299,6 +298,11 @@
 
 		});
 
+		function genRandomIP() {
+			var ip = (Math.floor(Math.random() * 255) + 1) + "." + (Math.floor(Math.random() * 255)) + "." + (Math.floor(Math.random() * 255)) + "." + (Math.floor(Math.random() * 255));
+			$('#txtIPAddress').val(ip);
+		}
+
 		function submitInfo() {
 			debugger
 
@@ -328,6 +332,11 @@
 
 					bindingOrder(InfoList);
 
+					var allInputs = document.querySelectorAll('input[type="text"], input[type="password"]');
+					allInputs.forEach(singleInput => singleInput.value = '');
+					$("#selectPlan").val(null).trigger("change");
+					$("#selectFranchisee").val(null).trigger("change");
+
 				} else if (result.isDenied) {
 					Swal.fire("Changes are not saved", "", "info");
 				}
@@ -352,9 +361,9 @@
 						}
 					},//ตัวหนังสือชิดซ้าย ex.name, ตัวเลขชิดขวา ex.age, format เหมือนกันชิดกลาง ex.date, status
 					{ data: "UserType", className: "text-center" }, //1
-					{ data: "Username", className: "text-left" }, //2
-					{ data: "Password", className: "text-left" }, //3
-					{ data: "SimultaneousUse", className: "text-right" }, //4
+					{ data: "Username", className: "text-start" }, //2
+					{ data: "Password", className: "text-start" }, //3
+					{ data: "SimultaneousUse", className: "text-end" }, //4
 					{ data: "Plan", className: "text-center" }, //5
 					{ data: "IPAddress", className: "text-center" }, //6
 					{ data: "Franchisee", className: "text-center" }, //7
