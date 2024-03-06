@@ -18,14 +18,14 @@
 			font-family: Roboto !important;
 		}
 
-		input[type="text"] {
+		input[type="text"], input[type="password"] {
 			padding: 1px 0px;
 			border: none;
 			border-bottom: 1px solid #b1acac;
 			outline: none;
 		}
 
-		.div-input {
+		.div-input, .div-submit {
 			padding: 0px 12px;
 		}
 
@@ -42,6 +42,84 @@
 			color: #fff;
 		}
 
+		.select2-container--default .select2-selection--single .select2-selection__arrow {
+			right: 20px;
+		}
+
+		.select2-container--default .select2-selection--single .select2-selection__clear {
+			margin-right: 35px;
+			line-height: 30px !important;
+		}
+
+		#btn_select_unused_ip {
+			border: none;
+			outline: none;
+			border-radius: 3px;
+			font-size: 12px;
+		}
+
+		.select2-selection__rendered {
+			line-height: 32px !important;
+		}
+
+		.select2-container .select2-selection--single {
+			height: 35px !important;
+		}
+
+		.select2-selection__arrow {
+			height: 32px !important;
+		}
+
+		input[type=radio] {
+			accent-color: #9C27B0;
+		}
+
+		#submit {
+			background-color: #9C27B0;
+			border: none;
+			outline: none;
+			border-radius: 3px;
+		}
+
+		/* Custom DataTable Styles */
+		.dataTables_wrapper {
+			font-family: Arial, sans-serif;
+			font-size: 14px;
+		}
+
+		table.dataTable thead th {
+			background-color: #f2f2f2;
+			border: 1px solid #ddd;
+		}
+
+		table.dataTable tbody td {
+			border: 1px solid #ddd;
+		}
+
+		table.dataTable tbody tr:nth-child(even) {
+			background-color: #f9f9f9;
+		}
+
+		table.dataTable.no-footer {
+			border-bottom: 0;
+		}
+
+		.dataTables_paginate {
+			margin-top: 10px;
+		}
+
+		.dataTables_filter label {
+			margin-right: 10px;
+		}
+
+		option[default] {
+			display: none;
+		}
+
+		.hidden {
+			display: none;
+		}
+
 	</style>
 }
 
@@ -53,11 +131,11 @@
 			</div>
 			<div class="row mt-2">
 				<div class="col-12">
-					<input type="radio" class="" id="rdoUser" name="selectusertype" value="user" checked />
-					<label for="rdoUser" class="ps-2 pe-4 lbl-color" id="lblUser">USER</label>
-					<input type="radio" id="rdoMAC" name="selectusertype" value="mac" />
+					<input type="radio" class="" id="rdoUser" name="selectusertype" value="USER" checked />
+					<label for="rdoUser" class="ps-2 pe-4 purple-color" id="lblUser">USER</label>
+					<input type="radio" id="rdoMAC" name="selectusertype" value="MAC" />
 					<label for="rdoMAC" class="ps-2 pe-4 lbl-color" id="lblMAC">MAC</label>
-					<input type="radio" id="rdoStatic_IP" name="selectusertype" value="static_ip" />
+					<input type="radio" id="rdoStatic_IP" name="selectusertype" value="Static IP" />
 					<label for="rdoStatic_IP" class="ps-2 lbl-color" id="lblStatic_IP">Static IP</label>
 				</div>
 			</div>
@@ -71,7 +149,7 @@
 				<label for="txtPassword" class="lbl-color" id="lblPassword">Password</label>
 			</div>
 			<div class="row div-input">
-				<input type="text" class="" id="txtPassword" />
+				<input type="password" class="" id="txtPassword" />
 			</div>
 			<div class="row mt-2">
 				<label for="txtSimultaneous_Use" class="lbl-color" id="lblSimultaneous_Use">Simultaneous-Use</label>
@@ -84,20 +162,67 @@
 			<div class="row">
 				<label class="lbl-color" id="lblPassword">Plan</label>
 			</div>
-			<div class="row">
-				<input type="text" class="" id="txtPassword" />
-				<button class="" id="btn_select_unused_ip">SELECT UNUSED IP</button>
+			<div class="row mt-2">
+				<select name="plan" id="selectPlan" class="w-100 d-block select_Plan js-states form-control">
+					<option></option>
+					<option value="plan1">1 Mb 2 Mb UI 6Month (900)</option>
+					<option value="plan2">2 Mb 3 Mb UI 6Month (1200)</option>
+					<option value="plan3">3 Mb 4 Mb UI 6Month (1500)</option>
+					<option value="plan4">4 Mb 5 Mb UI 6Month (1800)</option>
+				</select>
 			</div>
-			<div class="row">
+			<div class="row mt-3">
 				<label for="txtPassword" class="lbl-color" id="lblPassword">IP Address</label>
 			</div>
-			<div class="row">
-
+			<div class="row mt-2 div-ip">
+				<div class="col-9">
+					<input type="text" class="w-100" id="txtIPAddress" />
+				</div>
+				<div class="col-3">
+					<button class="w-100 h-100" id="btn_select_unused_ip">SELECT UNUSED IP</button>
+				</div>
 			</div>
-			<div class="row">
+			<div class="row mt-3">
 				<label class="lbl-color" id="lblPassword">User Assign TO Franchisee</label>
 			</div>
-			<div class="row"></div>
+			<div class="row mt-2">
+				<select name="franchisee" id="selectFranchisee" class="w-100 d-block select_Franchisee js-states form-control">
+					<option></option>
+					<option value="franchisee1">Franchisee1</option>
+					<option value="franchisee2">Franchisee2</option>
+					<option value="franchisee3">Franchisee3</option>
+					<option value="franchisee4">Franchisee4</option>
+				</select>
+			</div>
+		</div>
+	</div>
+	<div class="row mt-3 div-submit">
+		<button class="text-light" id="submit" onclick="submitInfo()">Submit</button>
+	</div>
+	<div class="row hidden" id="divTable">
+		<div class="col-sm-12">
+			<div class="container mt-3">
+				<div class="card">
+					<div class="card-body">
+						<table id="tblInfo" class="table table-student w-100 display">
+							<thead id="tblHeader">
+								<tr>
+									<th>No.</th> @*1*@
+									<th>User Type</th> @*2*@
+									<th>Username</th> @*3*@
+									<th>Password</th> @*4*@
+									<th>Simultaneous-Use</th> @*5*@
+									<th>Plan</th> @*6*@
+									<th>IP Address</th> @*7*@
+									<th>User Assign TO Franchisee</th> @*8*@
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
@@ -138,14 +263,112 @@
 	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 	<script type="text/javascript">
 
+		var InfoList = [];
+
 		$(document).ready(function () { //โหลด HTML เสร็จแล้วทำ Function;
 
-			$(".select2").select2({
-				placeholder: "--- เลือก ---",
+			$(".select_Franchisee").select2({
+				width: '100%',
+				placeholder: "Select Franchisee",
 				allowClear: true
 			});
 
+			$(".select_Plan").select2({
+				width: '100%',
+				placeholder: "Select Plan",
+				allowClear: true
+			});
+
+			$('input[type="radio"]').change(function () {
+				if ($('#rdoUser').is(':checked')) {
+					$('#lblUser').css('color', '#9C27B0');
+				} else {
+					$('#lblUser').css('color', '#b1acac');
+				}
+				if ($('#rdoMAC').is(':checked')) {
+					$('#lblMAC').css('color', '#9C27B0');
+				} else {
+					$('#lblMAC').css('color', '#b1acac');
+				}
+				if ($('#rdoStatic_IP').is(':checked')) {
+					$('#lblStatic_IP').css('color', '#9C27B0');
+				} else {
+					$('#lblStatic_IP').css('color', '#b1acac');
+				}
+			});
+
 		});
+
+		function submitInfo() {
+			debugger
+
+			Swal.fire({ //switch alert, popup
+				title: "Do you want to save the changes?", //ชื่อเรื่อง
+				//showDenyButton: true,
+				showCancelButton: true, //โชว์ปุ่ม cancel
+				confirmButtonText: "Save", //คำพูดในปุ่ม confirmButton
+				//denyButtonText: `Don't save`
+			}).then((result) => { //หลังจากกดปุ่ม
+				/* Read more about isConfirmed, isDenied below */
+				if (result.isConfirmed) { //ถ้ากดปุ่ม comfirm
+
+					var InfoObject = { //สร้างตัวแปร object
+						UserType: $('input[type=radio][name=selectusertype]:checked').val(),
+						Username: $("#txtUsername").val(),
+						Password: $("#txtPassword").val(),
+						SimultaneousUse: $("#txtSimultaneous_Use").val(),
+						Plan: $('#selectPlan option:selected').text(),
+						IPAddress: $("#txtIPAddress").val(),
+						Franchisee: $('#selectFranchisee option:selected').text(),
+					}
+					debugger
+					InfoList.push(InfoObject); //ใส่ object ใน objectlist
+
+					$("#divTable").show();
+
+					bindingOrder(InfoList);
+
+				} else if (result.isDenied) {
+					Swal.fire("Changes are not saved", "", "info");
+				}
+			});
+
+		}
+
+		function bindingOrder(dataList) { //รับ parameter จาก studentList
+			var table = $("#tblInfo").DataTable({ //select id
+				data: dataList, //เอา parameter มาเก็บใน data
+				processing: true,
+				destroy: true, //สร้างซ้ำได้
+				scrollX: true, //เลื่อนแนวนอน
+				searching: true, //filter ของ library
+				order: [[1, "desc"]], //desc เรียงจากมากไปน้อย, asc เรียงจากน้อยไปมาก, 1 = name, 2 = age, 0 = row
+				columns: [ //จำนวน columns ต้องตรงกับจำนวน tableHead และอย่าลืม tableBody
+					{ //0
+						data: null, className: "text-center", orderable: true, //data = null ไม่โชว์, classname ใส่ class, orderable เปิดการเรียงลำดับ
+						render: function (data, type, full, meta) { //type, full = data ทั้งหมด, meta เป็น default
+							debugger
+							return meta.row + 1;
+						}
+					},//ตัวหนังสือชิดซ้าย ex.name, ตัวเลขชิดขวา ex.age, format เหมือนกันชิดกลาง ex.date, status
+					{ data: "UserType", className: "text-center" }, //1
+					{ data: "Username", className: "text-left" }, //2
+					{ data: "Password", className: "text-left" }, //3
+					{ data: "SimultaneousUse", className: "text-right" }, //4
+					{ data: "Plan", className: "text-center" }, //5
+					{ data: "IPAddress", className: "text-center" }, //6
+					{ data: "Franchisee", className: "text-center" }, //7
+
+				],
+			});
+
+			Swal.fire({
+				title: "Good job!",
+				text: "You clicked the button!",
+				icon: "success",
+				timer: 3000
+			});
+		}
 
 	</script>
 }
