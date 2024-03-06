@@ -249,7 +249,18 @@
         var studentList = []; //ObjectList
 
         $(document).ready(function () { //โหลด HTML เสร็จแล้วทำ Function;
-            getIPAddress();
+
+
+            /* Add "https://api.ipify.org?format=json" to
+           get the IP Address of user*/
+            $.getJSON("https://api.ipify.org?format=json",
+                function (data) {
+
+                    // Displayin IP address on screen
+                    $("#gfg").html(data.ip);
+                })
+
+
             $("#txtStudentFr").datetimepicker({ //เรียกไอดี txtStudentFr
                 mask: true, //หน้ากากทำตาม Format ของ datetimepicker
                 autoClose: true, //กดคลิกนอกกรอบจะปิดให้เอง
@@ -449,17 +460,6 @@
                 timer: 3000
             });
         }
-
-        /* Add "https://api.ipify.org?format=json" to 
-       get the IP Address of user*/
-        $(document).ready(() => {
-            $.getJSON("https://api.ipify.org?format=json",
-                function (data) {
-
-                    // Displayin IP address on screen
-                    $("#gfg").html(data.ip);
-                })
-        });
 
 
     </script>
