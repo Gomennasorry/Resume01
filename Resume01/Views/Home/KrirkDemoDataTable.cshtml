@@ -209,6 +209,10 @@
     </div>
 </div>
 
+<div class="row">
+    <button class="btn btn-primary" onclick="getJsonApi()">Click to get API</button>
+    <label class="col-form-label" id="lblApi">data here</label>
+</div>
 
 @section Scripts {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
@@ -462,6 +466,24 @@
         }
 
 
+        function getJsonApi() {
+            $.ajax(
+                {
+
+                    dataType: "json",
+                    type: 'GET',
+                    url: 'https://jsonplaceholder.typicode.com/todos/1',
+                    ////url: '@Url.Action("Search", "Manifest")',
+                    //data: searchTerm,
+                    success: function (response) {
+                        debugger
+                        $("#lblApi").text(JSON.stringify(response) );
+                    },
+                    error: function (request, status, error) {
+
+                    }
+                });
+        }
     </script>
 }
 
