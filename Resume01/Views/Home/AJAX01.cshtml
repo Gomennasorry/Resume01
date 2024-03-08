@@ -1,0 +1,242 @@
+﻿@*
+	For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@section Styles {
+	<link href="~/lib/sweetalert2/css/sweetalert2.min.css" rel="stylesheet" />
+	<link href="~/lib/select2/css/select2.css" rel="stylesheet" />
+	<link href="~/lib/datetimepicker/css/jquery.datetimepicker.min.css" rel="stylesheet" />
+	<link href="~/lib/datatables/buttons/css/buttons.bootstrap.css" rel="stylesheet" />
+	<link href="~/lib/datatables/buttons/css/buttons.dataTables.css" rel="stylesheet" />
+	<link href="~/lib/datatables/css/jquery.dataTables.css" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+	<style type="text/css">
+
+		body {
+			font-family: Roboto !important;
+		}
+
+		/* Custom DataTable Styles */
+		.dataTables_wrapper {
+			font-family: Arial, sans-serif;
+			font-size: 14px;
+		}
+
+		table.dataTable thead th {
+			background-color: #f2f2f2;
+			border: 1px solid #ddd;
+		}
+
+		table.dataTable tbody td {
+			border: 1px solid #ddd;
+		}
+
+		table.dataTable tbody tr:nth-child(even) {
+			background-color: #f9f9f9;
+		}
+
+		table.dataTable.no-footer {
+			border-bottom: 0;
+		}
+
+		.dataTables_paginate {
+			margin-top: 10px;
+		}
+
+		.dataTables_filter label {
+			margin-right: 10px;
+		}
+
+		option[default] {
+			display: none;
+		}
+
+		.hidden {
+			display: none;
+		}
+
+	</style>
+}
+
+<div class="container px-4">
+	<div class="row">
+		<button class="btn btn-primary" onclick="getJsonApi()">Click to get API</button>
+		<label class="col-form-label" id="lblApi">data here</label>
+	</div>
+	<div class="row">
+		<button class="btn btn-primary" onclick="submitInfo()">Show Table</button>
+	</div>
+	<div class="row hidden" id="divTable">
+		<div class="col-sm-12">
+			<div class="container mt-3">
+				<div class="card">
+					<div class="card-body">
+						<table id="tblInfo" class="table table-student w-100 display">
+							<thead id="tblHeader">
+								<tr>
+									<th>No.</th> @*1*@
+									<th>UserID</th> @*2*@
+									<th>ID</th> @*3*@
+									<th>Title</th> @*4*@
+									<th>Completed</th> @*5*@
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section Scripts {
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+	@*popup*@
+	<script src="~/lib/sweetalert2/js/sweetalert2.min.js"></script>
+
+	@*dropdown beautiful tool*@
+	<script src="~/lib/select2/js/select2.full.js"></script>
+
+	@*create barcode*@
+	<script src="~/lib/JsBarcode/JsBarcode.code128.min.js"></script>
+
+	@*qr code*@
+	<script src="~/lib/html5-qrcode/qrcode.min.js"></script>
+
+	@*datetimePicker calendar*@
+	<script src="~/lib/datetimepicker/js/jquery.datetimepicker.full.js"></script>
+
+
+	@*datatable*@
+	<script src="~/lib/datatables/js/jquery.dataTables.js"></script>
+	@*<script src="~/lib/datatables/js/dataTables.bootstrap.js"></script>*@
+
+	@*click to print from data table*@
+	<script src="~/lib/datatables/buttons/js/dataTables.buttons.js"></script>
+	<script src="~/lib/datatables/buttons/js/buttons.bootstrap.js"></script>
+	<script src="~/lib/datatables/buttons/js/buttons.flash.js"></script>
+	<script src="~/lib/datatables/buttons/js/buttons.html5.js"></script>
+	<script src="~/lib/datatables/buttons/js/buttons.print.js"></script>
+	<script src="~/lib/datatables/buttons/js/jszip.js"></script>
+
+	<script type="text/javascript">
+
+		var InfoList = [];
+		var JsonList = [];
+
+		$(document).ready(function () { //โหลด HTML เสร็จแล้วทำ Function;
+
+
+
+		});
+
+
+		function submitInfo() {
+			debugger
+
+			Swal.fire({ //switch alert, popup
+				title: "Do you want to save the changes?", //ชื่อเรื่อง
+				//showDenyButton: true,
+				showCancelButton: true, //โชว์ปุ่ม cancel
+				confirmButtonText: "Save", //คำพูดในปุ่ม confirmButton
+				//denyButtonText: `Don't save`
+			}).then((result) => { //หลังจากกดปุ่ม
+				/* Read more about isConfirmed, isDenied below */
+				if (result.isConfirmed) { //ถ้ากดปุ่ม comfirm
+
+					//var InfoObject = { //สร้างตัวแปร object
+					//	UserID: $('input[type=radio][name=selectusertype]:checked').val(),
+					//	Username: $("#txtUsername").val(),
+					//	Password: $("#txtPassword").val(),
+					//	SimultaneousUse: $("#txtSimultaneous_Use").val(),
+					//	Plan: $('#selectPlan option:selected').text(),
+					//	IPAddress: $("#txtIPAddress").val(),
+					//	Franchisee: $('#selectFranchisee option:selected').text(),
+					//}
+					//debugger
+
+					for (var i = 0; i < JsonList.length; i++) {
+						var json01 = JsonList[i];
+						var InfoObject = { //สร้างตัวแปร object
+							UserID: json01.userId,
+							ID: json01.id,
+							Title: json01.title,
+							Completed: json01.completed,
+						}
+					}
+					
+					InfoList.push(InfoObject); //ใส่ object ใน objectlist
+
+					$("#divTable").show();
+
+					bindingOrder(InfoList);
+
+				} else if (result.isDenied) {
+					Swal.fire("Changes are not saved", "", "info");
+				}
+			});
+
+		}
+
+		function bindingOrder(dataList) { //รับ parameter จาก studentList
+			var table = $("#tblInfo").DataTable({ //select id
+				data: dataList, //เอา parameter มาเก็บใน data
+				processing: true,
+				destroy: true, //สร้างซ้ำได้
+				scrollX: true, //เลื่อนแนวนอน
+				searching: true, //filter ของ library
+				order: [[1, "desc"]], //desc เรียงจากมากไปน้อย, asc เรียงจากน้อยไปมาก, 1 = name, 2 = age, 0 = row
+				columns: [ //จำนวน columns ต้องตรงกับจำนวน tableHead และอย่าลืม tableBody
+					{ //0
+						data: null, className: "text-center", orderable: true, //data = null ไม่โชว์, classname ใส่ class, orderable เปิดการเรียงลำดับ
+						render: function (data, type, full, meta) { //type, full = data ทั้งหมด, meta เป็น default
+							debugger
+							return meta.row + 1;
+						}
+					},//ตัวหนังสือชิดซ้าย ex.name, ตัวเลขชิดขวา ex.age, format เหมือนกันชิดกลาง ex.date, status
+					{ data: "userid", className: "text-center" }, //1
+					{ data: "id", className: "text-center" }, //2
+					{ data: "title", className: "text-start" }, //3
+					{ data: "completed", className: "text-center" }, //4
+
+				],
+			});
+
+			Swal.fire({
+				title: "Good job!",
+				text: "You clicked the button!",
+				icon: "success",
+				timer: 3000
+			});
+		}
+
+		function getJsonApi() {
+			$.ajax(
+				{
+
+					dataType: "json",
+					type: 'GET',
+					url: 'https://jsonplaceholder.typicode.com/todos/1',
+					////url: '@Url.Action("Search", "Manifest")',
+					//data: searchTerm,
+					success: function (response) {
+						debugger
+						$("#lblApi").text(JSON.stringify(response));
+						JsonList.push(response);
+					},
+					error: function (request, status, error) {
+
+					}
+				}
+			);
+		}
+
+	</script>
+}
