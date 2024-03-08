@@ -70,7 +70,59 @@
 
 }
 <label>Hello</label>
-<button class="btn btn-primary" onclick="getStudent()">Click to get Student Data</button>
+
+<div class="row">
+    <div class="col-12">
+        <button class="btn btn-primary" onclick="searchStudent()">Click to get Student Data</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div id="divDataStudent">
+
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3">
+        <label class="col-form-label">Student Name</label>
+        <input class="form-control" type="text" id="txtStudentName" />
+    </div>
+
+    <div class="col-3">
+        <label class="col-form-label">Student Age</label>
+        <input class="form-control" type="number" id="txtStudentAge" />
+    </div>
+
+
+    <div class="col-3">
+        <label class="col-form-label">Student Description</label>
+        <input class="form-control" type="text" id="txtStudentDescription" />
+    </div>
+
+
+    <div class="col-3">
+        <button class="btn btn-primary" onclick="addStudent()">Add Student</button>
+    </div>
+</div>
+
+
+<div class="row">
+
+    <div class="col-6">
+        <label class="col-form-label">Student Id For Delete</label>
+        <input class="form-control" type="number" id="mdlDelStudentId" />
+    </div>
+
+
+    <div class="col-6">
+        <button class="btn btn-primary" onclick="deleteStudent()">Delete Student</button>
+    </div>
+</div>
+
+<div class="row">
+</div>
 
 
 
@@ -117,7 +169,7 @@
 
         });
 
-        function getStudent() {
+        function searchStudent() {
             var searchTerm = {
                 ItemCode : "99"
             }
@@ -129,13 +181,84 @@
                     data: searchTerm,
                     success: function (response) {
                         debugger
-                        alert(JSON.stringify(response));
+                        //alert(JSON.stringify(response));
+                        $("#divDataStudent").html(JSON.stringify(response))
                     },
                     error: function (request, status, error) {
 
                     }
                 });
         }
+
+        function addStudent() {
+            var studentData = {
+                StudentName: $("#txtStudentName").val(),
+                StudentAge: $("#txtStudentAge").val(),
+                StudentDescription: $("#txtStudentDescription").val(),
+            }
+            $.ajax(
+                {
+                    dataType: "json",
+                    type: 'POST',
+                    url: '@Url.Action("AddStudent", "Student")',
+                    data: studentData,
+                    success: function (response) {
+                        debugger
+                        alert(JSON.stringify(response));
+
+                    },
+                    error: function (request, status, error) {
+
+                    }
+                });
+        }
+        
+        function updateStudent() {
+            var studentData = {
+                StudentId: $("#mdlStudentId").val(),
+                StudentName: $("#mdlStudentName").val(),
+                StudentAge: $("#mdlStudentAge").val(),
+                StudentDescription: $("#mdlStudentDescription").val(),
+            }
+            $.ajax(
+                {
+                    dataType: "json",
+                    type: 'POST',
+                    url: '@Url.Action("UpdateStudent", "Student")',
+                    data: studentData,
+                    success: function (response) {
+                        debugger
+                        alert(JSON.stringify(response));
+
+                    },
+                    error: function (request, status, error) {
+
+                    }
+                });
+        }
+        function deleteStudent() {
+            var studentId = $("#mdlDelStudentId").val();
+            $.ajax(
+                {
+                    dataType: "json",
+                    type: 'POST',
+                    url: '@Url.Action("DeleteStudent", "Student")',
+                    data: {
+                        StudentId: studentId
+                    },
+                    success: function (response) {
+                        debugger
+                        alert(JSON.stringify(response));
+
+                    },
+                    error: function (request, status, error) {
+
+                    }
+                });
+        }
+
+
+
     </script>
 }
 

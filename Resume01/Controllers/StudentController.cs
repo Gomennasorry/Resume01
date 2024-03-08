@@ -654,5 +654,89 @@ namespace Resume01.Controllers
                 return Ok(new { success = this.response.Success, message = this.response.Message, data = studentList });
             }
         }
+
+        public async Task<IActionResult> UpdateStudent(StudentModel StudentData)
+        {
+            ResponseModel responseStudent = new ResponseModel();
+
+            using (var client = clientFactory.CreateClient("BaseClient"))
+            {
+                try
+                {
+                    string requestJson = JsonConvert.SerializeObject(StudentData);
+                    HttpContent httpContent = new StringContent(requestJson, Encoding.UTF8, "application/json");
+
+                    var response = await client.PostAsync("Student/UpdateStudent", httpContent);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        //Install-Package Microsoft.AspNet.WebApi.Client
+                        responseStudent = await response.Content.ReadAsAsync<ResponseModel>();
+                        this.response.Status = "S";
+                    }
+
+                }
+                catch (HttpRequestException ex)
+                {
+                    Console.WriteLine("ERROR: " + ex.Message);
+                }
+                return Ok(new { success = this.response.Success, message = this.response.Message, data = responseStudent });
+            }
+        }
+        public async Task<IActionResult> AddStudent(StudentModel StudentData)
+        {
+            ResponseModel responseStudent = new ResponseModel();
+
+            using (var client = clientFactory.CreateClient("BaseClient"))
+            {
+                try
+                {
+                    string requestJson = JsonConvert.SerializeObject(StudentData);
+                    HttpContent httpContent = new StringContent(requestJson, Encoding.UTF8, "application/json");
+
+                    var response = await client.PostAsync("Student/AddStudent", httpContent);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        //Install-Package Microsoft.AspNet.WebApi.Client
+                        responseStudent = await response.Content.ReadAsAsync<ResponseModel>();
+                        this.response.Status = "S";
+                    }
+
+                }
+                catch (HttpRequestException ex)
+                {
+                    Console.WriteLine("ERROR: " + ex.Message);
+                }
+                return Ok(new { success = this.response.Success, message = this.response.Message, data = responseStudent });
+            }
+        }
+
+        public async Task<IActionResult> DeleteStudent(int StudentId)
+        {
+            //SCGEXOrder scgExOrder = await orderRepo.GetOrderSCGEXById(DataOrder.DocRefNo);
+            ResponseModel responseStudent = new ResponseModel();
+
+            using (var client = clientFactory.CreateClient("BaseClient"))
+            {
+                try
+                {
+                    var response = await client.GetAsync("Student/DeleteStudent/" + StudentId);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        responseStudent = await response.Content.ReadAsAsync<ResponseModel>();
+                    }
+                    else
+                    {
+                        return Ok(new { success = false, message = response.Content, data = response });
+                    }
+                }
+                catch (HttpRequestException ex)
+                {
+                    Console.WriteLine("ERROR: " + ex.Message);
+                    return Ok(new { success = false, message = ex.Message, data = ex });
+                }
+            }
+            return Ok(new { success = true, message = "Success", data = responseStudent });
+        }
+
     }
 }

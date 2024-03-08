@@ -37,6 +37,34 @@ namespace ResumeAPI.Controllers
             return studentLists;
         }
 
+        [HttpPost("[action]")]
+        public async Task<ResponseModel> UpdateStudent(StudentModel StudentData)
+        {
+
+            //SearchTerm.UserId = this.Username;
+            ResponseModel response = await studentRepo.UpdateStudent(StudentData);
+
+            return response;
+        }
+        [HttpPost("[action]")]
+        public async Task<ResponseModel> AddStudent(StudentModel StudentData)
+        {
+
+            //SearchTerm.UserId = this.Username;
+            ResponseModel response = await studentRepo.AddStudent(StudentData);
+
+            return response;
+        }
+        [HttpGet("[action]/{StudentId}")]
+        public async Task<ResponseModel> DeleteStudent(int StudentId)
+        {
+
+            //SearchTerm.UserId = this.Username;
+            ResponseModel response = await studentRepo.DeleteStudent(StudentId);
+
+            return response;
+        }
+
         //[HttpPost("[action]")]
         //public async Task<IEnumerable<SalesOrderModel>> SearchDashBoard(SearchOrderModel SearchTerm)
         //{
