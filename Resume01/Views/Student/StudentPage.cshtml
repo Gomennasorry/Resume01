@@ -1,0 +1,321 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    //4564654
+    //Layout = "_Layout3";
+}
+
+@section Styles {
+
+    <link href="~/lib/sweetalert2/css/sweetalert2.min.css" rel="stylesheet" />
+    <link href="~/lib/select2/css/select2.css" rel="stylesheet" />
+    <link href="~/lib/datetimepicker/css/jquery.datetimepicker.min.css" rel="stylesheet" />
+    <link href="~/lib/datatables/buttons/css/buttons.bootstrap.css" rel="stylesheet" />
+    <link href="~/lib/datatables/buttons/css/buttons.dataTables.css" rel="stylesheet" />
+    <link href="~/lib/datatables/css/jquery.dataTables.css" rel="stylesheet" />
+    @*<link href="~/lib/datatables/css/dataTables.bootstrap.css" rel="stylesheet" />*@
+
+
+    <style type="text/css">
+
+        body {
+            font-family: Roboto !important;
+        }
+
+        /* Custom DataTable Styles */
+        .dataTables_wrapper {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        table.dataTable thead th {
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+        }
+
+        table.dataTable tbody td {
+            border: 1px solid #ddd;
+        }
+
+        table.dataTable tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table.dataTable.no-footer {
+            border-bottom: 0;
+        }
+
+        .dataTables_paginate {
+            margin-top: 10px;
+        }
+
+        .dataTables_filter label {
+            margin-right: 10px;
+        }
+
+
+        .hidden {
+            display: none;
+        }
+
+        .xdsoft_datetimepicker {
+            z-index: 999999999;
+        }
+
+        .abcdClass {
+            color: red !important;
+        }
+    </style>
+
+}
+<label>Hello</label>
+
+<div class="row">
+    <div class="col-12">
+        <button class="btn btn-primary" onclick="searchStudent()">Click to get Student Data</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div id="divDataStudent">
+
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3">
+        <label class="col-form-label">Student Name</label>
+        <input class="form-control" type="text" id="txtStudentName" />
+    </div>
+
+    <div class="col-3">
+        <label class="col-form-label">Student Age</label>
+        <input class="form-control" type="number" id="txtStudentAge" />
+    </div>
+
+
+    <div class="col-3">
+        <label class="col-form-label">Student Description</label>
+        <input class="form-control" type="text" id="txtStudentDescription" />
+    </div>
+
+
+    <div class="col-3">
+        <button class="btn btn-primary" onclick="addStudent()">Add Student</button>
+    </div>
+</div>
+
+
+<div class="row">
+
+    <div class="col-6">
+        <label class="col-form-label">Student Id For Delete</label>
+        <input class="form-control" type="number" id="mdlDelStudentId" />
+    </div>
+
+
+    <div class="col-6">
+        <button class="btn btn-primary" onclick="deleteStudent()">Delete Student</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        <label class="col-form-label">Get Student Id </label>
+        <input class="form-control" type="number" id="txtGetStudentId" />
+    </div>
+    <div class="col-6">
+        <button class="btn btn-primary" onclick="getStudentById()">Get Student</button>
+    </div>
+
+    <div class="col-3">
+        <label class="col-form-label">Student Id </label>
+        <label class="col-form-label" id="lblStudentId"></label>
+    </div>
+    <div class="col-3">
+        <label class="col-form-label">Student Name </label>
+        <input class="form-control" id="txtUpdateStudentName" />
+    </div>
+    <div class="col-3">
+        <label class="col-form-label">Student Age </label>
+        <input class="form-control" type="number" id="txtUpdateStudentAge" />
+    </div>
+    <div class="col-3">
+        <label class="col-form-label">Student Description </label>
+        <input class="form-control" id="txtUpdateStudentDescription" />
+    </div>
+
+
+    <div class="col-9">
+        &nbsp;
+    </div>
+
+    <div class="col-3">
+        <button class="btn btn-primary" onclick="updateStudent()">Update Student</button>
+    </div>
+
+
+</div>
+
+
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    @*popup*@
+    <script src="~/lib/sweetalert2/js/sweetalert2.min.js"></script>
+
+    @*dropdown beautiful tool*@
+    <script src="~/lib/select2/js/select2.full.js"></script>
+
+    @*create barcode*@
+    <script src="~/lib/JsBarcode/JsBarcode.code128.min.js"></script>
+
+    @*qr code*@
+    <script src="~/lib/html5-qrcode/qrcode.min.js"></script>
+
+    @*datetimePicker calendar*@
+    <script src="~/lib/datetimepicker/js/jquery.datetimepicker.full.js"></script>
+
+
+    @*datatable*@
+    <script src="~/lib/datatables/js/jquery.dataTables.js"></script>
+    @*<script src="~/lib/datatables/js/dataTables.bootstrap.js"></script>*@
+
+    @*click to print from data table*@
+    <script src="~/lib/datatables/buttons/js/dataTables.buttons.js"></script>
+    <script src="~/lib/datatables/buttons/js/buttons.bootstrap.js"></script>
+    <script src="~/lib/datatables/buttons/js/buttons.flash.js"></script>
+    <script src="~/lib/datatables/buttons/js/buttons.html5.js"></script>
+    <script src="~/lib/datatables/buttons/js/buttons.print.js"></script>
+    <script src="~/lib/datatables/buttons/js/jszip.js"></script>
+
+
+
+    <script type="text/javascript">
+
+        var studentList = []; //ObjectList
+
+        $(document).ready(function () { //โหลด HTML เสร็จแล้วทำ Function;
+
+
+        });
+
+        function searchStudent() {
+            var searchTerm = {
+                ItemCode : "99"
+            }
+            $.ajax(
+                {
+                    dataType: "json",
+                    type: 'POST',
+                    url: '@Url.Action("SearchStudent", "Student")',
+                    data: searchTerm,
+                    success: function (response) {
+                        debugger
+                        //alert(JSON.stringify(response));
+                        $("#divDataStudent").html(JSON.stringify(response))
+                    },
+                    error: function (request, status, error) {
+
+                    }
+                });
+        }
+
+        function addStudent() {
+            var studentData = {
+                StudentName: $("#txtStudentName").val(),
+                StudentAge: $("#txtStudentAge").val(),
+                StudentDescription: $("#txtStudentDescription").val(),
+            }
+            $.ajax(
+                {
+                    dataType: "json",
+                    type: 'POST',
+                    url: '@Url.Action("AddStudent", "Student")',
+                    data: studentData,
+                    success: function (response) {
+                        debugger
+                        alert(JSON.stringify(response));
+
+                    },
+                    error: function (request, status, error) {
+
+                    }
+                });
+        }
+
+        function getStudentById() {
+            var studentId = $("#txtGetStudentId").val();
+            $.ajax(
+                {
+                    dataType: "json",
+                    type: 'GET',
+                    url: '@Url.Action("GetStudentById", "Student")',
+                    data: { StudentId: studentId },
+                    success: function (response) {
+                        var studentdata = response.data;
+                        $("#lblStudentId").text(studentdata.StudentId)
+                        $("#txtUpdateStudentName").val(studentdata.StudentName)
+                        $("#txtUpdateStudentAge").val(studentdata.StudentAge)
+                        $("#txtUpdateStudentDescription").val(studentdata.StudentDescription)
+                    },
+                    error: function (request, status, error) {
+
+                    }
+                });
+        }
+
+
+        function updateStudent() {
+            var studentData = {
+                StudentId: $("#lblStudentId").text(),
+                StudentName: $("#txtUpdateStudentName").val(),
+                StudentAge: $("#txtUpdateStudentAge").val(),
+                StudentDescription: $("#txtUpdateStudentDescription").val(),
+            }
+            $.ajax(
+                {
+                    dataType: "json",
+                    type: 'POST',
+                    url: '@Url.Action("UpdateStudent", "Student")',
+                    data: studentData,
+                    success: function (response) {
+                        debugger
+                        alert(JSON.stringify(response));
+
+                    },
+                    error: function (request, status, error) {
+
+                    }
+                });
+        }
+        function deleteStudent() {
+            var studentId = $("#mdlDelStudentId").val();
+            $.ajax(
+                {
+                    dataType: "json",
+                    type: 'POST',
+                    url: '@Url.Action("DeleteStudent", "Student")',
+                    data: {
+                        StudentId: studentId
+                    },
+                    success: function (response) {
+                        debugger
+                        alert(JSON.stringify(response));
+
+                    },
+                    error: function (request, status, error) {
+
+                    }
+                });
+        }
+
+
+
+    </script>
+}
+
