@@ -8,6 +8,7 @@ namespace ResumeAPI.Repositories
     public interface IStudentRepository
     {
         Task<IEnumerable<StudentModel>> SearchStudent(MasterItemModel StudentData);
+        Task<StudentModel> GetStudentById(int StudentId);
         Task<ResponseModel> AddStudent(StudentModel StudentData);
         Task<ResponseModel> UpdateStudent(StudentModel StudentData);
 
@@ -177,6 +178,167 @@ namespace ResumeAPI.Repositories
 
           
             return await Task.FromResult(studentList);
+        }
+
+        public async Task<StudentModel> GetStudentById(int StudentId)
+        {
+            StudentModel studenbData = new StudentModel();
+
+            string whereOrders = @"WHERE StudentId = @StudentId";
+            string sqlSelectX = @"SELECT TOP 10 * 
+                                 FROM Students
+                                {0}
+                                ";
+
+            string sqlSelect = @"SELECT * 
+                                 FROM Students
+                                {0}
+                                ";
+
+            //if (!string.IsNullOrEmpty(SearchTerm.OrderNumbers))
+            //{
+            //    List<string> orderNos = new List<string>();
+            //    string[] lines = SearchTerm.OrderNumbers.Split(new string[] { "\r\n", "\r", "\n", ",", "\t", " " }, StringSplitOptions.None);
+            //    foreach (var item in lines)
+            //    {
+            //        orderNos.Add(item.Replace(" ", ""));
+            //    }
+            //    SearchTerm.OrderNumbers = string.Join(",", orderNos);
+
+            //    whereOrders = @" 
+            //                    INNER JOIN (SELECT [value]  As OrderNumber
+            //                    FROM STRING_SPLIT(@OrderNumbers, ',')
+            //                    ) ors ON orb.OrderNumber = ors.OrderNumber  
+            //                    ";
+            //}
+
+            //if (!string.IsNullOrEmpty(SearchTerm.CustomerCode))
+            //{
+            //    List<string> customerS = new List<string>();
+            //    string[] splitCC = SearchTerm.CustomerCode.Split(new string[] { "\r\n", "\r", "\n", ",", " " }, StringSplitOptions.None);
+            //    foreach (var item in splitCC)
+            //    {
+            //        customerS.Add(item.Replace(" ", ""));
+            //    }
+            //    SearchTerm.CustomerCode = string.Join(",", customerS);
+
+            //    whereCustomers = @" 
+            //                    INNER JOIN (SELECT [value]  As CustomerCode
+            //                    FROM STRING_SPLIT(@CustomerCode, ',')
+            //                    ) ocu ON ocu.CustomerCode = orb.CustomerCode 
+            //                    ";
+            //}
+            //if (!string.IsNullOrEmpty(SearchTerm.MarketPlace))
+            //{
+            //    List<string> marketPlaces = new List<string>();
+            //    string[] splitCC = SearchTerm.MarketPlace.Split(new string[] { "\r\n", "\r", "\n", ",", " " }, StringSplitOptions.None);
+            //    foreach (var item in splitCC)
+            //    {
+            //        marketPlaces.Add(item.Replace(" ", ""));
+            //    }
+            //    foreach (var item in marketPlaces)
+            //    {
+            //        if (item == "LAZ")
+            //        {
+            //            marketPlaces.Add("LZ");
+            //            break;
+            //        }
+
+            //    }
+            //    //foreach (var item in marketPlaces)
+            //    //{
+            //    //    if (item == "OTH")
+            //    //    {
+            //    //        marketPlaces.Add("OTHER");
+            //    //        break;
+            //    //    }
+            //    //}
+            //    marketPlaces = marketPlaces.Distinct().ToList();
+            //    SearchTerm.MarketPlace = string.Join(",", marketPlaces);
+            //    innerJoinMarketPlace = @" 
+            //                    INNER JOIN (SELECT [value]  As MarketPlace
+            //                    --FROM STRING_SPLIT(@MarketPlace + ',DZY, OTHER, SCG, Stock, OTH, VG', ',')
+            //                    FROM STRING_SPLIT(@MarketPlace, ',')
+            //                    ) mkp ON mkp.MarketPlace = orb.MarketPlace 
+
+            //                    ";
+
+            //    whereMarketPlace = @"
+            //                            AND EXISTS (
+            //                                SELECT 1
+            //                                FROM CustomersMarketPlaceUsers cmp
+            //                                WHERE cmp.MarketPlace = orb.MarketPlace
+            //                                  AND cmp.CustomerCode = orb.CustomerCode
+            //                                  AND cmp.UserId = @UserId 
+            //                            );
+            //                        ";
+
+
+            //    //whereMarketPlace = @" 
+            //    //                INNER JOIN (SELECT [value]  As MarketPlace
+            //    //                --FROM STRING_SPLIT(@MarketPlace + ',DZY, OTHER, SCG, Stock, OTH, VG', ',')
+            //    //                FROM STRING_SPLIT(@MarketPlace, ',')
+            //    //                ) mkp ON mkp.MarketPlace = orb.MarketPlace 
+
+            //    //                --User มาจอยด้วย 
+            //    //                INNER JOIN CustomersMarketPlaceUsers cmp ON cmp.CustomerCode = orb.CustomerCode 
+            //    //                 AND cmp.MarketPlace = mkp.MarketPlace
+            //    //                AND cmp.UserId = @UserId 
+            //    //                ";
+            //}
+            sqlSelect = string.Format(sqlSelect, whereOrders);
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        connection.Open();
+
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(sqlSelect, connection))
+                        {
+                            adapter.SelectCommand.Parameters.AddWithValue("@StudentId", StudentId);
+                            //adapter.SelectCommand.Parameters.AddWithValue("@CreatedDateTo", SearchTerm.CreatedDateTo + " 23:59:59.993" ?? "");
+                            //adapter.SelectCommand.Parameters.AddWithValue("@MarketPlace", SearchTerm.MarketPlace);
+
+                            DataTable dtResult = new DataTable();
+                            adapter.Fill(dtResult);
+
+                            studenbData = AsSingle<StudentModel>(dtResult);
+                            ////List<ItemLotModel> lotList = AsEnumerable<ItemLotModel>(dtResult);
+                            //salesOrders = orderList.GroupBy(s => s.OrderNumber).Select(g => g.First()).ToList();
+
+                            ////Slow Because  Match Order And Item    , index page use Item Price+Quantity
+                            ////mapping sub model
+                            //salesOrders.ForEach(or =>
+                            //{
+                            //    or.Items = itemList.Where(it => it.OrderNumber == or.OrderNumber)?.ToList();
+
+                            //    //or.Items.ForEach(it =>
+                            //    //{
+                            //    //    it.Lots = lotList.Where(lt => lt.OrderItemID == it.OrderItemID)?.ToList();
+                            //    //});
+                            //});
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        this.response.Message = ex.Message;
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                var msg = ex.Message;
+            }
+
+
+            return await Task.FromResult(studenbData);
         }
 
         public async Task<ResponseModel> AddStudent(StudentModel StudentData)

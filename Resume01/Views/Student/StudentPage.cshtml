@@ -122,6 +122,41 @@
 </div>
 
 <div class="row">
+    <div class="col-6">
+        <label class="col-form-label">Get Student Id </label>
+        <input class="form-control" type="number" id="txtGetStudentId" />
+    </div>
+    <div class="col-6">
+        <button class="btn btn-primary" onclick="getStudentById()">Get Student</button>
+    </div>
+
+    <div class="col-3">
+        <label class="col-form-label">Student Id </label>
+        <label class="col-form-label" id="lblStudentId"></label>
+    </div>
+    <div class="col-3">
+        <label class="col-form-label">Student Name </label>
+        <input class="form-control" id="txtUpdateStudentName" />
+    </div>
+    <div class="col-3">
+        <label class="col-form-label">Student Age </label>
+        <input class="form-control" type="number" id="txtUpdateStudentAge" />
+    </div>
+    <div class="col-3">
+        <label class="col-form-label">Student Description </label>
+        <input class="form-control" id="txtUpdateStudentDescription" />
+    </div>
+
+
+    <div class="col-9">
+        &nbsp;
+    </div>
+
+    <div class="col-3">
+        <button class="btn btn-primary" onclick="updateStudent()">Update Student</button>
+    </div>
+
+
 </div>
 
 
@@ -212,13 +247,35 @@
                     }
                 });
         }
-        
+
+        function getStudentById() {
+            var studentId = $("#txtGetStudentId").val();
+            $.ajax(
+                {
+                    dataType: "json",
+                    type: 'GET',
+                    url: '@Url.Action("GetStudentById", "Student")',
+                    data: { StudentId: studentId },
+                    success: function (response) {
+                        var studentdata = response.data;
+                        $("#lblStudentId").text(studentdata.StudentId)
+                        $("#txtUpdateStudentName").val(studentdata.StudentName)
+                        $("#txtUpdateStudentAge").val(studentdata.StudentAge)
+                        $("#txtUpdateStudentDescription").val(studentdata.StudentDescription)
+                    },
+                    error: function (request, status, error) {
+
+                    }
+                });
+        }
+
+
         function updateStudent() {
             var studentData = {
-                StudentId: $("#mdlStudentId").val(),
-                StudentName: $("#mdlStudentName").val(),
-                StudentAge: $("#mdlStudentAge").val(),
-                StudentDescription: $("#mdlStudentDescription").val(),
+                StudentId: $("#lblStudentId").text(),
+                StudentName: $("#txtUpdateStudentName").val(),
+                StudentAge: $("#txtUpdateStudentAge").val(),
+                StudentDescription: $("#txtUpdateStudentDescription").val(),
             }
             $.ajax(
                 {

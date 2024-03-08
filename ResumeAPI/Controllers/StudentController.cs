@@ -37,6 +37,16 @@ namespace ResumeAPI.Controllers
             return studentLists;
         }
 
+        [HttpGet("[action]/{StudentId}")]
+        public async Task<StudentModel> GetStudentById(int StudentId)
+        {
+
+            //SearchTerm.UserId = this.Username;
+            StudentModel studentData = await studentRepo.GetStudentById(StudentId);
+
+            return studentData;
+        }
+
         [HttpPost("[action]")]
         public async Task<ResponseModel> UpdateStudent(StudentModel StudentData)
         {

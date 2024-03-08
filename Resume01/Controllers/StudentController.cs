@@ -654,6 +654,33 @@ namespace Resume01.Controllers
                 return Ok(new { success = this.response.Success, message = this.response.Message, data = studentList });
             }
         }
+         public async Task<IActionResult> GetStudentById(MasterItemModel StudentData)
+        {
+            List<StudentModel> studentList = new List<StudentModel>();
+
+            using (var client = clientFactory.CreateClient("BaseClient"))
+            {
+                try
+                {
+                    string requestJson = JsonConvert.SerializeObject(StudentData);
+                    HttpContent httpContent = new StringContent(requestJson, Encoding.UTF8, "application/json");
+
+                    var response = await client.PostAsync("Student/GetStudentById", httpContent);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        //Install-Package Microsoft.AspNet.WebApi.Client
+                        studentList = await response.Content.ReadAsAsync<List<StudentModel>>();
+                        this.response.Status = "S";
+                    }
+
+                }
+                catch (HttpRequestException ex)
+                {
+                    Console.WriteLine("ERROR: " + ex.Message);
+                }
+                return Ok(new { success = this.response.Success, message = this.response.Message, data = studentList });
+            }
+        }
 
         public async Task<IActionResult> UpdateStudent(StudentModel StudentData)
         {
