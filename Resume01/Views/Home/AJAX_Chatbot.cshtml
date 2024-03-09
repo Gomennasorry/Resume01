@@ -22,10 +22,24 @@
 }
 
 <div class="container px-4">
-	<div class="row">
-		<button id="getDataBtn">Get Data and Create Table</button>
-		<div id="tableContainer"></div>
-	</div>
+	@*<div class="row">
+			<button id="getDataBtn">Get Data and Create Table</button>
+			<div id="tableContainer"></div>
+		</div>*@
+
+	<button id="loadDataBtn">Load Data</button>
+	<table id="dataTable" border="1">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Title</th>
+				<th>Completed</th>
+			</tr>
+		</thead>
+		<tbody id="dataTableBody">
+			<!-- Table body will be populated dynamically -->
+		</tbody>
+	</table>
 </div>
 
 @section Scripts {
@@ -63,39 +77,77 @@
 
 	<script type="text/javascript">
 
-		var responseDataList = []; // Step 1: Create an empty list
+		//var responseDataList = []; // Step 1: Create an empty list
 
-		function getJsonApi() {
-			$.ajax({
-				dataType: "json",
-				type: 'GET',
-				url: 'https://jsonplaceholder.typicode.com/todos/1',
-				success: function (response) {
-					responseDataList.push(response); // Step 2: Push response data into the list
-				},
-				error: function (request, status, error) {
-					console.error(error);
-				}
-			});
-		}
+		//function getJsonApi() {
+		//	$.ajax({
+		//		dataType: "json",
+		//		type: 'GET',
+		//		url: 'https://jsonplaceholder.typicode.com/todos/1',
+		//		success: function (response) {
+		//			responseDataList.push(response); // Step 2: Push response data into the list
+		//		},
+		//		error: function (request, status, error) {
+		//			console.error(error);
+		//		}
+		//	});
+		//}
 
-		function createTable(dataList) {
-			var tableHtml = '<table border="1"><thead><tr><th>UserID</th><th>ID</th><th>Title</th><th>Completed</th></tr></thead><tbody>';
+		//function createTable(dataList) {
+		//	var tableHtml = '<table border="1"><thead><tr><th>UserID</th><th>ID</th><th>Title</th><th>Completed</th></tr></thead><tbody>';
 
-			for (var i = 0; i < dataList.length; i++) {
-				var row = dataList[i];
-				tableHtml += '<tr><td>' + row.userId + '</td><td>' + row.id + '</td><td>' + row.title + '</td><td>' + row.completed + '</td></tr>';
-			}
+		//	for (var i = 0; i < dataList.length; i++) {
+		//		var row = dataList[i];
+		//		tableHtml += '<tr><td>' + row.userId + '</td><td>' + row.id + '</td><td>' + row.title + '</td><td>' + row.completed + '</td></tr>';
+		//	}
 
-			tableHtml += '</tbody></table>';
+		//	tableHtml += '</tbody></table>';
 
-			$('#tableContainer').html(tableHtml);
-		}
+		//	$('#tableContainer').html(tableHtml);
+		//}
+
+		//$(document).ready(function () {
+		//	$('#getDataBtn').click(function () {
+		//		getJsonApi();
+		//		createTable(responseDataList); // Step 4: Trigger the table creation function
+		//	});
+		//});
 
 		$(document).ready(function () {
-			$('#getDataBtn').click(function () {
+			// Function to get JSON data and populate DataTable
+			function getJsonApi() {
+				$.ajax({
+					dataType: "json",
+					type: 'GET',
+					url: 'https://jsonplaceholder.typicode.com/todos/1',
+					success: function (response) {
+						// Assuming response is an object with properties id, title, and completed
+						var data = [{
+							id: response.id,
+							title: response.title,
+							completed: response.completed ? 'Yes' : 'No'
+						}];
+
+						// Clear existing rows in the table
+						$('#dataTableBody').empty();
+
+						// Populate DataTable with data
+						$.each(data, function (index, item) {
+							$('#dataTableBody').append('<tr><td>' + item.id + '</td><td>' + item.title + '</td><td>' + item.completed + '</td></tr>');
+						});
+
+						// Initialize DataTable
+						$('#dataTable').DataTable();
+					},
+					error: function (request, status, error) {
+						console.error('Error fetching data:', error);
+					}
+				});
+			}
+
+			// Button click event to load data
+			$('#loadDataBtn').on('click', function () {
 				getJsonApi();
-				createTable(responseDataList); // Step 4: Trigger the table creation function
 			});
 		});
 
