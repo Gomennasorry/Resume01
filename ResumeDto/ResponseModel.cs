@@ -11,7 +11,13 @@ namespace ResumeDto
         public string Status { get; set; }
         public string Message { get; set; }
         public string DocumentNo { get; set; }
-        public bool Success { get { return Status == "S"; } }
+        public bool Success { get { return Status == "S"; } } //ถ้า status เป็น S return true; ถ้าเป็นอย่างอื่น return false;
+ //       if (1 == "a")
+	//{
+ //           console.log("Hello");
+	//}else {
+ //       console.log("World");
+ //   }
         public ResponseModel()
         {
             Status = "E";

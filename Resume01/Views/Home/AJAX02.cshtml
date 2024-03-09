@@ -266,6 +266,7 @@
 							Completed: response.completed,
 						}
 						JsonList.push(data);
+						var copyObj = reponse;
 					},
 					error: function (request, status, error) {
 
@@ -289,6 +290,7 @@
 				{ isActive: false, Name: "Coke", Age: 15 },
 			];
 			JsonList = [];
+			var student = { studentId: 1, studentName: "Win", studentAge: 25, StudentDescription: "Good"};
 			bindingOrder(JsonList);
 		}
 

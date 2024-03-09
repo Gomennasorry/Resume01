@@ -208,14 +208,23 @@
             var searchTerm = {
                 ItemCode : "99"
             }
+            var obj1 = { Name:"obj1" };
+            //var json = { "Name":"obj1" };
             $.ajax(
                 {
-                    dataType: "json",
                     type: 'POST',
                     url: '@Url.Action("SearchStudent", "Student")',
+                    ////url: '@Url.Action("Noobwin", "Home")',
                     data: searchTerm,
+					dataType: "json",
                     success: function (response) {
                         debugger
+                        //var data = response;
+                        var data = {
+                            Data: response.data,
+                            Message: response.message,
+                            Success: response.success,
+                        }
                         //alert(JSON.stringify(response));
                         $("#divDataStudent").html(JSON.stringify(response))
                     },
