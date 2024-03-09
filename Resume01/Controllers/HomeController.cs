@@ -115,6 +115,10 @@ namespace Resume01.Controllers
         {
             return View();
         }
+        public IActionResult AJAX02()
+        {
+            return View();
+        }
         
         public IActionResult AJAX_Chatbot()
         {

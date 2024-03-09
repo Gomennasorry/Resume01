@@ -62,11 +62,12 @@
 
 <div class="container px-4">
 	<div class="row">
-		<button class="btn btn-primary" onclick="getJsonApi()">Click to get API</button>
+		<button class="btn btn-primary" onclick="getJsonApixx()">Click to get API</button>
 		<label class="col-form-label" id="lblApi">data here</label>
 	</div>
 	<div class="row">
-		<button class="btn btn-primary" onclick="submitInfo()">Show Table</button>
+		<button class="btn btn-primary" onclick="submitInfoxx()">Show Table</button>
+		<button class="btn btn-danger" onclick="clearInfo()">Clear</button>
 	</div>
 	<div class="row hidden" id="divTable">
 		<div class="col-sm-12">
@@ -137,8 +138,7 @@
 
 		});
 
-
-		function submitInfo() {
+		function submitInfoxx() {
 			debugger
 
 			Swal.fire({ //switch alert, popup
@@ -151,28 +151,30 @@
 				/* Read more about isConfirmed, isDenied below */
 				if (result.isConfirmed) { //ถ้ากดปุ่ม comfirm
 
-					//var InfoObject = { //สร้างตัวแปร object
-					//	UserID: $('input[type=radio][name=selectusertype]:checked').val(),
-					//	Username: $("#txtUsername").val(),
-					//	Password: $("#txtPassword").val(),
-					//	SimultaneousUse: $("#txtSimultaneous_Use").val(),
-					//	Plan: $('#selectPlan option:selected').text(),
-					//	IPAddress: $("#txtIPAddress").val(),
-					//	Franchisee: $('#selectFranchisee option:selected').text(),
-					//}
-					//debugger
+					getJsonApixx();
 
-					//for (var i = 0; i < JsonList.length; i++) {
-					//	var json01 = JsonList[i];
-					//	var InfoObject = { //สร้างตัวแปร object
-					//		UserID: json01.userId,
-					//		ID: json01.id,
-					//		Title: json01.title,
-					//		Completed: json01.completed,
-					//	}
-					//}
-					
-					//InfoList.push(InfoObject); //ใส่ object ใน objectlist
+					$("#divTable").show();
+
+					bindingOrder(JsonList);
+
+				} else if (result.isDenied) {
+					Swal.fire("Changes are not saved", "", "info");
+				}
+			});
+
+		}function submitInfo() {
+			debugger
+
+			Swal.fire({ //switch alert, popup
+				title: "Do you want to save the changes?", //ชื่อเรื่อง
+				//showDenyButton: true,
+				showCancelButton: true, //โชว์ปุ่ม cancel
+				confirmButtonText: "Save", //คำพูดในปุ่ม confirmButton
+				//denyButtonText: `Don't save`
+			}).then((result) => { //หลังจากกดปุ่ม
+				/* Read more about isConfirmed, isDenied below */
+				if (result.isConfirmed) { //ถ้ากดปุ่ม comfirm
+
 
 					$("#divTable").show();
 
@@ -201,10 +203,10 @@
 							return meta.row + 1;
 						}
 					},//ตัวหนังสือชิดซ้าย ex.name, ตัวเลขชิดขวา ex.age, format เหมือนกันชิดกลาง ex.date, status
-					{ data: "userId", className: "text-center" }, //1
-					{ data: "id", className: "text-center" }, //2
-					{ data: "title", className: "text-start" }, //3
-					{ data: "completed", className: "text-center" }, //4
+					{ data: "UserID", className: "text-center" }, //1
+					{ data: "ID", className: "text-center" }, //2
+					{ data: "Title", className: "text-start" }, //3
+					{ data: "Completed", className: "text-center" }, //4
 
 				],
 			});
@@ -217,7 +219,7 @@
 			});
 		}
 
-		function getJsonApi() {
+		function getJsonApixx() {
 			$.ajax(
 				{
 
@@ -229,13 +231,65 @@
 					success: function (response) {
 						debugger
 						$("#lblApi").text(JSON.stringify(response));
-						JsonList.push(response);
+						//JsonList.push(response);
+						var data = {
+							UserID: response.userId,
+							ID: response.id,
+							Title: response.title,
+							Completed: response.completed,
+						}
+						JsonList.push(data);
+						submitInfo();
 					},
 					error: function (request, status, error) {
 
 					}
 				}
 			);
+		}function getJsonApi() {
+			$.ajax(
+				{
+
+					dataType: "json",
+					type: 'GET',
+					url: 'https://jsonplaceholder.typicode.com/todos/1', //Link + Function + Parameter = GET, POST = Link Only
+					////url: '@Url.Action("Search", "Manifest")',
+					//data: searchTerm, POST
+					success: function (response) {
+						debugger
+						$("#lblApi").text(JSON.stringify(response));
+						//JsonList.push(response);
+						var data = {
+							UserID: response.userId,
+							ID: response.id,
+							Title: response.title,
+							Completed: response.completed,
+						}
+						JsonList.push(data);
+					},
+					error: function (request, status, error) {
+
+					}
+				}
+			);
+		}
+
+		function clearInfo() {
+			var JsonList1 = [];
+			var JsonList2 = [{}];
+			var JsonObj = { name: "" };
+			var list1 = [{ name: "" }, { name: "Hello" }];
+			list1 = [];
+			var numD = 9;
+			var stringD = "D";
+			var objD = { isActive: false, Name: "Win", Age: 25 };
+			var objE = { isActive: true, Name: "Sad", Age: 20 };
+			var Dlist = [
+				{ isActive: true, Name: "Cake", Age: 10 },
+				{ isActive: false, Name: "Coke", Age: 15 },
+			];
+			JsonList = [];
+			bindingOrder(JsonList);
 		}
 
 	</script>
