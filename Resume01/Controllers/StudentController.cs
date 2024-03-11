@@ -627,7 +627,7 @@ namespace Resume01.Controllers
         //        return Ok(new { success = responseData.Success, message = responseData.Message, data = responseData });
         //    }
         //}
-        public async Task<IActionResult> SearchStudent(MasterItemModel StudentData)
+        public async Task<IActionResult> SearchStudent(StudentModel StudentData)
         {
             List<StudentModel> studentList = new List<StudentModel>();
 

@@ -110,8 +110,18 @@
                 </div>
             </div>*@
         <div class="row">
-            <div class="col-12">
+            <div class="col-4">
                 <button class="btn btn-primary" onclick="searchStudent()">Click to get Student Data</button>
+            </div>
+            <div class="col-4">
+
+                <label class="col-form-label">Student Name</label>
+                <input class="form-control" type="text" id="txtSearchStudentName" />
+            </div>
+            <div class="col-4">
+
+                <label class="col-form-label">Student Description</label>
+                <input class="form-control" type="text" id="txtSearchStudentDescription" />
             </div>
         </div>
         <div class="row">
@@ -370,7 +380,9 @@
 
         function searchStudent() {
             var searchTerm = {
-                ItemCode : "99"
+                StudentName: $("#txtSearchStudentName").val(),
+                StudentDescription: $("#txtSearchStudentDescription").val(),
+
             }
             var obj1 = { Name:"obj1" };
             //var json = { "Name":"obj1" };

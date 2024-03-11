@@ -7,7 +7,7 @@ namespace ResumeAPI.Repositories
 {
     public interface IStudentRepository
     {
-        Task<IEnumerable<StudentModel>> SearchStudent(MasterItemModel StudentData);
+        Task<IEnumerable<StudentModel>> SearchStudent(StudentModel StudentData);
         Task<StudentModel> GetStudentById(int StudentId);
         Task<ResponseModel> AddStudent(StudentModel StudentData);
         Task<ResponseModel> UpdateStudent(StudentModel StudentData);
@@ -19,20 +19,15 @@ namespace ResumeAPI.Repositories
     public class StudentRepository : DBContext, IStudentRepository
     {
 
-        public async Task<IEnumerable<StudentModel>> SearchStudent(MasterItemModel StudentData)
+        public async Task<IEnumerable<StudentModel>> SearchStudent(StudentModel StudentData)
         {
             List<StudentModel> studentList = new List<StudentModel>();
 
-            string whereOrders = string.Empty;
-            string sqlSelectX = @"SELECT TOP 10 * 
-                                 FROM Students
-                                {0}
-                                ";
-            
             string sqlSelect = @"SELECT * 
                                  FROM Students
-                                {0}
+                                WHERE StudentName LIKE @StudentName AND StudentDescription LIKE @StudentDescription
                                 ";
+
 
             //if (!string.IsNullOrEmpty(SearchTerm.OrderNumbers))
             //{
@@ -125,7 +120,7 @@ namespace ResumeAPI.Repositories
             //    //                AND cmp.UserId = @UserId 
             //    //                ";
             //}
-            sqlSelect = string.Format(sqlSelect, whereOrders);
+            //sqlSelect = string.Format(sqlSelect, whereOrders);
 
             try
             {
@@ -137,6 +132,8 @@ namespace ResumeAPI.Repositories
 
                         using (SqlDataAdapter adapter = new SqlDataAdapter(sqlSelect, connection))
                         {
+                            adapter.SelectCommand.Parameters.AddWithValue("@StudentName", "%" + (StudentData.StudentName ?? "") + "%");
+                            adapter.SelectCommand.Parameters.AddWithValue("@StudentDescription", "%" + (StudentData.StudentDescription ?? "") + "%");
                             //adapter.SelectCommand.Parameters.AddWithValue("@CreatedDateFr", SearchTerm.CreatedDateFr ?? "");
                             //adapter.SelectCommand.Parameters.AddWithValue("@CreatedDateTo", SearchTerm.CreatedDateTo + " 23:59:59.993" ?? "");
                             //adapter.SelectCommand.Parameters.AddWithValue("@MarketPlace", SearchTerm.MarketPlace);
@@ -185,15 +182,19 @@ namespace ResumeAPI.Repositories
             StudentModel studenbData = new StudentModel();
 
             string whereOrders = @"WHERE StudentId = @StudentId";
-            string sqlSelectX = @"SELECT TOP 10 * 
-                                 FROM Students
-                                {0}
-                                ";
 
             string sqlSelect = @"SELECT * 
                                  FROM Students
                                 {0}
                                 ";
+
+
+            //string sqlSelectX = @"SELECT TOP 10 * 
+            //                     FROM Students
+            //                    {0}
+            //                    ";
+
+
 
             //if (!string.IsNullOrEmpty(SearchTerm.OrderNumbers))
             //{

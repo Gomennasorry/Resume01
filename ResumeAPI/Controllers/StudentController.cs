@@ -28,7 +28,7 @@ namespace ResumeAPI.Controllers
 
 
         [HttpPost("[action]")]
-        public async Task<IEnumerable<StudentModel>> SearchStudent(MasterItemModel StudentData)
+        public async Task<IEnumerable<StudentModel>> SearchStudent(StudentModel StudentData)
         {
             
             //SearchTerm.UserId = this.Username;
