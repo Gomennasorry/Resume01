@@ -436,6 +436,7 @@ namespace ResumeAPI.Repositories
             ResponseModel response = new ResponseModel();
 
             string sqlUpdate = @"UPDATE  Students SET StudentName = @StudentName, StudentAge = @StudentAge, StudentDescription = @StudentDescription
+                                OUTPUT  CAST(inserted.StudentId AS VARCHAR(10))
                                  WHERE StudentId = @StudentId
                                  ";
 
@@ -481,10 +482,18 @@ namespace ResumeAPI.Repositories
                             command.Parameters.AddWithValue("@StudentAge", StudentData.StudentAge);
                             command.Parameters.AddWithValue("@StudentDescription", StudentData.StudentDescription);
 
-                            command.ExecuteNonQuery();
+                            string studentIdUpdate = (string)command.ExecuteScalar();
+                            if (string.IsNullOrEmpty(studentIdUpdate))
+                            {
+                                response.Message = $"Not have or Cannot Update Student No  {StudentData.StudentId} to Update";
+                            }
+                            else
+                            {
+                                response.Status = "S";
 
-                            response.Status = "S";
-                            response.Message = $"Update Student No  {StudentData.StudentId} has been Update!";
+                                response.Message = $"Update Student No  {studentIdUpdate} has been Update!";
+
+                            }
                         }
 
                         //using (SqlCommand command2 = new SqlCommand(sqlInsertTrackingLabel, connection))
@@ -526,6 +535,7 @@ namespace ResumeAPI.Repositories
             ResponseModel response = new ResponseModel();
 
             string sqlUpdate = @"DELETE  Students 
+                                OUTPUT CAST(DELETED.StudentId AS VARCHAR(10))
                                  WHERE StudentId = @StudentId
                                  ";
 
@@ -568,10 +578,21 @@ namespace ResumeAPI.Repositories
                         {
                             command.Parameters.AddWithValue("@StudentId", StudentId);
 
-                            command.ExecuteNonQuery();
+                            //command.ExecuteNonQuery();
+                            string studentIdDeleted = (string)command.ExecuteScalar();
 
-                            response.Status = "S";
-                            response.Message = $"Delete Student No  {StudentId} has been Deleted!";
+                            if (string.IsNullOrEmpty(studentIdDeleted) )
+                            {
+                                response.Message = $"No StudentId {StudentId} for delete";
+
+                            }
+                            else
+                            {
+                                response.Status = "S";
+
+                                response.Message = $"Delete Student No  {StudentId} has been Deleted!";
+
+                            }
                         }
 
                         //using (SqlCommand command2 = new SqlCommand(sqlInsertTrackingLabel, connection))

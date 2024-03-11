@@ -654,22 +654,22 @@ namespace Resume01.Controllers
                 return Ok(new { success = this.response.Success, message = this.response.Message, data = studentList });
             }
         }
-         public async Task<IActionResult> GetStudentById(MasterItemModel StudentData)
+         public async Task<IActionResult> GetStudentById(int StudentId)
         {
-            List<StudentModel> studentList = new List<StudentModel>();
+            StudentModel studentData = new StudentModel();
 
             using (var client = clientFactory.CreateClient("BaseClient"))
             {
                 try
                 {
-                    string requestJson = JsonConvert.SerializeObject(StudentData);
-                    HttpContent httpContent = new StringContent(requestJson, Encoding.UTF8, "application/json");
+                    //string requestJson = JsonConvert.SerializeObject(StudentData);
+                    //HttpContent httpContent = new StringContent(requestJson, Encoding.UTF8, "application/json");
 
-                    var response = await client.PostAsync("Student/GetStudentById", httpContent);
+                    var response = await client.GetAsync("Student/GetStudentById/" + StudentId);
                     if (response.IsSuccessStatusCode)
                     {
                         //Install-Package Microsoft.AspNet.WebApi.Client
-                        studentList = await response.Content.ReadAsAsync<List<StudentModel>>();
+                        studentData = await response.Content.ReadAsAsync<StudentModel>();
                         this.response.Status = "S";
                     }
 
@@ -678,7 +678,7 @@ namespace Resume01.Controllers
                 {
                     Console.WriteLine("ERROR: " + ex.Message);
                 }
-                return Ok(new { success = this.response.Success, message = this.response.Message, data = studentList });
+                return Ok(new { success = this.response.Success, message = this.response.Message, data = studentData });
             }
         }
 
