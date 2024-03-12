@@ -17,8 +17,9 @@ namespace ResumeAPI.Services
         {
             configure = configuration;
             //SCG EX
-            baseUrl = configure[$"ADAPTER_{App.SystemID}:BaseUrl"];
-            authToken = configure[$"ADAPTER_{App.SystemID}:Token"];
+            //configure["BlobStorage:ConnectionString"];
+            //baseUrl = configure[$"ADAPTER_{App.SystemID}:BaseUrl"];
+            //authToken = configure[$"ADAPTER_{App.SystemID}:Token"];
         }
 
         //public async Task<TrackingInfoModel> GetTrackingLabel(TrackingInfoModel TrackingLabel)

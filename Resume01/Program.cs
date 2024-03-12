@@ -6,15 +6,41 @@ using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Resume01;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
+//using Microsoft.Identity.Web;
+//using Microsoft.Identity.Web.UI;
+
 
 string systemID = string.Empty;
 string bearerToken = string.Empty;
 
 var builder = WebApplication.CreateBuilder(args);
+//ConnectionStrings.BaseConnection = builder.Configuration.GetConnectionString("DEVDatabase");
+
 
 systemID = builder.Configuration["SystemID"];
 
-builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
+if (builder.Environment.IsDevelopment())
+{
+    // comment this if u run IIS
+    builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
+}
+else
+{
+    builder.Services.AddRazorPages();
+
+}
+//builder.Services.AddRazorPages().AddRazorRuntimeCompilation()
+//    .AddMicrosoftIdentityUI();
+
+//var initialScopes = builder.Configuration["DownstreamApi:Scopes"]?.Split(' ') ?? builder.Configuration["MicrosoftGraph:Scopes"]?.Split(' ');
+//builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+//    .AddMicrosoftIdentityWebApp(builder.Configuration.GetSection("AzureAd"))
+//        .EnableTokenAcquisitionToCallDownstreamApi(initialScopes)
+//            .AddInMemoryTokenCaches();
 //builder.Services.AddRazorPages();
 
 
@@ -24,6 +50,7 @@ builder.Services.AddControllersWithViews().AddJsonOptions(options =>
     
     options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
     options.JsonSerializerOptions.PropertyNamingPolicy = null;
+
 });
 
 
@@ -153,9 +180,10 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapRazorPages();
 
 
-App.SystemID = systemID.Equals("PRD") ? "PRD" : "DEV";
+//App.SystemID = systemID.Equals("PRD") ? "PRD" : "DEV";
 
 
 app.Run();

@@ -10,7 +10,7 @@ using System.Text;
 
 namespace Resume01.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class OrderController : BaseController
     {
         private readonly IHttpClientFactory clientFactory;

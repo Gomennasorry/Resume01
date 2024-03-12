@@ -11,7 +11,8 @@ namespace ResumeAPI.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
+    [AllowAnonymous]
     public class OrderController : BaseController
     {
         IConfiguration configure;

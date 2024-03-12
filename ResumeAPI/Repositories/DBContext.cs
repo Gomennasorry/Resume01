@@ -6,6 +6,11 @@ using System.Data;
 
 namespace ResumeAPI.Repositories
 {
+    public static class ConnectionStrings
+    {
+        public static string BaseConnection { get; set; }
+    }
+
     public partial class DBContext
     {
         protected ResponseModel response;
@@ -13,7 +18,9 @@ namespace ResumeAPI.Repositories
         public DBContext()
         {
             response = new ResponseModel();
-            connectionString = App.BaseConnection;
+            connectionString = ConnectionStrings.BaseConnection ?? "";
+            //connectionString = "Server=tcp:krirksqldatabaseserver.database.windows.net,1433;Initial Catalog=krirk_Resume_Database;Persist Security Info=False;User ID=krirk_admin;Password=!@#K0137;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+
         }
 
         public static T AsSingle<T>(DataTable dataTable)
