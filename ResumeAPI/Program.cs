@@ -1,4 +1,4 @@
-using ResumeAPI.Repositories;
+﻿using ResumeAPI.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -70,6 +70,7 @@ app.MapControllers();
 
 string systemID = builder.Configuration["SystemID"];
 App.BaseConnection = builder.Configuration[$"ConnectionStrings:{systemID}Database"];
-App.SystemID = systemID.Equals("PRD") ? "PRD" : "DEV";
+//App.SystemID = "DEV";
+App.SystemID = systemID.Equals("PRD") ? "PRD" : "DEV"; // deploy ลง ASPFree ไม่ได้ ไม่อ่าน appsetting
 
 app.Run();
