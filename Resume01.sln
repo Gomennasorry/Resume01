@@ -5,9 +5,9 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Resume01", "Resume01\Resume01.csproj", "{934A5904-1D8A-4578-A6BD-A75710D1DEBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResumeDto", "ResumeDto\ResumeDto.csproj", "{8A81B99A-B864-499B-89B0-DC0936972916}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ResumeDto", "ResumeDto\ResumeDto.csproj", "{8A81B99A-B864-499B-89B0-DC0936972916}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResumeAPI", "ResumeAPI\ResumeAPI.csproj", "{A3A48568-255B-4920-AA41-59CE64E5106F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ResumeAPI", "ResumeAPI\ResumeAPI.csproj", "{A3A48568-255B-4920-AA41-59CE64E5106F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
