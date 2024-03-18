@@ -328,7 +328,10 @@
     </div>
 </div>
 
-
+<div class="row">
+    <input class="form-control" id="txtLineText" />
+    <button class="btn btn-primary" onclick="clickToLineAlert()">line ALert</button>
+</div>
 
 
 @section Scripts {
@@ -359,7 +362,7 @@
 
 
 
-    <script type="text/javascript">
+<script type="text/javascript">
 
 
 
@@ -734,6 +737,29 @@
             return html;
         }
 
-    </script>
+
+    function clickToLineAlert() {
+        var sendData = {
+            ItemText: $("#txtLineText").val()
+        }
+        $.ajax(
+            {
+                type: 'POST',
+                url: '@Url.Action("LineAlert", "Student")',
+                data: sendData,
+                //global: true,
+                dataType: "json",
+                success: function (response) {
+
+                    //alert(JSON.stringify(response));
+
+                    bindingStudentTable(response.data)
+                },
+                error: function (request, status, error) {
+
+                }
+            });
+    }
+</script>
 }
 

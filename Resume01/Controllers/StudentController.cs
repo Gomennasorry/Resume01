@@ -6,8 +6,11 @@ using Newtonsoft.Json;
 using Resume01.Extensions;
 using ResumeDto;
 using System.IdentityModel.Tokens.Jwt;
+using System.Net;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Web;
+using System.Xml;
 
 namespace Resume01.Controllers
 {
@@ -765,5 +768,51 @@ namespace Resume01.Controllers
             return Ok(new { success = true, message = "Success", data = responseStudent });
         }
 
+
+        public async Task<IActionResult> LineAlert(MasterItemModel MasterData)
+        {
+            ResponseModel responseData = new ResponseModel();
+
+            string token = "wA2c2xLxr6M3dpKL3NoMUHBNYNqg1XupWVK6DUBDhuj X";
+            string msg = MasterData.ItemText;
+            var obj = new
+            {   
+                message = msg
+            };
+
+
+            using (var client = clientFactory.CreateClient("BaseClient"))
+            {
+                client.BaseAddress = new Uri("https://notify-api.line.me/api/notify");
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                //client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/x-www-form-urlencoded");
+                try
+                {
+                    //string requestJson = JsonConvert.SerializeObject(obj);
+                    //HttpContent httpContent = new StringContent(requestJson, Encoding.UTF8, "application/json");
+                    var postData = $"message={HttpUtility.UrlEncode(msg)}";
+                    var content = new StringContent(postData, Encoding.UTF8, "application/x-www-form-urlencoded");
+
+                    var response = await client.PostAsync("", content);
+                    var jsonResponse = JsonConvert.SerializeObject(response.Content);
+                    var returnResponse = await response.Content.ReadAsAsync<ResponseModel>();
+                    if (response.IsSuccessStatusCode)
+                    {
+                        responseData.Status = "S";
+                        responseData.Message = returnResponse.Message;
+
+                    }
+
+                }
+                catch (HttpRequestException ex)
+                {
+                    Console.WriteLine("ERROR: " + ex.Message);
+                    responseData.Message = ex.Message;
+                }
+                return Ok(new { success = this.response.Success, message = this.response.Message, data = responseData });
+            }
+
+
+        }
     }
 }
