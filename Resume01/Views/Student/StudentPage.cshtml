@@ -1,156 +1,161 @@
 ﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+	For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    //4564654
-    //Layout = "_Layout3";
+	//4564654
+	//Layout = "_Layout3";
 }
 
 @section Styles {
 
-    <link href="~/lib/sweetalert2/css/sweetalert2.min.css" rel="stylesheet" />
-    <link href="~/lib/select2/css/select2.css" rel="stylesheet" />
-    <link href="~/lib/datetimepicker/css/jquery.datetimepicker.min.css" rel="stylesheet" />
-    <link href="~/lib/datatables/buttons/css/buttons.bootstrap.css" rel="stylesheet" />
-    <link href="~/lib/datatables/buttons/css/buttons.dataTables.css" rel="stylesheet" />
-    <link href="~/lib/datatables/css/jquery.dataTables.css" rel="stylesheet" />
-    @*<link href="~/lib/datatables/css/dataTables.bootstrap.css" rel="stylesheet" />*@
+	<link href="~/lib/sweetalert2/css/sweetalert2.min.css" rel="stylesheet" />
+	<link href="~/lib/select2/css/select2.css" rel="stylesheet" />
+	<link href="~/lib/datetimepicker/css/jquery.datetimepicker.min.css" rel="stylesheet" />
+	<link href="~/lib/datatables/buttons/css/buttons.bootstrap.css" rel="stylesheet" />
+	<link href="~/lib/datatables/buttons/css/buttons.dataTables.css" rel="stylesheet" />
+	<link href="~/lib/datatables/css/jquery.dataTables.css" rel="stylesheet" />
+	@*<link href="~/lib/datatables/css/dataTables.bootstrap.css" rel="stylesheet" />*@
 
 
-    <style type="text/css">
+	<style type="text/css">
 
-        body {
-            font-family: Roboto !important;
-        }
+		body {
+			font-family: Roboto !important;
+		}
 
-        /* Custom DataTable Styles */
-        .dataTables_wrapper {
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-        }
+		/* Custom DataTable Styles */
+		.dataTables_wrapper {
+			font-family: Arial, sans-serif;
+			font-size: 14px;
+		}
 
-        table.dataTable thead th {
-            background-color: #f2f2f2;
-            border: 1px solid #ddd;
-        }
+		table.dataTable thead th {
+			background-color: #f2f2f2;
+			border: 1px solid #ddd;
+		}
 
-        table.dataTable tbody td {
-            border: 1px solid #ddd;
-        }
+		table.dataTable tbody td {
+			border: 1px solid #ddd;
+		}
 
-        table.dataTable tbody tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
+		table.dataTable tbody tr:nth-child(even) {
+			background-color: #f9f9f9;
+		}
 
-        table.dataTable.no-footer {
-            border-bottom: 0;
-        }
+		table.dataTable.no-footer {
+			border-bottom: 0;
+		}
 
-        .dataTables_paginate {
-            margin-top: 10px;
-        }
+		.dataTables_paginate {
+			margin-top: 10px;
+		}
 
-        .dataTables_filter label {
-            margin-right: 10px;
-        }
+		.dataTables_filter label {
+			margin-right: 10px;
+		}
 
 
-        .hidden {
-            display: none;
-        }
+		.hidden {
+			display: none;
+		}
 
-        .xdsoft_datetimepicker {
-            z-index: 999999999;
-        }
+		.xdsoft_datetimepicker {
+			z-index: 999999999;
+		}
 
-        .abcdClass {
-            color: red !important;
-        }
+		.abcdClass {
+			color: red !important;
+		}
 
-        .btn-bottom {
-            align-self: end;
-        }
+		.btn-bottom {
+			align-self: end;
+		}
 
-        .text-right {
-            text-align: right;
-        }
+		.text-right {
+			text-align: right;
+		}
 
-        .icon-collapse {
-            position: absolute;
-            right: 10px;
-            top: 10px;
-            cursor: pointer;
-        }
+		.icon-collapse {
+			position: absolute;
+			right: 10px;
+			top: 10px;
+			cursor: pointer;
+		}
 
-        .text-green {
-            color: green;
-        }
+		.text-green {
+			color: green;
+		}
 
-        .text-red {
-            color: red;
-        }
+		.text-red {
+			color: red;
+		}
 
-        .hide {
-            display: none;
-        }
-    </style>
+		.hide {
+			display: none;
+		}
+
+		.button-size {
+			width: 81.89px;
+		}
+
+	</style>
 
 }
 
 
 
 <div class="card">
-    <h5 class="card-header">Search Student</h5>
-    <i class="fa fa-arrow-up icon-collapse " aria-hidden="true" data-bs-toggle="collapse" href="#divBodySearch" aria-expanded="false" aria-controls="divBodySearch"></i>
+	<h5 class="card-header">Search Student</h5>
+	<i class="fa fa-arrow-up icon-collapse " aria-hidden="true" data-bs-toggle="collapse" href="#divBodySearch" aria-expanded="false" aria-controls="divBodySearch"></i>
 
-    <div class="card-body collapse show" id="divBodySearch">
-        @*<div class="row">
-                <div class="col-12">
-                    <h5 class="card-title">Search student by click that button</h5>
-                </div>
-            </div>*@
-        <div class="row">
-            <div class="col-4">
-                <button class="btn btn-primary" onclick="searchStudent()">Click to get Student Data</button>
-            </div>
-            <div class="col-4">
+	<div class="card-body collapse show" id="divBodySearch">
+		@*<div class="row">
+				<div class="col-12">
+					<h5 class="card-title">Search student by click that button</h5>
+				</div>
+			</div>*@
+		<div class="row">
+			<div class="col-4">
+				<button class="btn btn-primary" onclick="searchStudent()">Click to get Student Data</button>
+			</div>
+			<div class="col-4">
 
-                <label class="col-form-label">Student Name</label>
-                <input class="form-control" type="text" id="txtSearchStudentName" />
-            </div>
-            <div class="col-4">
+				<label class="col-form-label">Student Name</label>
+				<input class="form-control" type="text" id="txtSearchStudentName" />
+			</div>
+			<div class="col-4">
 
-                <label class="col-form-label">Student Description</label>
-                <input class="form-control" type="text" id="txtSearchStudentDescription" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <table class="table table-striped" id="tblStudent">
-                    <thead>
-                        <tr>
-                            <th class="text-center">No</th>
-                            <th class="text-center" style="max-width:100px;">Student Id</th>
-                            <th class="text-center">Student Name</th>
-                            <th class="text-center" style="max-width:100px;">Age</th>
-                            <th class="text-center">Description</th>
-                            <th class="text-center" style="max-width:100px;">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+				<label class="col-form-label">Student Description</label>
+				<input class="form-control" type="text" id="txtSearchStudentDescription" />
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<table class="table table-striped" id="tblStudent">
+					<thead>
+						<tr>
+							<th class="text-center">No</th>
+							<th class="text-center" style="max-width:100px;">Student Id</th>
+							<th class="text-center">Student Name</th>
+							<th class="text-center" style="max-width:100px;">Age</th>
+							<th class="text-center">Description</th>
+							<th class="text-center" style="max-width:100px;">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+		</div>
 
-        <div class="row">
-            <div class="col-12">
-                <div id="divDataStudent">
+		<div class="row">
+			<div class="col-12">
+				<div id="divDataStudent">
 
-                </div>
-            </div>
-        </div>
-    </div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 
@@ -159,206 +164,206 @@
 
 
 <div class="card">
-    <h5 class="card-header">Add Student</h5>
-    <i class="fa fa-arrow-up icon-collapse " aria-hidden="true" data-bs-toggle="collapse" href="#divAddStudent" aria-expanded="false" aria-controls="divAddStudent"></i>
+	<h5 class="card-header">Add Student</h5>
+	<i class="fa fa-arrow-up icon-collapse " aria-hidden="true" data-bs-toggle="collapse" href="#divAddStudent" aria-expanded="false" aria-controls="divAddStudent"></i>
 
-    <div class="card-body collapse show" id="divAddStudent">
-        <div class="row">
-            <div class="col-3">
-                <label class="col-form-label">Student Name</label>
-                <input class="form-control" type="text" id="txtStudentName" />
-            </div>
+	<div class="card-body collapse show" id="divAddStudent">
+		<div class="row">
+			<div class="col-3">
+				<label class="col-form-label">Student Name</label>
+				<input class="form-control" type="text" id="txtStudentName" />
+			</div>
 
-            <div class="col-3">
-                <label class="col-form-label">Student Age</label>
-                <input class="form-control" type="number" id="txtStudentAge" />
-            </div>
-
-
-            <div class="col-3">
-                <label class="col-form-label">Student Description</label>
-                <input class="form-control" type="text" id="txtStudentDescription" />
-            </div>
+			<div class="col-3">
+				<label class="col-form-label">Student Age</label>
+				<input class="form-control" type="number" id="txtStudentAge" />
+			</div>
 
 
-            <div class="col-3  btn-bottom">
-                <button class="btn btn-primary" onclick="addStudent()">Add Student</button>
-            </div>
-        </div>
+			<div class="col-3">
+				<label class="col-form-label">Student Description</label>
+				<input class="form-control" type="text" id="txtStudentDescription" />
+			</div>
 
-        <div class="row">
-            <div class="col-sm-3">
-                <label class="col-form-label">Status : </label>
-                <label class="col-form-label" id="lblStatusAddStudent">-</label>
-            </div>
-            <div class="col-sm-9">
-                <label class="col-form-label">Detail : </label>
-                <label class="col-form-label" id="lblDetailAddStudent">-</label>
-            </div>
-        </div>
 
-    </div>
+			<div class="col-3  btn-bottom">
+				<button class="btn btn-primary" onclick="addStudent()">Add Student</button>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-3">
+				<label class="col-form-label">Status : </label>
+				<label class="col-form-label" id="lblStatusAddStudent">-</label>
+			</div>
+			<div class="col-sm-9">
+				<label class="col-form-label">Detail : </label>
+				<label class="col-form-label" id="lblDetailAddStudent">-</label>
+			</div>
+		</div>
+
+	</div>
 </div>
 
 <br />
 
 <div class="card">
-    <h5 class="card-header">Delete Student</h5>
-    <i class="fa fa-arrow-up icon-collapse " aria-hidden="true" data-bs-toggle="collapse" href="#divDeleteStudent" aria-expanded="false" aria-controls="divDeleteStudent"></i>
+	<h5 class="card-header">Delete Student</h5>
+	<i class="fa fa-arrow-up icon-collapse " aria-hidden="true" data-bs-toggle="collapse" href="#divDeleteStudent" aria-expanded="false" aria-controls="divDeleteStudent"></i>
 
 
-    <div class="card-body collapse show" id="divDeleteStudent">
-        <div class="row">
+	<div class="card-body collapse show" id="divDeleteStudent">
+		<div class="row">
 
-            <div class="col-6">
-                <label class="col-form-label">Student Id For Delete</label>
-                <input class="form-control" type="number" id="mdlDelStudentId" />
-            </div>
+			<div class="col-6">
+				<label class="col-form-label">Student Id For Delete</label>
+				<input class="form-control" type="number" id="mdlDelStudentId" />
+			</div>
 
 
-            <div class="col-6  btn-bottom">
-                <button class="btn btn-primary" onclick="deleteStudent()">Delete Student</button>
-            </div>
-        </div>
+			<div class="col-6  btn-bottom">
+				<button class="btn btn-primary" onclick="deleteStudent()">Delete Student</button>
+			</div>
+		</div>
 
-        <div class="row">
-            <div class="col-sm-3">
-                <label class="col-form-label">Status : </label>
-                <label class="col-form-label" id="lblStatusDeleteStudent">-</label>
-            </div>
-            <div class="col-sm-9">
-                <label class="col-form-label">Detail : </label>
-                <label class="col-form-label" id="lblDetailDeleteStudent">-</label>
-            </div>
-        </div>
+		<div class="row">
+			<div class="col-sm-3">
+				<label class="col-form-label">Status : </label>
+				<label class="col-form-label" id="lblStatusDeleteStudent">-</label>
+			</div>
+			<div class="col-sm-9">
+				<label class="col-form-label">Detail : </label>
+				<label class="col-form-label" id="lblDetailDeleteStudent">-</label>
+			</div>
+		</div>
 
-    </div>
+	</div>
 </div>
 
 
 <br />
 
 <div class="card">
-    <h5 class="card-header">Get And Update Student</h5>
-    <i class="fa fa-arrow-up icon-collapse " aria-hidden="true" data-bs-toggle="collapse" href="#divUpdateStudent" aria-expanded="false" aria-controls="divUpdateStudent"></i>
-    <div class="card-body collapse show" id="divUpdateStudent">
-        <div class="row">
-            <div class="col-6">
-                <label class="col-form-label">Get Student Id </label>
-                <input class="form-control" type="number" id="txtGetStudentId" />
-            </div>
-            <div class="col-6  btn-bottom">
-                <button class="btn btn-primary" onclick="getStudentById()">Get Student</button>
-                <label class="col-form-label text-red hide" id="lblNoStudentDatatoGet">No Student Data*</label>
-            </div>
+	<h5 class="card-header">Get And Update Student</h5>
+	<i class="fa fa-arrow-up icon-collapse " aria-hidden="true" data-bs-toggle="collapse" href="#divUpdateStudent" aria-expanded="false" aria-controls="divUpdateStudent"></i>
+	<div class="card-body collapse show" id="divUpdateStudent">
+		<div class="row">
+			<div class="col-6">
+				<label class="col-form-label">Get Student Id </label>
+				<input class="form-control" type="number" id="txtGetStudentId" />
+			</div>
+			<div class="col-6  btn-bottom">
+				<button class="btn btn-primary" onclick="getStudentById()">Get Student</button>
+				<label class="col-form-label text-red hide" id="lblNoStudentDatatoGet">No Student Data*</label>
+			</div>
 
-            <div class="col-3">
-                <label class="col-form-label">Student Id </label>
-                <input class="form-control" id="txtStudentId" disabled />
-            </div>
-            <div class="col-3">
-                <label class="col-form-label">Student Name </label>
-                <input class="form-control" id="txtUpdateStudentName" />
-            </div>
-            <div class="col-3">
-                <label class="col-form-label">Student Age </label>
-                <input class="form-control" type="number" id="txtUpdateStudentAge" />
-            </div>
-            <div class="col-3">
-                <label class="col-form-label">Student Description </label>
-                <input class="form-control" id="txtUpdateStudentDescription" />
-            </div>
-
-
-            <div class="col-12 btn-bottom mt-3 text-right">
-                <button class="btn btn-primary " onclick="updateStudent()">Update Student</button>
-            </div>
+			<div class="col-3">
+				<label class="col-form-label">Student Id </label>
+				<input class="form-control" id="txtStudentId" disabled />
+			</div>
+			<div class="col-3">
+				<label class="col-form-label">Student Name </label>
+				<input class="form-control" id="txtUpdateStudentName" />
+			</div>
+			<div class="col-3">
+				<label class="col-form-label">Student Age </label>
+				<input class="form-control" type="number" id="txtUpdateStudentAge" />
+			</div>
+			<div class="col-3">
+				<label class="col-form-label">Student Description </label>
+				<input class="form-control" id="txtUpdateStudentDescription" />
+			</div>
 
 
-        </div>
-        <div class="row">
-            <div class="col-sm-3">
-                <label class="col-form-label">Status : </label>
-                <label class="col-form-label" id="lblStatusUpdateStudent">-</label>
-            </div>
-            <div class="col-sm-9">
-                <label class="col-form-label">Detail : </label>
-                <label class="col-form-label" id="lblDetailUpdateStudent">-</label>
-            </div>
-        </div>
-    </div>
+			<div class="col-12 btn-bottom mt-3 text-right">
+				<button class="btn btn-primary " onclick="updateStudent()">Update Student</button>
+			</div>
+
+
+		</div>
+		<div class="row">
+			<div class="col-sm-3">
+				<label class="col-form-label">Status : </label>
+				<label class="col-form-label" id="lblStatusUpdateStudent">-</label>
+			</div>
+			<div class="col-sm-9">
+				<label class="col-form-label">Detail : </label>
+				<label class="col-form-label" id="lblDetailUpdateStudent">-</label>
+			</div>
+		</div>
+	</div>
 </div>
 
 
 <!-- Modal -->
 <div class="modal fade" id="mdlUpdateStudent" tabindex="-1" role="dialog" aria-labelledby="lblMdlTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="lblMdlTitle">Update Student</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeUpdateModal()">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-sm-3">
-                        <label class="col-form-label">Student Id </label>
-                        <input class="form-control" id="txtMdlStudentId" disabled />
-                    </div>
-                    <div class="col-sm-3">
-                        <label class="col-form-label">Student Name </label>
-                        <input class="form-control" id="txtMdlStudentName" />
-                    </div>
-                    <div class="col-sm-3">
-                        <label class="col-form-label">Student Age </label>
-                        <input class="form-control" id="txtMdlStudentAge" />
-                    </div>
-                    <div class="col-sm-3">
-                        <label class="col-form-label">Student Description </label>
-                        <input class="form-control" id="txtMdlStudentDescription" />
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeUpdateModal()">Close</button>
-                <button type="button" class="btn btn-primary" onclick="updateStudentInModal()">Save changes</button>
-            </div>
-        </div>
-    </div>
+	<div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="lblMdlTitle">Update Student</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeUpdateModal()">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-sm-3">
+						<label class="col-form-label">Student Id </label>
+						<input class="form-control" id="txtMdlStudentId" disabled />
+					</div>
+					<div class="col-sm-3">
+						<label class="col-form-label">Student Name </label>
+						<input class="form-control" id="txtMdlStudentName" />
+					</div>
+					<div class="col-sm-3">
+						<label class="col-form-label">Student Age </label>
+						<input class="form-control" id="txtMdlStudentAge" />
+					</div>
+					<div class="col-sm-3">
+						<label class="col-form-label">Student Description </label>
+						<input class="form-control" id="txtMdlStudentDescription" />
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeUpdateModal()">Close</button>
+				<button type="button" class="btn btn-primary" onclick="updateStudentInModal()">Save changes</button>
+			</div>
+		</div>
+	</div>
 </div>
 
 <div class="row">
-    <input class="form-control" id="txtLineText" />
-    <button class="btn btn-primary" onclick="clickToLineAlert()">line ALert</button>
+	<input class="form-control" id="txtLineText" />
+	<button class="btn btn-primary" onclick="clickToLineAlert()">line ALert</button>
 </div>
 
 
 @section Scripts {
-    @*move to layout already 2024 03 11*@
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>-->
-    @*popup*@
-    <!--<script src="~/lib/sweetalert2/js/sweetalert2.min.js"></script>-->
-    @*dropdown beautiful tool*@
-    <!--<script src="~/lib/select2/js/select2.full.js"></script>-->
-    @*create barcode*@
-    <!--<script src="~/lib/JsBarcode/JsBarcode.code128.min.js"></script>-->
-    @*qr code*@
-    <!--<script src="~/lib/html5-qrcode/qrcode.min.js"></script>-->
-    @*datetimePicker calendar*@
-    <!--<script src="~/lib/datetimepicker/js/jquery.datetimepicker.full.js"></script>-->
-    @*datatable*@
-    <!--<script src="~/lib/datatables/js/jquery.dataTables.js"></script>-->
-    @*<script src="~/lib/datatables/js/dataTables.bootstrap.js"></script>*@
+	@*move to layout already 2024 03 11*@
+	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>-->
+	@*popup*@
+	<!--<script src="~/lib/sweetalert2/js/sweetalert2.min.js"></script>-->
+	@*dropdown beautiful tool*@
+	<!--<script src="~/lib/select2/js/select2.full.js"></script>-->
+	@*create barcode*@
+	<!--<script src="~/lib/JsBarcode/JsBarcode.code128.min.js"></script>-->
+	@*qr code*@
+	<!--<script src="~/lib/html5-qrcode/qrcode.min.js"></script>-->
+	@*datetimePicker calendar*@
+	<!--<script src="~/lib/datetimepicker/js/jquery.datetimepicker.full.js"></script>-->
+	@*datatable*@
+	<!--<script src="~/lib/datatables/js/jquery.dataTables.js"></script>-->
+	@*<script src="~/lib/datatables/js/dataTables.bootstrap.js"></script>*@
 
-    @*click to print from data table*@
-    <!--<script src="~/lib/datatables/buttons/js/dataTables.buttons.js"></script>
-    <script src="~/lib/datatables/buttons/js/buttons.bootstrap.js"></script>
-    <script src="~/lib/datatables/buttons/js/buttons.flash.js"></script>
-    <script src="~/lib/datatables/buttons/js/buttons.html5.js"></script>
-    <script src="~/lib/datatables/buttons/js/buttons.print.js"></script>
-    <script src="~/lib/datatables/buttons/js/jszip.js"></script>-->
+	@*click to print from data table*@
+	<!--<script src="~/lib/datatables/buttons/js/dataTables.buttons.js"></script>
+	<script src="~/lib/datatables/buttons/js/buttons.bootstrap.js"></script>
+	<script src="~/lib/datatables/buttons/js/buttons.flash.js"></script>
+	<script src="~/lib/datatables/buttons/js/buttons.html5.js"></script>
+	<script src="~/lib/datatables/buttons/js/buttons.print.js"></script>
+	<script src="~/lib/datatables/buttons/js/jszip.js"></script>-->
 
 
 
@@ -451,13 +456,37 @@
                     {
                         data: null, className: "text-center abcdClass", orderable: false,
                         render: function (data, type, full, meta) {
-                            return `<button class="btn btn-warning btn-student-edit"><i class="fa fa-wrench" aria-hidden="true"></i> แก้ไข</button>`;
+							return `<button class="btn btn-warning btn-student-edit"><i class="fa fa-wrench" aria-hidden="true"></i> แก้ไข</button>` +
+								`<button class="btn btn-danger btn-student-delete button-size mt-1"><i class="fa fa-trash" aria-hidden="true"></i> ลบ</button>`;
+							    //`<button class="btn btn-danger" onClick="deleteStudentRow()"><i class="fa fa-trash" aria-hidden="true"></i> ลบ</button>`;
                         }
                     },
 
                 ],
             });
         }
+
+        $('#tblStudent tbody').on('click', '.btn-student-delete', function () {
+	        var table = $('#tblStudent').DataTable();
+	        var data = table.row($(this).parents('tr')).data();
+	        $.ajax(
+            {
+                dataType: "json",
+                type: 'POST',
+                url: '@Url.Action("DeleteStudent", "Student")',
+                data: {
+                    StudentId: data.StudentId
+                },
+                success: function (response) {
+                    //alert(JSON.stringify(response));
+			        searchStudent();
+
+                },
+                error: function (request, status, error) {
+
+                }
+            });
+        });
 
         $('#tblStudent tbody').on('click', '.btn-student-edit', function () {
             $("#mdlUpdateStudent").modal('show')
@@ -626,6 +655,27 @@
                 });
         }
 
+		@* function deleteStudentRow() {
+			var table = $('#tblStudent').DataTable();
+			var data = table.row($(this).parents('tr')).data();
+			$.ajax(
+				{
+					dataType: "json",
+					type: 'POST',
+					url: '@Url.Action("DeleteStudent", "Student")',
+					data: {
+						StudentId: data.StudentId
+					},
+					success: function (response) {
+						//alert(JSON.stringify(response));
+
+
+					},
+					error: function (request, status, error) {
+
+					}
+				});
+		} *@
 
 
 
@@ -762,4 +812,3 @@
     }
 </script>
 }
-
