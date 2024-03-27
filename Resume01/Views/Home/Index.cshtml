@@ -1,55 +1,75 @@
 @{
-    ViewData["Title"] = "Home Page";
+	ViewData["Title"] = "Home Page";
+}
+
+@section Styles {
+
+	<style type="text/css">
+
+		body {
+			font-family: Roboto !important;
+		}
+
+		.img-size {
+			width: 45px;
+			height: 30px;
+		}
+
+	</style>
+
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <button onclick="clicktoLinkKrirk()" class="btn btn-primary">Click to test Krirk API to Real DataBase  Slow but free 5GB</button>
-    <a id="krirkLink" class="nav-link text-dark" asp-area="" asp-controller="Student" asp-action="StudentPage" hidden>Resume3</a>
+	<h1 class="display-4">Welcome</h1>
+	<p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+	<button onclick="clicktoLinkKrirk()" class="btn btn-primary">Click to test Krirk API to Real DataBase  Slow but free 5GB</button>
+	<a id="krirkLink" class="nav-link text-dark" asp-area="" asp-controller="Student" asp-action="StudentPage" hidden>Resume3</a>
+	<img src="~/image/versus.png" class="img-size" />
+	<button onclick="clicktoLinkKrirk()" class="btn btn-primary">Click to test Win API to Real DataBase  Slow but free 5GB</button>
+	<a id="winLink" class="nav-link text-dark" asp-area="" asp-controller="Student" asp-action="WinSchoolPage" hidden>Resume3</a>
 </div>
 
 
 @section Scripts {
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-    @*popup*@
-    <script src="~/lib/sweetalert2/js/sweetalert2.min.js"></script>
+	@*popup*@
+	<script src="~/lib/sweetalert2/js/sweetalert2.min.js"></script>
 
-    @*dropdown beautiful tool*@
-    <script src="~/lib/select2/js/select2.full.js"></script>
+	@*dropdown beautiful tool*@
+	<script src="~/lib/select2/js/select2.full.js"></script>
 
-    @*create barcode*@
-    <script src="~/lib/JsBarcode/JsBarcode.code128.min.js"></script>
+	@*create barcode*@
+	<script src="~/lib/JsBarcode/JsBarcode.code128.min.js"></script>
 
-    @*qr code*@
-    <script src="~/lib/html5-qrcode/qrcode.min.js"></script>
+	@*qr code*@
+	<script src="~/lib/html5-qrcode/qrcode.min.js"></script>
 
-    @*datetimePicker calendar*@
-    <script src="~/lib/datetimepicker/js/jquery.datetimepicker.full.js"></script>
-
-
-    @*datatable*@
-    <script src="~/lib/datatables/js/jquery.dataTables.js"></script>
-    @*<script src="~/lib/datatables/js/dataTables.bootstrap.js"></script>*@
-
-    @*click to print from data table*@
-    <script src="~/lib/datatables/buttons/js/dataTables.buttons.js"></script>
-    <script src="~/lib/datatables/buttons/js/buttons.bootstrap.js"></script>
-    <script src="~/lib/datatables/buttons/js/buttons.flash.js"></script>
-    <script src="~/lib/datatables/buttons/js/buttons.html5.js"></script>
-    <script src="~/lib/datatables/buttons/js/buttons.print.js"></script>
-    <script src="~/lib/datatables/buttons/js/jszip.js"></script>
+	@*datetimePicker calendar*@
+	<script src="~/lib/datetimepicker/js/jquery.datetimepicker.full.js"></script>
 
 
+	@*datatable*@
+	<script src="~/lib/datatables/js/jquery.dataTables.js"></script>
+	@*<script src="~/lib/datatables/js/dataTables.bootstrap.js"></script>*@
 
-    <script type="text/javascript">
-        function clicktoLinkKrirk() {
-            var link = document.getElementById("krirkLink");
-            link.click(); // Simulate a click on the hidden link
-        }
-    </script>
+	@*click to print from data table*@
+	<script src="~/lib/datatables/buttons/js/dataTables.buttons.js"></script>
+	<script src="~/lib/datatables/buttons/js/buttons.bootstrap.js"></script>
+	<script src="~/lib/datatables/buttons/js/buttons.flash.js"></script>
+	<script src="~/lib/datatables/buttons/js/buttons.html5.js"></script>
+	<script src="~/lib/datatables/buttons/js/buttons.print.js"></script>
+	<script src="~/lib/datatables/buttons/js/jszip.js"></script>
+
+
+
+	<script type="text/javascript">
+		function clicktoLinkKrirk() {
+			var link = document.getElementById("krirkLink");
+			link.click(); // Simulate a click on the hidden link
+		}
+	</script>
 }
 
 

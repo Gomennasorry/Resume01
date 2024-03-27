@@ -75,6 +75,11 @@ namespace Resume01.Controllers
             return View();
         }
 
+        public IActionResult WinSchoolPage()
+        {
+            return View();
+        }
+
 
         //public async Task<IActionResult> Search(SearchOrderModel SearchTerm)
         //{          
