@@ -3,7 +3,7 @@
 *@
 @{
 	//4564654
-	//Layout = "_Layout3";
+	Layout = "_Layout4";
 }
 
 @section Styles {
@@ -98,6 +98,21 @@
 			width: 81.89px;
 		}
 
+		.search-card {
+			background-color: #3f5bec;
+		}
+
+		.add-student-card {
+			background-color: #3fec40;
+		}
+
+		.delete-card {
+			background-color: #f1ed33;
+		}
+
+		.get-update-card {
+			background-color: #f19e33;
+		}
 	</style>
 
 }
@@ -105,7 +120,7 @@
 
 
 <div class="card">
-	<h5 class="card-header">Search Student</h5>
+	<h5 class="card-header search-card">Search Student</h5>
 	<i class="fa fa-arrow-up icon-collapse " aria-hidden="true" data-bs-toggle="collapse" href="#divBodySearch" aria-expanded="false" aria-controls="divBodySearch"></i>
 
 	<div class="card-body collapse show" id="divBodySearch">
@@ -164,7 +179,7 @@
 
 
 <div class="card">
-	<h5 class="card-header">Add Student</h5>
+	<h5 class="card-header add-student-card">Add Student</h5>
 	<i class="fa fa-arrow-up icon-collapse " aria-hidden="true" data-bs-toggle="collapse" href="#divAddStudent" aria-expanded="false" aria-controls="divAddStudent"></i>
 
 	<div class="card-body collapse show" id="divAddStudent">
@@ -208,7 +223,7 @@
 <br />
 
 <div class="card">
-	<h5 class="card-header">Delete Student</h5>
+	<h5 class="card-header delete-card">Delete Student</h5>
 	<i class="fa fa-arrow-up icon-collapse " aria-hidden="true" data-bs-toggle="collapse" href="#divDeleteStudent" aria-expanded="false" aria-controls="divDeleteStudent"></i>
 
 
@@ -244,7 +259,7 @@
 <br />
 
 <div class="card">
-	<h5 class="card-header">Get And Update Student</h5>
+	<h5 class="card-header get-update-card">Get And Update Student</h5>
 	<i class="fa fa-arrow-up icon-collapse " aria-hidden="true" data-bs-toggle="collapse" href="#divUpdateStudent" aria-expanded="false" aria-controls="divUpdateStudent"></i>
 	<div class="card-body collapse show" id="divUpdateStudent">
 		<div class="row">
@@ -333,7 +348,10 @@
 	</div>
 </div>
 
-
+<div class="row px-3 mt-4">
+	<input class="form-control" id="txtLineText" />
+	<button class="btn btn-primary" onclick="clickToLineAlert()">line ALert</button>
+</div>
 
 
 @section Scripts {
@@ -427,7 +445,7 @@
                 data: dataList,
                 searching: true,
                 scrollX: true,
-                scrollY: '20vh',
+                scrollY: '25vh',
                 info: false,
                 order: [[0, "asc"]],
                 lengthChange: false,
@@ -776,6 +794,29 @@
 
 
             return html;
+        }
+
+        function clickToLineAlert() {
+            var sendData = {
+                ItemText: $("#txtLineText").val()
+            }
+            $.ajax(
+                {
+                    type: 'POST',
+                    url: '@Url.Action("LineAlert", "Student")',
+                    data: sendData,
+                    //global: true,
+                    dataType: "json",
+                    success: function (response) {
+
+                        //alert(JSON.stringify(response));
+
+                        bindingStudentTable(response.data)
+                    },
+                    error: function (request, status, error) {
+
+                    }
+                });
         }
 
 	</script>

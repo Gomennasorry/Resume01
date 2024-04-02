@@ -15,6 +15,34 @@
 			height: 30px;
 		}
 
+		.krirk-btn {
+			display: inline;
+		}
+
+		.img-vs {
+			display: inline;
+		}
+
+		.win-btn {
+			display: inline;
+		}
+
+		@@media screen and (max-width: 934px) {
+
+			.krirk-btn {
+				display: block;
+			}
+			
+			.img-vs {
+				display: block;
+			}
+
+			.win-btn {
+				display: block;
+			}
+
+		}
+
 	</style>
 
 }
@@ -22,11 +50,15 @@
 <div class="text-center">
 	<h1 class="display-4">Welcome</h1>
 	<p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-	<button onclick="clicktoLinkKrirk()" class="btn btn-primary">Click to test Krirk API to Real DataBase  Slow but free 5GB</button>
-	<a id="krirkLink" class="nav-link text-dark" asp-area="" asp-controller="Student" asp-action="StudentPage" hidden>Resume3</a>
-	<img src="~/image/versus.png" class="img-size" />
-	<button onclick="clicktoLinkKrirk()" class="btn btn-primary">Click to test Win API to Real DataBase  Slow but free 5GB</button>
-	<a id="winLink" class="nav-link text-dark" asp-area="" asp-controller="Student" asp-action="WinSchoolPage" hidden>Resume3</a>
+	<div class="krirk-btn">
+		<button onclick="clicktoLinkKrirk()" class="btn btn-primary">Click to test Krirk API to Real DataBase  Slow but free 5GB</button>
+		<a id="krirkLink" class="nav-link text-dark" asp-area="" asp-controller="Student" asp-action="StudentPage" hidden>Resume3</a>
+	</div>
+	<div class="img-vs"><img src="~/image/versus.png" class="img-size" /></div>
+	<div class="win-btn">
+		<button onclick="clicktoLinkWin()" class="btn btn-primary">Click to test Win API to Real DataBase  Slow but free 5GB</button>
+		<a id="winLink" class="nav-link text-dark" asp-area="" asp-controller="Student" asp-action="WinSchoolPage" hidden>Resume3</a>
+	</div>
 </div>
 
 
@@ -68,6 +100,11 @@
 		function clicktoLinkKrirk() {
 			var link = document.getElementById("krirkLink");
 			link.click(); // Simulate a click on the hidden link
+		}
+
+		function clicktoLinkWin() {
+			var link2 = document.getElementById("winLink");
+			link2.click(); // Simulate a click on the hidden link
 		}
 	</script>
 }
